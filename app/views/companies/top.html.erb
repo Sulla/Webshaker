@@ -1,0 +1,60 @@
+<% content_for :title do %>WebShaker: Top Companies<% end %>
+<% content_for :sidebar do %>
+	
+	
+	<%= render :partial => 'shared/myActivity' %>
+	<%= render :partial => 'shared/signup' %>	
+	<%= render :partial => 'shared/top' %>
+	<%= render :partial => 'shared/advertise' %>	
+ 	<%= render :partial => 'shared/videos' %>	
+ 	
+
+<% end %>
+
+<% content_for :scripts do %>
+  <%= javascript_include_tag 'posts' %>
+<% end %>
+
+
+
+<div id="mainContent">
+	<%= display_flash %>
+	<% if params[:role_id].blank? %>
+	  <h2>Top companies</h2>
+	<% elsif params[:role_id] == '1' %>
+	  <h2>Top students</h2>	
+	<% elsif params[:role_id] == '2' %>
+	  <h2>Top workers</h2>	
+	<% elsif params[:role_id] == '3' %>
+	  <h2>Top freelances</h2>	
+	<% end %>		
+	<span class="breath"></span>
+	<div id="topList">
+	  <% if params[:role_id].blank? %>
+      <% @companies.each_with_index do |company, index| %>
+      	<a class="" title="" href="http://vps.webinti.com/webshaker/companies/<%= company.id %>">  
+      		<span class="idTop"><%= index+1 %></span>
+          <%= avatar_small(company) %>
+          <h4><%= company.name %></h4>
+           <span class="pictos">k</span> <span class="like_count" data-id="#"><%= company.likes %></span> |
+          <span class="city"><%= company.city %></span>
+		
+      
+          <hr class="clear">
+        </a>
+      <% end %>
+    <% else %>
+      <% @users.each_with_index do |user, index| %>
+      	<a class="" title="" href="http://vps.webinti.com/webshaker/profiles/<%= user.profile.id %>">  
+      		<span class="idTop"><%= index+1 %></span>
+          <%= avatar_small(user) %>
+          <h4><%= user.fullname %></h4>
+           <span class="pictos">k</span> <span class="like_count" data-id="#"><%= user.total %></span> |
+      
+          <hr class="clear">
+        </a>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+

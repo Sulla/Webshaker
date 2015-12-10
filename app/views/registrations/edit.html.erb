@@ -1,0 +1,68 @@
+<% content_for :title do %>WebShaker: Edit account<% end %>
+<% @profile = current_user.profile %>
+<% @link_types = LinkType.all %>
+<% @links = @profile.links %>
+
+<% content_for :scripts do %>
+  <%= javascript_include_tag 'links' %>
+  <%= javascript_include_tag 'mustache' %>
+<% end %>
+
+<% content_for :sidebar do %>
+  <h3><span class="pictos">: </span> Notifications</h3>
+ 
+   <p class="checkboxP">
+  	<input type="checkbox" class="alertable" data-type="Article" <%= set_alert_status('Article', current_user) %>/> New <strong>News</strong> on The Shaker
+   </p>
+   <p class="checkboxP">
+  	<input type="checkbox" class="alertable" data-type="Project" <%= set_alert_status('Project', current_user) %>/> New <strong>Project</strong> on The Shaker
+   </p>
+    <p class="checkboxP">
+  	<input type="checkbox" class="alertable" data-type="Event" <%= set_alert_status('Event', current_user) %>/> New <strong>Events</strong> on The Shaker
+   </p>
+    <p class="checkboxP">
+  	<input type="checkbox" class="alertable" data-type="Job" <%= set_alert_status('Job', current_user) %>/> New <strong>Jobs</strong> on The Shaker
+   </p>
+    <p class="checkboxP">
+  	<input type="checkbox" class="alertable" data-type="Interview" <%= set_alert_status('Interview', current_user) %>/> New <strong>interview</strong> on The Shaker
+   </p>
+   <p class="checkboxP">
+  	<input type="checkbox" class="alertable" data-type="Comment" <%= set_alert_status('Comment', current_user) %>/> When someone <strong>comments</strong> on my post
+   </p>
+ <% end %>
+
+<div id="mainContent">
+<h2>Edit my account</h2>
+ <%= render :partial => 'shared/accountMenu', :locals => {:selected_menu => "account" } %>
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :class=>"main_form"}) do |f| %>
+  <%= devise_error_messages! %>
+
+  <p><%= f.label :email %>
+  <%= f.email_field :email %></p>
+
+  <p><%= f.label :current_password %> 
+  <%= f.password_field :current_password %>
+  <span class="note">We need your current password to confirm your changes</span>
+  <hr class="clear" />
+  </p>
+
+  <p><%= f.label :password %> 
+  <%= f.password_field :password, :value => "" %>
+ <span class="note">Leave blank if you don't want to change it</span>
+ <hr class="clear" />
+  </p>
+
+  <p><%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %></p>
+  
+  <p class="checkboxP">
+  	<%= f.check_box :directory %> Appear in the directory?
+   </p>  
+	 <span class="note">(Unchecking this box will remove you from the directory)</span>
+  <p><%= f.submit "Update" %></p>
+<% end %>
+<hr class="clear"/>
+<span class="breath"></span>
+<p class="right"><span class="pictos">* </span>Want to delete your profile? <a href="mailto:info@webshaker.be">Please send us an email</a>.</p>
+
+</div>

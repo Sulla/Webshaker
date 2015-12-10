@@ -1,0 +1,25 @@
+<% content_for :sidebar do %>
+<%= render :partial => 'shared/myActivity' %>
+
+  
+ 
+ 
+  <%= render :partial => 'shared/top' %>
+				
+<% end %>
+
+
+<div id="mainContent"><%= display_flash %>
+	<h2>Welcome on WebShaker</h2>
+	<span class="breath"></span>
+	<span class="breath"></span>
+  
+
+	
+	<% if current_user.profile %>  <a href="http://vps.webinti.com/webshaker/profiles/<%= current_user.profile.id %>/edit" class="welcomeEdit"><span class="pictos">U</span>Complete your profile</a><% end %>
+	 <span class="orWelcome">or  <a href="http://vps.webinti.com/webshaker">browse the shaker</a></span>
+	
+</div>
+
+
+

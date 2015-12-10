@@ -1,0 +1,40 @@
+en:
+  actions: "Actions"
+  save: "Save"
+  
+  profiles:
+    description: "Description"
+    save: "Save"
+    updated: "Your profile has been updated!"
+    avatar: "Avatar"
+    avatar_intro: "Gravatar is used by default."
+    add_avatar: "Change my avatar"
+    reset_avatar: "Remove my avatar"
+    
+  profile:
+    from: "Profile of"
+    description: "Description"
+    links: "Links"
+  
+  links:
+    name: "Name"
+    url: "URL"
+    create: "Add"
+    type: "Type"
+    
+  companies:
+    created: "Your company has been created!"
+    updated: "Your company has been updated!"
+    new: "Create your company"
+    edit: "Manage your company"
+    manage_employees: "Manage employees"
+    validation: "Requests validation"
+    join: "Join this company"
+    confirm_join: "Are you sure? A confirmation request will be sent to the company owner!"
+    employees: "Employees"
+    links: "Links"
+    
+  workers:
+    removed: "This employee has been removed!"
+    updated: "This employee has been updated!"
+    request: "A validation request has been submited to the owner of the company!"

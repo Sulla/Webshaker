@@ -1,0 +1,54 @@
+<% content_for :scripts do %>
+  <%= javascript_include_tag 'posts' %>
+<% end %>
+
+<% content_for :sidebar do %>
+	<%= render :partial => 'shared/myPostsSidebar' %>
+<% end %>
+
+<div id="mainContent"><%= display_flash %>
+	<a class="right yellowTop" href="http://vps.webinti.com/webshaker/submit">Submit new post in the shaker !</a>
+	<h2>My posts</h2>
+	<p class="underTitle">Manage your posts</p>
+	
+	<table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Title</th>
+        <th class="alignCenter">Status</th>
+        <th>Actions</th>
+
+      </tr>
+    </thead>
+    <tbody id="employees_tbody">
+      <% @posts.each do |post| %>
+        <tr class="" data-id="<%= post.id %>">
+          <td><%= post.type_label %></td>
+          <td>
+            <% if post.validated %>
+              <a href="http://vps.webinti.com/webshaker/posts/<%= post.id %>"><%= post.title %></a>
+            <% else %>
+              <%= post.title %>
+            <% end %>
+          </td>
+					<td class="<%= post.get_status[1]%>"><%= post.get_status[0]%></td>
+          <td class="alignCenter">
+            <a class="#" href="http://vps.webinti.com/webshaker/posts/<%= post.id %>/edit" data-id="<%= post.id %>">
+              <img src="http://vps.webinti.com/webshaker/images/ico/edit.png" alt="Edit" title="Edit"/>
+            </a>
+            <% if post.validated %>
+              <a href="#" data-id="<%= post.id %>" class="post_visibility">
+        			  <% if post.online %>
+        			    <img src="http://vps.webinti.com/webshaker/images/ico/accept.png" alt="Put offline" title="Put offline"/>
+        			  <% else %>
+        			    <img src="http://vps.webinti.com/webshaker/images/ico/cross.png" alt="Put online" title="Put online"/>
+        			  <% end %>
+        			</a>
+        		<% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

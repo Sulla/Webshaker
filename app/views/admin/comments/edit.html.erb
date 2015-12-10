@@ -1,0 +1,21 @@
+<% content_for :h1 do %>
+	Comments
+<% end %>
+
+<% content_for :breadcrump do %>
+	> <a href="http://vps.webinti.com/webshaker/admin/comments">Comments</a>
+	> Edit
+<% end %>
+
+<% content_for :boxheader do %>
+	<h2>EDIT</h2>
+<% end %>
+
+<%= form_for([:admin, @comment]) do |f| %>
+  <p>
+    <%= f.text_area :content %>
+  </p>
+  <p>
+    <%= f.submit 'Save' %>
+  </p>
+<% end %>

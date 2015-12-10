@@ -1,0 +1,58 @@
+
+<p <%= field_with_error?(post, :title) %>>
+  <label>Event title <em>*</em></label>
+ 
+  <input type="text" id="title" name="title" value="<%= get_post_value(:title, post) %>" />
+</p>
+<p <%= field_with_error?(post.unsaved_associated_model, :occurs_on) %>>
+  <label>Event Date <em>*</em></label>
+  
+  <input type="text" id="occurs_on" name="occurs_on" class="datetimepicker" value="<%= get_post_value(:occurs_on, post.unsaved_associated_model) %>" />
+</p>
+
+<p <%= field_with_error?(post, :content) %>>
+  <label>Event description <em>*</em></label>
+    
+  <textarea cols="70" rows="5" id="content" name="content" class="tinymce"><%= get_post_value(:content, post) %></textarea>
+</p>
+
+
+
+<p <%= field_with_error?(post.unsaved_associated_model, :street) %>>
+  <label>Street <em>*</em></label>
+ 
+  <input type="text" id="street" name="street" value="<%= get_post_value(:street, post.unsaved_associated_model) %>" />
+</p>
+
+<p <%= field_with_error?(post.unsaved_associated_model, :zipcode) %>>
+  <label>Zipcode <em>*</em></label>
+ 
+  <input type="text" id="zipcode" name="zipcode" value="<%= get_post_value(:zipcode, post.unsaved_associated_model) %>" />
+</p>
+
+<p <%= field_with_error?(post.unsaved_associated_model, :city) %>>
+  <label>City <em>*</em></label>
+ 
+  <input type="text" id="city" name="city" value="<%= get_post_value(:city, post.unsaved_associated_model) %>" />
+</p>
+
+<p <%= field_with_error?(post.unsaved_associated_model, :access) %>>
+  <label>Access</label>
+ 
+  <input type="text" id="access" name="access" value="<%= get_post_value(:access, post.unsaved_associated_model) %>" />
+  <span class="note">Bus ? Tram ? (not required)</span>
+</p>
+<p <%= field_with_error?(post.unsaved_associated_model, :link) %>>
+  <label>Event external link</label>
+ 
+  <input type="text" id="link" name="link" value="<%= get_post_value(:link, post.unsaved_associated_model) %>" />
+</p>
+
+<p <%= field_with_error?(post.unsaved_associated_model, :registration) %>>
+  <label>Registration link</label>
+ 
+  <input type="text" id="registration" name="registration" value="<%= get_post_value(:registration, post.unsaved_associated_model) %>" />
+  <span class="note">(not required)</span>
+</p>
+
+<input type="hidden" name="post_type_id" value="3"/>

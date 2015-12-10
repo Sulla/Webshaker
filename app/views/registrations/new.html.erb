@@ -1,0 +1,230 @@
+<% content_for :title do %>WebShaker: Register to WebShaker<% end %>
+<% content_for :scripts do %>
+  <%= javascript_include_tag 'registration' %>
+<% end %>
+
+<% content_for :sidebar do %>
+
+
+
+	<div class="explaination">
+		<h3>Why signup</h3>
+		<ul>
+			<li>Post your news about your job !</li>
+			<li>Have your own profile page</li>
+			<li>Appear in the belgian web directory</li>
+			<li>Find other professionals</li>
+		</ul>
+		<p><a href="http://vps.webinti.com/webshaker/faq" title="more about WebShaker" class="moreAbout">Do you want to know more about WebShaker ?</a></p>
+	</div>
+	<% end %>
+
+
+<div id="mainContent"><%= display_flash %>
+	 <!--<a href="#" class="signupwith twitter">Sign in with	twitter</a> <a href="#" class="signupwith facebook">Sign in with Facebook</a>-->
+  <h2>Register</h2>
+
+  <p class="note right"> * means that the following field is required.</p>
+    <span class="breath"></span>
+  <hr class="clear" />
+  <form class="main_form">
+ 
+    <p>
+    
+    	<label>Your status <em>*</em></label>
+  	  	<select name="user[role_id]" id="user_role">
+  	  		<% Role.all.each do |role| %>
+  	  		  <% if role.id == 2 %>
+  	  		    <option value="<%= role.id %>" selected="selected"><%= role.name %></option>
+  	  		  <% else %>
+  	  		    <option value="<%= role.id %>"><%= role.name %></option>
+  	  		  <% end %>
+      	  <% end %>
+  	  	</select>
+  	</p>
+  	 <span class="note hidable role_1 hidden"></span>
+   <span class="note hidable role_2"> </span>
+   <span class="note hidable role_3 hidden"></span>
+  <span class="note hidable role_4 hidden"></span>
+  </form>
+   
+  <div class="hidable role_1 hidden">
+  	<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :class => "main_form" }) do |f| %>
+  	  <%= devise_error_messages! %>	
+		  
+		  <p>
+      	<label>Your school <em>*</em></label>
+      	<%= f.collection_select :school_id, School.where(:validated => true), :id, :name, { :include_blank => 'Please Select' }, { :id => 'user_school' } %>
+    	  <span class="note">Can't find your school? <a href="#" id="create_school"> Create it !</a></span>
+    	  	
+    	  	<div id="create_school_form" class="hidden">
+    	  	  <p>
+    	  	    <label>School name</label>
+    	  	    <input type="text" id="school_name"/>
+    	  	  </p>
+    	  	  <p>
+    	  	    <input type="submit" value="Create" id="create_school_btn"/>
+    	  	  </p>
+    	  	  <hr class="clear"/>
+    	  	</div>
+    	</p>
+		  
+  		<p><label for="user_firstname">Firstname <em>*</em></label>
+  	  <%= f.text_field :firstname %></p>
+	  
+  	  <p><label>Lastname <em>*</em></label>
+  	  <%= f.text_field :lastname %></p>
+	  
+  	  <p><label>Email <em>*</em></label>
+  	  <%= f.email_field :email %></p>
+	
+  	  <p><label>Password <em>*</em></label>
+  	  <%= f.password_field :password %></p>
+	
+  	  <p><label>Password confirmation <em>*</em></label>
+  	  <%= f.password_field :password_confirmation %></p>
+	  	
+  	  <p class="checkboxP">
+  	    <%= f.check_box :directory, :checked => 'checked' %> Enable Directory Listing
+  	  </p>
+  	   
+	
+  	  <span class="note">(Unchecking this box will remove you from the directory)</span>
+  	  
+      <%= f.hidden_field :school_id %>
+      <%= f.hidden_field :role_id, :value => 1 %>
+	
+  	  <p><%= f.submit "Sign up" %></p>
+  	<% end %>
+  </div>
+  
+  <div class="hidable role_2">
+  	<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :class => "main_form" }) do |f| %>
+  	  <%= devise_error_messages! %>	
+		  
+		  <%= render :partial => 'new_company', :locals => { :f => f } %>
+		  
+		  <%= f.hidden_field :company_admin_request %>
+		  
+		  <p><label>Professional "Headline"</label>
+  	  <%= f.text_field :job_title %></p>
+  	  <span class="note"><strong>Examples:</strong> Web Designer and Information Architect, Chief executer,...</span>
+		  
+  		<p><label>Firstname <em>*</em></label>
+  	  <%= f.text_field :firstname %></p>
+	  
+  	  <p><label>Lastname <em>*</em></label>
+  	  <%= f.text_field :lastname %></p>
+	  
+  	  <p><label>Email <em>*</em></label>
+  	  <%= f.email_field :email %></p>
+	
+  	  <p><label>Password <em>*</em></label>
+  	  <%= f.password_field :password %></p>
+	
+  	  <p><label>Password confirmation <em>*</em></label>
+  	  <%= f.password_field :password_confirmation %></p>
+	 	 
+  	  <p class="checkboxP">
+  	 		<%= f.check_box :directory, :checked => 'checked' %> Enable Directory Listing
+  	  </p>
+			
+  	  <span class="note">(Unchecking this box will remove you from the directory)</span>
+  	  
+  	  <%= f.hidden_field :company_id %>
+      <%= f.hidden_field :role_id, :value => 2 %>  	  
+	
+  	  <p><%= f.submit "Sign up" %></p>
+  	<% end %>
+  </div>
+  
+  <div class="hidable role_3 hidden">
+  	<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :class => "main_form" }) do |f| %>
+  	  <%= devise_error_messages! %>	
+		  <p><label>Freelance name <em>*</em></label>
+  	  <%= f.text_field :freelance_name %>
+  	  <span class="note">Your "stage name". Examples: "Jean dujardin" or "ipsum concept"" ;) </span>
+  	  </p>
+  	  
+  	
+  	  		 <p><label>Professional "Headline"</label>
+  	  <%= f.text_field :job_title %>
+  	  <span class="note"><strong>Examples:</strong> Web Designer freelance, Web consultant, RoR Developer freelance...</span>
+
+  	  </p>  	  
+  	  
+  	  <p>
+        <label>Street</label>
+        <%= f.text_field :street %>
+      </p>
+      <p>
+        <label>Zipcode</label>
+        <%= f.text_field :zipcode %>
+      </p>
+      <p>
+        <label>City</label>
+        <%= f.text_field :city %>
+      </p>
+	  	
+  	  <p><label>Email <em>*</em></label>
+  	  <%= f.email_field :email %></p>
+	
+  	  <p><label>Password <em>*</em></label>
+  	  <%= f.password_field :password %></p>
+	
+  	  <p><label>Password confirmation <em>*</em></label>
+  	  <%= f.password_field :password_confirmation %></p>
+	 	  
+	 	  
+
+  	   <p class="checkboxP">
+  	    <%= f.check_box :directory, :checked => 'checked' %> Enable Directory Listing
+  	  </p>
+  	  
+			      <%= f.hidden_field :role_id, :value => 3 %>
+      	
+  	  <span class="note">(Unchecking this box will remove you from the directory)</span>
+	
+  	  <p><%= f.submit "Sign up" %></p>
+  	<% end %>
+  </div>
+  
+  <div class="hidable role_4 hidden">
+  	<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :class => "main_form" }) do |f| %>
+  	  <%= devise_error_messages! %>	
+		  
+		  <p><label>Professional "Headline"</label>
+  	  <%= f.text_field :job_title %></p>
+  	  <span class="note"><strong>Examples:</strong> Teacher, job seeker,...</span>
+		  
+  		<p><label>Firstname <em>*</em></label>
+  	  <%= f.text_field :firstname %></p>
+	  
+  	  <p><label>Lastname <em>*</em></label>
+  	  <%= f.text_field :lastname %></p>
+	  
+  	  <p><label>Email <em>*</em></label>
+  	  <%= f.email_field :email %></p>
+	
+  	  <p><label>Password <em>*</em></label>
+  	  <%= f.password_field :password %></p>
+	
+  	  <p><label>Password confirmation <em>*</em></label>
+  	  <%= f.password_field :password_confirmation %></p>
+  	  
+      <%= f.hidden_field :role_id, :value => 4 %>  	  
+	
+  	  <p><%= f.submit "Sign up" %></p>
+  	<% end %>
+  </div>
+</div>
+
+<% if @user && @user.role_id %>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('.hidable').addClass('hidden');
+      $('.role_<%= @user.role_id %>').removeClass('hidden');
+      $('#user_role').val('<%= @user.role_id %>');
+    });
+  </script>
+<% end %>

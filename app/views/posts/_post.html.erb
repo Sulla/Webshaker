@@ -1,0 +1,85 @@
+
+<% if current_user && current_user == post.user %>
+  <a href="http://vps.webinti.com/webshaker/posts/<%= post.id %>/edit" title="Edit your post" class="editPost">Edit</a>
+<% end %>
+
+<% if post.try(:user).try(:is_admin?) %>
+  <div class="post admin" data-type-id="<%= post.post_type_id %>">
+  	
+<% else %>
+  <div class="post" data-type-id="<%= post.post_type_id %>">
+<% end %>
+ 
+  <div class="infosNew <%= get_like_status(current_user, 'Post', post.id) %>">
+  	<a href="#" class="like_it_small pictoStats" title="like it" data-id="<%= post.id %>" data-type="Post">
+  	  <span class="pictos">k</span>
+  	  <span class="like_count" data-id="<%= post.id %>"><%= post.likes %></span>
+  	</a>
+  </div>
+	<span class="avatar">
+		<a href="http://vps.webinti.com/webshaker/profiles/<%=post.user.profile.id%>" title="See <%=post.user.fullname%>'s profile"> 
+			<span class="border-avatar">
+			  <%= avatar_micro(post.user) %>
+			</span>
+		<% if post.try(:user).try(:is_admin?) %><span class="typeAccount">ADMIN</span><% end %>
+		</a>
+	</span>
+	
+  <% if post.post_type_id == 1 %>
+		<div class="news-text news-job">
+			<h3>
+				<a href="http://vps.webinti.com/webshaker/posts/<%= post.id %>"><span class="type">News</span> <%= post.title %></a>
+				<%= author_name(post) %> - <a href="http://vps.webinti.com/webshaker/posts/<%= post.id %>#comments" class="comment_count"><span class="pictos">q</span> <%= post.comments.count %></a>
+			</h3>
+			
+			
+		
+		</div>
+		
+  <% elsif post.post_type_id == 2 %>
+  	<div class="news-text news-showcase">
+  	  <h3>
+  	    <a href="http://vps.webinti.com/webshaker/posts/<%= post.id %>" title=""><span class="type">Project</span> <%= post.title %></a> 
+       <%= author_name(post) %> - <a href="http://vps.webinti.com/webshaker/posts/<%= post.id %>#comments" class="comment_count"><span class="pictos">q</span> <%= post.comments.count %></a>
+  		</h3>
+  		
+  		<a href="http://vps.webinti.com/webshaker/posts/<%= post.id %>">
+  		  <div class="illuShowcase">
+  		  	<% if post.attachments.size > 0 %>
+  		      <img src="<%= post.attachments.first.picture.url(:thumb) %>" class="showcase-img" alt="<%= post.title %>"/>	
+  		    <% end %></div>
+  		  <p class="showcase-p"><p> <%= sanitize post.summary_with_word(25) %></p></p>
+  			<hr class="clear"/>
+  		</a>
+  	</div>
+  <% elsif post.post_type_id == 3 %>
+    <div class="news-text news-job">
+      <h3>
+        <a href="http://vps.webinti.com/webshaker/posts/<%= post.id %>"><span class="type">Event</span> <%= post.title %></a>
+        <%= author_name(post) %> - <a href="http://vps.webinti.com/webshaker/posts/<%= post.id %>#comments" class="comment_count"><span class="pictos">q</span> <%= post.comments.count %></a>
+  		</h3>
+			
+		</div>
+  <% elsif post.post_type_id == 4 %>
+    <div class="news-text news-job">
+			<h3>
+				<a href="http://vps.webinti.com/webshaker/posts/<%= post.id %>"><span class="type">Job offer</span> <%= post.title %></a>
+        <%= author_name(post) %> - <a href="http://vps.webinti.com/webshaker/posts/<%= post.id %>#comments" class="comment_count"><span class="pictos">q</span> <%= post.comments.count %></a>
+			</h3>
+		
+		</div>
+  <% elsif post.post_type_id == 5 %>
+    <div class="news-text news-interview">
+			<h3>
+				<a href="http://vps.webinti.com/webshaker/posts/<%= post.id %>"><span class="type">Interview</span> <%= post.title %></a>
+        <%= author_name(post) %> - <a href="/posts/<%= post.id %>#comments" class="comment_count"><span class="pictos">q</span> <%= post.comments.count %></a>
+			</h3>
+			<div class="summary">
+				<a href="http://vps.webinti.com/webshaker/posts/<%= post.id %>" title=""><%= sanitize post.summary %></a>
+			</div>
+		</div>
+  <% end %>
+  
+ 
+  <hr class="clear"/>
+</div>

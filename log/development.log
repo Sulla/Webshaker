@@ -1,0 +1,463 @@
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (32.5ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (84.2ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)
+  [1m[36m (2.7ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to DeviseCreateUsers (20110812090747)
+  [1m[35m (24.8ms)[0m  CREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `email` varchar(255) DEFAULT '' NOT NULL, `encrypted_password` varchar(128) DEFAULT '' NOT NULL, `reset_password_token` varchar(255), `reset_password_sent_at` datetime, `remember_created_at` datetime, `sign_in_count` int(11) DEFAULT 0, `current_sign_in_at` datetime, `last_sign_in_at` datetime, `current_sign_in_ip` varchar(255), `last_sign_in_ip` varchar(255), `firstname` varchar(255), `lastname` varchar(255), `directory` tinyint(1), `avatar` varchar(255), `role_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (40.9ms)[0m  [1mCREATE UNIQUE INDEX `index_users_on_email` ON `users` (`email`)[0m
+  [1m[35m (26.6ms)[0m  CREATE UNIQUE INDEX `index_users_on_reset_password_token` ON `users` (`reset_password_token`)
+  [1m[36m (9.5ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110812090747')[0m
+Migrating to CreateRoles (20110812095218)
+  [1m[35m (9.6ms)[0m  CREATE TABLE `roles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (3.8ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110812095218')[0m
+Migrating to CreateProfiles (20110812101126)
+  [1m[35m (13.3ms)[0m  CREATE TABLE `profiles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11), `summary` text, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (3.7ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110812101126')[0m
+Migrating to CreateLinkTypes (20110812113717)
+  [1m[35m (8.8ms)[0m  CREATE TABLE `link_types` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `icon` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (3.7ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110812113717')[0m
+Migrating to CreateLinks (20110812114006)
+  [1m[35m (13.4ms)[0m  CREATE TABLE `links` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `url` varchar(255), `name` varchar(255), `link_type_id` int(11), `linkable_id` int(11), `linkable_type` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (3.8ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110812114006')[0m
+Migrating to AddAvatarToUsers (20110812153447)
+  [1m[35m (24.4ms)[0m  ALTER TABLE `users` DROP `avatar`
+  [1m[36m (37.2ms)[0m  [1mALTER TABLE `users` ADD `avatar_file_name` varchar(255)[0m
+  [1m[35m (23.7ms)[0m  ALTER TABLE `users` ADD `avatar_content_type` varchar(255)
+  [1m[36m (24.6ms)[0m  [1mALTER TABLE `users` ADD `avatar_file_size` int(11)[0m
+  [1m[35m (30.8ms)[0m  ALTER TABLE `users` ADD `avatar_updated_at` datetime
+  [1m[36m (4.1ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110812153447')[0m
+Migrating to CreateCompanies (20110812165143)
+  [1m[35m (160.6ms)[0m  CREATE TABLE `companies` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `street` varchar(255), `zipcode` varchar(255), `city` varchar(255), `phone` varchar(255), `email` varchar(255), `lat` float, `lng` float, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (5.6ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110812165143')[0m
+Migrating to CreateWorkers (20110812165542)
+  [1m[35m (7.0ms)[0m  CREATE TABLE `workers` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11), `company_id` int(11), `title` varchar(255), `admin` tinyint(1) DEFAULT 0, `removable` tinyint(1) DEFAULT 1, `validated` tinyint(1) DEFAULT 0, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (3.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110812165542')[0m
+Migrating to AddDescriptionToCompanies (20110812201146)
+  [1m[35m (24.1ms)[0m  ALTER TABLE `companies` ADD `summary` text
+  [1m[36m (11.5ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110812201146')[0m
+Migrating to AddAvatarToCompanies (20110816115128)
+  [1m[35m (25.2ms)[0m  ALTER TABLE `companies` ADD `avatar_file_name` varchar(255)
+  [1m[36m (27.1ms)[0m  [1mALTER TABLE `companies` ADD `avatar_content_type` varchar(255)[0m
+  [1m[35m (24.8ms)[0m  ALTER TABLE `companies` ADD `avatar_file_size` int(11)
+  [1m[36m (26.1ms)[0m  [1mALTER TABLE `companies` ADD `avatar_updated_at` datetime[0m
+  [1m[35m (2.8ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20110816115128')
+Migrating to CreatePostTypes (20110816143720)
+  [1m[36m (24.4ms)[0m  [1mCREATE TABLE `post_types` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (17.7ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20110816143720')
+Migrating to CreatePosts (20110816143746)
+  [1m[36m (38.7ms)[0m  [1mCREATE TABLE `posts` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `content` text, `post_type_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (6.5ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20110816143746')
+Migrating to CreateProjects (20110817075116)
+  [1m[36m (30.3ms)[0m  [1mCREATE TABLE `projects` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `post_id` int(11), `url` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (28.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20110817075116')
+Migrating to CreateEvents (20110817075218)
+  [1m[36m (44.4ms)[0m  [1mCREATE TABLE `events` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `post_id` int(11), `occurs_on` datetime, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (38.5ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20110817075218')
+Migrating to CreateJobs (20110817075248)
+  [1m[36m (31.5ms)[0m  [1mCREATE TABLE `jobs` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `post_id` int(11), `company_id` int(11), `skills` text, `how_to_apply` text, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (3.0ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20110817075248')
+Migrating to CreateAttachments (20110817090047)
+  [1m[36m (7.0ms)[0m  [1mCREATE TABLE `attachments` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `post_id` int(11), `user_id` int(11), `online` tinyint(1), `name` varchar(255), `picture_file_name` varchar(255), `picture_content_type` varchar(255), `picture_file_size` int(11), `picture_updated_at` datetime, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (2.9ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20110817090047')
+Migrating to AddUserIdToPosts (20110817092918)
+  [1m[36m (36.6ms)[0m  [1mALTER TABLE `posts` ADD `user_id` int(11)[0m
+  [1m[35m (2.7ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20110817092918')
+Migrating to CreateJobTypes (20110817103737)
+  [1m[36m (15.3ms)[0m  [1mCREATE TABLE `job_types` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (25.2ms)[0m  ALTER TABLE `jobs` ADD `job_type_id` int(11)
+  [1m[36m (3.0ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110817103737')[0m
+Migrating to CreateJobCategories (20110817103957)
+  [1m[35m (6.4ms)[0m  CREATE TABLE `job_categories` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (9.7ms)[0m  [1mCREATE TABLE `job_categories_jobs` (`job_id` int(11), `job_category_id` int(11)) ENGINE=InnoDB[0m
+  [1m[35m (3.0ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20110817103957')
+Migrating to CreateComments (20110817115610)
+  [1m[36m (6.3ms)[0m  [1mCREATE TABLE `comments` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11), `content` text, `commentable_id` int(11), `commentable_type` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (2.8ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20110817115610')
+Migrating to CreateBookmarks (20110817132336)
+  [1m[36m (11.6ms)[0m  [1mCREATE TABLE `bookmarks` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11), `bookmarkable_id` int(11), `bookmarkable_type` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (2.9ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20110817132336')
+Migrating to CreateLikes (20110817135815)
+  [1m[36m (8.5ms)[0m  [1mCREATE TABLE `likes` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11), `likable_id` int(11), `likable_type` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (6.0ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20110817135815')
+Migrating to AddAdminToUsers (20110821084511)
+  [1m[36m (22.3ms)[0m  [1mALTER TABLE `users` ADD `admin` tinyint(1)[0m
+  [1m[35m (2.9ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20110821084511')
+Migrating to AddLinkToEvents (20110821092602)
+  [1m[36m (30.5ms)[0m  [1mALTER TABLE `events` ADD `link` varchar(255)[0m
+  [1m[35m (3.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20110821092602')
+Migrating to AddNotificationToComments (20110824123052)
+  [1m[36m (25.5ms)[0m  [1mALTER TABLE `comments` ADD `notification` tinyint(1) DEFAULT 0[0m
+  [1m[35m (3.0ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20110824123052')
+Migrating to AddValidatedToPosts (20110824144729)
+  [1m[36m (22.2ms)[0m  [1mALTER TABLE `posts` ADD `validated` tinyint(1) DEFAULT 0[0m
+  [1m[35m (121.8ms)[0m  ALTER TABLE `posts` ADD `accepted_at` datetime
+  [1m[36m (2.9ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110824144729')[0m
+Migrating to CreateSchools (20110830081237)
+  [1m[35m (29.6ms)[0m  CREATE TABLE `schools` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (3.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110830081237')[0m
+Migrating to AddUserFields (20110830081350)
+  [1m[35m (22.1ms)[0m  ALTER TABLE `users` ADD `school_id` int(11)
+  [1m[36m (21.6ms)[0m  [1mALTER TABLE `users` ADD `company_id` int(11)[0m
+  [1m[35m (25.1ms)[0m  ALTER TABLE `users` ADD `freelance_name` varchar(255)
+  [1m[36m (30.5ms)[0m  [1mALTER TABLE `users` ADD `job_title` varchar(255)[0m
+  [1m[35m (2.9ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20110830081350')
+Migrating to AddCompanyAdminToUsers (20110914122430)
+  [1m[36m (19.3ms)[0m  [1mALTER TABLE `users` ADD `company_admin_request` tinyint(1)[0m
+  [1m[35m (3.0ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20110914122430')
+Migrating to AddEventsData (20110914125407)
+  [1m[36m (25.6ms)[0m  [1mALTER TABLE `events` ADD `street` varchar(255)[0m
+  [1m[35m (29.2ms)[0m  ALTER TABLE `events` ADD `zipcode` varchar(255)
+  [1m[36m (35.0ms)[0m  [1mALTER TABLE `events` ADD `city` varchar(255)[0m
+  [1m[35m (31.5ms)[0m  ALTER TABLE `events` ADD `access` varchar(255)
+  [1m[36m (30.4ms)[0m  [1mALTER TABLE `events` ADD `registration` varchar(255)[0m
+  [1m[35m (28.3ms)[0m  ALTER TABLE `events` ADD `lat` float
+  [1m[36m (82.8ms)[0m  [1mALTER TABLE `events` ADD `lng` float[0m
+  [1m[35m (4.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20110914125407')
+Migrating to AddValidatedToSchoolsAndCompanies (20111003133324)
+  [1m[36m (35.8ms)[0m  [1mALTER TABLE `schools` ADD `validated` tinyint(1) DEFAULT 0[0m
+  [1m[35m (32.8ms)[0m  ALTER TABLE `companies` ADD `validated` tinyint(1) DEFAULT 0
+  [1m[36m (4.9ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20111003133324')[0m
+Migrating to CreateActivities (20111007131625)
+  [1m[35m (22.0ms)[0m  CREATE TABLE `activities` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `noticeable_type` varchar(255), `noticeable_id` int(11), `from_user_id` int(11), `to_user_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (3.9ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20111007131625')[0m
+Migrating to CreateInterviews (20111021121054)
+  [1m[35m (8.4ms)[0m  CREATE TABLE `interviews` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `post_id` int(11), `movie_url` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (3.8ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20111021121054')[0m
+Migrating to AddPositionToRoles (20111102082140)
+  [1m[35m (42.6ms)[0m  ALTER TABLE `roles` ADD `position` int(11)
+  [1m[36m (3.9ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20111102082140')[0m
+Migrating to AddAddressToUsers (20111102083537)
+  [1m[35m (41.3ms)[0m  ALTER TABLE `users` ADD `street` varchar(255)
+  [1m[36m (32.5ms)[0m  [1mALTER TABLE `users` ADD `zipcode` varchar(255)[0m
+  [1m[35m (23.7ms)[0m  ALTER TABLE `users` ADD `city` varchar(255)
+  [1m[36m (24.8ms)[0m  [1mALTER TABLE `users` ADD `lat` float[0m
+  [1m[35m (27.2ms)[0m  ALTER TABLE `users` ADD `lng` float
+  [1m[36m (4.0ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20111102083537')[0m
+Migrating to AddLocationToJobs (20111105144410)
+  [1m[35m (24.1ms)[0m  ALTER TABLE `jobs` ADD `location` varchar(255)
+  [1m[36m (4.3ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20111105144410')[0m
+Migrating to CreateCodes (20111114105107)
+  [1m[35m (26.1ms)[0m  CREATE TABLE `codes` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `email` varchar(255), `code` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (3.9ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20111114105107')[0m
+Migrating to AddBaselineToCompany (20111206124936)
+  [1m[35m (26.8ms)[0m  ALTER TABLE `companies` ADD `baseline` varchar(255)
+  [1m[36m (3.7ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20111206124936')[0m
+Migrating to AddRefusedAtToPosts (20111223090822)
+  [1m[35m (35.5ms)[0m  ALTER TABLE `posts` ADD `refused_at` datetime
+  [1m[36m (34.4ms)[0m  [1mALTER TABLE `posts` ADD `online` tinyint(1) DEFAULT 1[0m
+  [1m[35m (3.0ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20111223090822')
+Migrating to AddMailingToUsers (20120109082513)
+  [1m[36m (27.5ms)[0m  [1mALTER TABLE `users` ADD `mailing` tinyint(1) DEFAULT 1[0m
+  [1m[35m (3.5ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20120109082513')
+Migrating to CreateAlerts (20120205141718)
+  [1m[36m (16.7ms)[0m  [1mCREATE TABLE `alerts` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11), `model` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (3.8ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20120205141718')
+Migrating to CreateMailings (20120304155700)
+  [1m[36m (8.5ms)[0m  [1mCREATE TABLE `mailings` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `model` varchar(255), `resource_id` int(11), `sent` tinyint(1) DEFAULT 0, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (6.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20120304155700')
+  [1m[36m (0.3ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Connecting to database specified by database.yml
+  [1m[36m (3.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to DeviseCreateUsers (20110812090747)
+Migrating to CreateRoles (20110812095218)
+Migrating to CreateProfiles (20110812101126)
+Migrating to CreateLinkTypes (20110812113717)
+Migrating to CreateLinks (20110812114006)
+Migrating to AddAvatarToUsers (20110812153447)
+Migrating to CreateCompanies (20110812165143)
+Migrating to CreateWorkers (20110812165542)
+Migrating to AddDescriptionToCompanies (20110812201146)
+Migrating to AddAvatarToCompanies (20110816115128)
+Migrating to CreatePostTypes (20110816143720)
+Migrating to CreatePosts (20110816143746)
+Migrating to CreateProjects (20110817075116)
+Migrating to CreateEvents (20110817075218)
+Migrating to CreateJobs (20110817075248)
+Migrating to CreateAttachments (20110817090047)
+Migrating to AddUserIdToPosts (20110817092918)
+Migrating to CreateJobTypes (20110817103737)
+Migrating to CreateJobCategories (20110817103957)
+Migrating to CreateComments (20110817115610)
+Migrating to CreateBookmarks (20110817132336)
+Migrating to CreateLikes (20110817135815)
+Migrating to AddAdminToUsers (20110821084511)
+Migrating to AddLinkToEvents (20110821092602)
+Migrating to AddNotificationToComments (20110824123052)
+Migrating to AddValidatedToPosts (20110824144729)
+Migrating to CreateSchools (20110830081237)
+Migrating to AddUserFields (20110830081350)
+Migrating to AddCompanyAdminToUsers (20110914122430)
+Migrating to AddEventsData (20110914125407)
+Migrating to AddValidatedToSchoolsAndCompanies (20111003133324)
+Migrating to CreateActivities (20111007131625)
+Migrating to CreateInterviews (20111021121054)
+Migrating to AddPositionToRoles (20111102082140)
+Migrating to AddAddressToUsers (20111102083537)
+Migrating to AddLocationToJobs (20111105144410)
+Migrating to CreateCodes (20111114105107)
+Migrating to AddBaselineToCompany (20111206124936)
+Migrating to AddRefusedAtToPosts (20111223090822)
+Migrating to AddMailingToUsers (20120109082513)
+Migrating to CreateAlerts (20120205141718)
+Migrating to CreateMailings (20120304155700)
+  [1m[35m (0.1ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+Connecting to database specified by database.yml
+
+
+Started GET "/app/" for 190.38.249.65 at 2015-08-23 21:38:15 +0200
+Processing by PostsController#index as HTML
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `users` WHERE `users`.`role_id` = 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `users` WHERE `users`.`role_id` = 2
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `users` WHERE `users`.`role_id` = 4[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `users` WHERE `users`.`role_id` = 3
+  [1m[36mWorker Load (0.4ms)[0m  [1mSELECT DISTINCT(company_id) as company_id FROM workers[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `companies` WHERE 1=0
+  [1m[36mPost Load (0.6ms)[0m  [1mSELECT p.* FROM posts p, users u WHERE p.user_id = u.id AND u.role_id = 1 AND p.post_type_id = 2[0m
+  [1m[35mPost Load (0.6ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`validated` = 1 AND `posts`.`online` = 1 ORDER BY created_at desc LIMIT 10 OFFSET 0
+  Rendered shared/_myActivity.html.erb (2.2ms)
+  Rendered shared/_signup.html.erb (0.5ms)
+  [1m[36mCompany Load (13.9ms)[0m  [1mSELECT cp.*, count(likes.id) as total FROM companies cp, likes WHERE cp.id = likes.likable_id AND likes.likable_type = 'Company' GROUP BY likes.likable_id ORDER BY total DESC LIMIT 5[0m
+  [1m[35mUser Load (0.9ms)[0m  SELECT u.*, count(likes.id) as total FROM users u, profiles p, likes WHERE u.id = p.user_id AND p.id = likes.likable_id AND u.role_id = 2 AND likes.likable_type = 'Profile' GROUP BY likes.likable_id ORDER BY total DESC LIMIT 5
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT u.*, count(likes.id) as total FROM users u, profiles p, likes WHERE u.id = p.user_id AND p.id = likes.likable_id AND u.role_id = 3 AND likes.likable_type = 'Profile' GROUP BY likes.likable_id ORDER BY total DESC LIMIT 5[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT u.*, count(likes.id) as total FROM users u, profiles p, likes WHERE u.id = p.user_id AND p.id = likes.likable_id AND u.role_id = 1 AND likes.likable_type = 'Profile' GROUP BY likes.likable_id ORDER BY total DESC LIMIT 5
+  Rendered shared/_top.html.erb (18.1ms)
+  Rendered shared/_advertise.html.erb (0.4ms)
+  Rendered shared/_videos.html.erb (0.3ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT p.* FROM posts p, users u WHERE p.user_id = u.id AND u.role_id = 1 AND p.post_type_id = 2[0m
+  [1m[35mPost Load (0.7ms)[0m  SELECT p.*, count(likes.id) as total FROM posts p, likes WHERE p.id = likes.likable_id AND p.validated = 1 AND p.id NOT IN('') AND likes.likable_type = 'Post' GROUP BY likes.likable_id ORDER BY total DESC LIMIT 5
+  Rendered shared/_top_posts.html.erb (1.8ms)
+  Rendered shared/_submit.html.erb (0.6ms)
+  Rendered posts/_posts.html.erb (0.4ms)
+  Rendered posts/index.html.erb within layouts/application (71.4ms)
+  Rendered shared/_login.html.erb (1.1ms)
+  Rendered shared/_submit.html.erb (0.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` [0m
+  Rendered shared/_search.html.erb (0.3ms)
+  Rendered shared/_menu.html.erb (0.4ms)
+  Rendered shared/_analytics.html.erb (0.4ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 237.8ms (Views: 131.4ms | ActiveRecord: 24.8ms)
+
+
+Started GET "/app/" for 190.38.249.65 at 2015-08-23 21:44:15 +0200
+Processing by PostsController#index as HTML
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `users` WHERE `users`.`role_id` = 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `users` WHERE `users`.`role_id` = 2[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `users` WHERE `users`.`role_id` = 4
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `users` WHERE `users`.`role_id` = 3[0m
+  [1m[35mWorker Load (0.1ms)[0m  SELECT DISTINCT(company_id) as company_id FROM workers
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `companies` WHERE 1=0[0m
+  [1m[35mPost Load (0.1ms)[0m  SELECT p.* FROM posts p, users u WHERE p.user_id = u.id AND u.role_id = 1 AND p.post_type_id = 2
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`validated` = 1 AND `posts`.`online` = 1 ORDER BY created_at desc LIMIT 10 OFFSET 0[0m
+  Rendered shared/_myActivity.html.erb (0.1ms)
+  Rendered shared/_signup.html.erb (0.1ms)
+  [1m[35mCompany Load (0.1ms)[0m  SELECT cp.*, count(likes.id) as total FROM companies cp, likes WHERE cp.id = likes.likable_id AND likes.likable_type = 'Company' GROUP BY likes.likable_id ORDER BY total DESC LIMIT 5
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT u.*, count(likes.id) as total FROM users u, profiles p, likes WHERE u.id = p.user_id AND p.id = likes.likable_id AND u.role_id = 2 AND likes.likable_type = 'Profile' GROUP BY likes.likable_id ORDER BY total DESC LIMIT 5[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT u.*, count(likes.id) as total FROM users u, profiles p, likes WHERE u.id = p.user_id AND p.id = likes.likable_id AND u.role_id = 3 AND likes.likable_type = 'Profile' GROUP BY likes.likable_id ORDER BY total DESC LIMIT 5
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT u.*, count(likes.id) as total FROM users u, profiles p, likes WHERE u.id = p.user_id AND p.id = likes.likable_id AND u.role_id = 1 AND likes.likable_type = 'Profile' GROUP BY likes.likable_id ORDER BY total DESC LIMIT 5[0m
+  Rendered shared/_top.html.erb (1.4ms)
+  Rendered shared/_advertise.html.erb (0.0ms)
+  Rendered shared/_videos.html.erb (0.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT p.* FROM posts p, users u WHERE p.user_id = u.id AND u.role_id = 1 AND p.post_type_id = 2
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT p.*, count(likes.id) as total FROM posts p, likes WHERE p.id = likes.likable_id AND p.validated = 1 AND p.id NOT IN('') AND likes.likable_type = 'Post' GROUP BY likes.likable_id ORDER BY total DESC LIMIT 5[0m
+  Rendered shared/_top_posts.html.erb (0.6ms)
+  Rendered shared/_submit.html.erb (0.1ms)
+  Rendered posts/_posts.html.erb (0.0ms)
+  Rendered posts/index.html.erb within layouts/application (6.7ms)
+  Rendered shared/_login.html.erb (0.1ms)
+  Rendered shared/_submit.html.erb (0.1ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` 
+  Rendered shared/_search.html.erb (0.0ms)
+  Rendered shared/_menu.html.erb (0.0ms)
+  Rendered shared/_analytics.html.erb (0.0ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 21.1ms (Views: 14.5ms | ActiveRecord: 1.4ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/app/" for 159.90.9.150 at 2015-08-24 15:00:05 +0200
+Processing by PostsController#index as HTML
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `users` WHERE `users`.`role_id` = 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `users` WHERE `users`.`role_id` = 2
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `users` WHERE `users`.`role_id` = 4[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `users` WHERE `users`.`role_id` = 3
+  [1m[36mWorker Load (0.2ms)[0m  [1mSELECT DISTINCT(company_id) as company_id FROM workers[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `companies` WHERE 1=0
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT p.* FROM posts p, users u WHERE p.user_id = u.id AND u.role_id = 1 AND p.post_type_id = 2[0m
+  [1m[35mPost Load (0.5ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`validated` = 1 AND `posts`.`online` = 1 ORDER BY created_at desc LIMIT 10 OFFSET 0
+  Rendered shared/_myActivity.html.erb (3.5ms)
+  Rendered shared/_signup.html.erb (0.9ms)
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT cp.*, count(likes.id) as total FROM companies cp, likes WHERE cp.id = likes.likable_id AND likes.likable_type = 'Company' GROUP BY likes.likable_id ORDER BY total DESC LIMIT 5[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT u.*, count(likes.id) as total FROM users u, profiles p, likes WHERE u.id = p.user_id AND p.id = likes.likable_id AND u.role_id = 2 AND likes.likable_type = 'Profile' GROUP BY likes.likable_id ORDER BY total DESC LIMIT 5
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT u.*, count(likes.id) as total FROM users u, profiles p, likes WHERE u.id = p.user_id AND p.id = likes.likable_id AND u.role_id = 3 AND likes.likable_type = 'Profile' GROUP BY likes.likable_id ORDER BY total DESC LIMIT 5[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT u.*, count(likes.id) as total FROM users u, profiles p, likes WHERE u.id = p.user_id AND p.id = likes.likable_id AND u.role_id = 1 AND likes.likable_type = 'Profile' GROUP BY likes.likable_id ORDER BY total DESC LIMIT 5
+  Rendered shared/_top.html.erb (3.6ms)
+  Rendered shared/_advertise.html.erb (0.5ms)
+  Rendered shared/_videos.html.erb (0.4ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT p.* FROM posts p, users u WHERE p.user_id = u.id AND u.role_id = 1 AND p.post_type_id = 2[0m
+  [1m[35mPost Load (0.2ms)[0m  SELECT p.*, count(likes.id) as total FROM posts p, likes WHERE p.id = likes.likable_id AND p.validated = 1 AND p.id NOT IN('') AND likes.likable_type = 'Post' GROUP BY likes.likable_id ORDER BY total DESC LIMIT 5
+  Rendered shared/_top_posts.html.erb (2.7ms)
+  Rendered shared/_submit.html.erb (0.9ms)
+  Rendered posts/_posts.html.erb (0.6ms)
+  Rendered posts/index.html.erb within layouts/application (70.6ms)
+  Rendered shared/_login.html.erb (1.7ms)
+  Rendered shared/_submit.html.erb (0.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` [0m
+  Rendered shared/_search.html.erb (0.6ms)
+  Rendered shared/_menu.html.erb (0.9ms)
+  Rendered shared/_analytics.html.erb (0.5ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 267.0ms (Views: 125.8ms | ActiveRecord: 9.6ms)
+
+
+Started GET "/app/" for 159.90.9.150 at 2015-08-24 15:09:32 +0200
+Processing by PostsController#index as HTML
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `users` WHERE `users`.`role_id` = 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `users` WHERE `users`.`role_id` = 2[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `users` WHERE `users`.`role_id` = 4
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `users` WHERE `users`.`role_id` = 3[0m
+  [1m[35mWorker Load (0.1ms)[0m  SELECT DISTINCT(company_id) as company_id FROM workers
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `companies` WHERE 1=0[0m
+  [1m[35mPost Load (0.2ms)[0m  SELECT p.* FROM posts p, users u WHERE p.user_id = u.id AND u.role_id = 1 AND p.post_type_id = 2
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`validated` = 1 AND `posts`.`online` = 1 ORDER BY created_at desc LIMIT 10 OFFSET 0[0m
+  Rendered shared/_myActivity.html.erb (0.2ms)
+  Rendered shared/_signup.html.erb (0.1ms)
+  [1m[35mCompany Load (0.1ms)[0m  SELECT cp.*, count(likes.id) as total FROM companies cp, likes WHERE cp.id = likes.likable_id AND likes.likable_type = 'Company' GROUP BY likes.likable_id ORDER BY total DESC LIMIT 5
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT u.*, count(likes.id) as total FROM users u, profiles p, likes WHERE u.id = p.user_id AND p.id = likes.likable_id AND u.role_id = 2 AND likes.likable_type = 'Profile' GROUP BY likes.likable_id ORDER BY total DESC LIMIT 5[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT u.*, count(likes.id) as total FROM users u, profiles p, likes WHERE u.id = p.user_id AND p.id = likes.likable_id AND u.role_id = 3 AND likes.likable_type = 'Profile' GROUP BY likes.likable_id ORDER BY total DESC LIMIT 5
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT u.*, count(likes.id) as total FROM users u, profiles p, likes WHERE u.id = p.user_id AND p.id = likes.likable_id AND u.role_id = 1 AND likes.likable_type = 'Profile' GROUP BY likes.likable_id ORDER BY total DESC LIMIT 5[0m
+  Rendered shared/_top.html.erb (1.5ms)
+  Rendered shared/_advertise.html.erb (0.0ms)
+  Rendered shared/_videos.html.erb (0.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT p.* FROM posts p, users u WHERE p.user_id = u.id AND u.role_id = 1 AND p.post_type_id = 2
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT p.*, count(likes.id) as total FROM posts p, likes WHERE p.id = likes.likable_id AND p.validated = 1 AND p.id NOT IN('') AND likes.likable_type = 'Post' GROUP BY likes.likable_id ORDER BY total DESC LIMIT 5[0m
+  Rendered shared/_top_posts.html.erb (0.9ms)
+  Rendered shared/_submit.html.erb (0.2ms)
+  Rendered posts/_posts.html.erb (0.0ms)
+  Rendered posts/index.html.erb within layouts/application (8.1ms)
+  Rendered shared/_login.html.erb (0.3ms)
+  Rendered shared/_submit.html.erb (0.1ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` 
+  Rendered shared/_search.html.erb (0.1ms)
+  Rendered shared/_menu.html.erb (0.0ms)
+  Rendered shared/_analytics.html.erb (0.0ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 27.6ms (Views: 18.5ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/app/" for 159.90.9.150 at 2015-08-24 15:09:59 +0200
+Processing by PostsController#index as HTML
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `users` WHERE `users`.`role_id` = 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `users` WHERE `users`.`role_id` = 2
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `users` WHERE `users`.`role_id` = 4[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `users` WHERE `users`.`role_id` = 3
+  [1m[36mWorker Load (0.1ms)[0m  [1mSELECT DISTINCT(company_id) as company_id FROM workers[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `companies` WHERE 1=0
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT p.* FROM posts p, users u WHERE p.user_id = u.id AND u.role_id = 1 AND p.post_type_id = 2[0m
+  [1m[35mPost Load (0.1ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`validated` = 1 AND `posts`.`online` = 1 ORDER BY created_at desc LIMIT 10 OFFSET 0
+  Rendered shared/_myActivity.html.erb (0.2ms)
+  Rendered shared/_signup.html.erb (0.1ms)
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT cp.*, count(likes.id) as total FROM companies cp, likes WHERE cp.id = likes.likable_id AND likes.likable_type = 'Company' GROUP BY likes.likable_id ORDER BY total DESC LIMIT 5[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT u.*, count(likes.id) as total FROM users u, profiles p, likes WHERE u.id = p.user_id AND p.id = likes.likable_id AND u.role_id = 2 AND likes.likable_type = 'Profile' GROUP BY likes.likable_id ORDER BY total DESC LIMIT 5
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT u.*, count(likes.id) as total FROM users u, profiles p, likes WHERE u.id = p.user_id AND p.id = likes.likable_id AND u.role_id = 3 AND likes.likable_type = 'Profile' GROUP BY likes.likable_id ORDER BY total DESC LIMIT 5[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT u.*, count(likes.id) as total FROM users u, profiles p, likes WHERE u.id = p.user_id AND p.id = likes.likable_id AND u.role_id = 1 AND likes.likable_type = 'Profile' GROUP BY likes.likable_id ORDER BY total DESC LIMIT 5
+  Rendered shared/_top.html.erb (1.8ms)
+  Rendered shared/_advertise.html.erb (0.0ms)
+  Rendered shared/_videos.html.erb (0.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT p.* FROM posts p, users u WHERE p.user_id = u.id AND u.role_id = 1 AND p.post_type_id = 2[0m
+  [1m[35mPost Load (0.2ms)[0m  SELECT p.*, count(likes.id) as total FROM posts p, likes WHERE p.id = likes.likable_id AND p.validated = 1 AND p.id NOT IN('') AND likes.likable_type = 'Post' GROUP BY likes.likable_id ORDER BY total DESC LIMIT 5
+  Rendered shared/_top_posts.html.erb (0.8ms)
+  Rendered shared/_submit.html.erb (0.2ms)
+  Rendered posts/_posts.html.erb (0.0ms)
+  Rendered posts/index.html.erb within layouts/application (8.9ms)
+  Rendered shared/_login.html.erb (0.1ms)
+  Rendered shared/_submit.html.erb (0.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` [0m
+  Rendered shared/_search.html.erb (0.0ms)
+  Rendered shared/_menu.html.erb (0.0ms)
+  Rendered shared/_analytics.html.erb (0.0ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 26.7ms (Views: 16.8ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/app/" for 159.90.9.150 at 2015-08-24 15:10:00 +0200
+Processing by PostsController#index as HTML
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `users` WHERE `users`.`role_id` = 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `users` WHERE `users`.`role_id` = 2[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `users` WHERE `users`.`role_id` = 4
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `users` WHERE `users`.`role_id` = 3[0m
+  [1m[35mWorker Load (0.1ms)[0m  SELECT DISTINCT(company_id) as company_id FROM workers
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `companies` WHERE 1=0[0m
+  [1m[35mPost Load (0.1ms)[0m  SELECT p.* FROM posts p, users u WHERE p.user_id = u.id AND u.role_id = 1 AND p.post_type_id = 2
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`validated` = 1 AND `posts`.`online` = 1 ORDER BY created_at desc LIMIT 10 OFFSET 0[0m
+  Rendered shared/_myActivity.html.erb (0.1ms)
+  Rendered shared/_signup.html.erb (0.1ms)
+  [1m[35mCompany Load (0.1ms)[0m  SELECT cp.*, count(likes.id) as total FROM companies cp, likes WHERE cp.id = likes.likable_id AND likes.likable_type = 'Company' GROUP BY likes.likable_id ORDER BY total DESC LIMIT 5
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT u.*, count(likes.id) as total FROM users u, profiles p, likes WHERE u.id = p.user_id AND p.id = likes.likable_id AND u.role_id = 2 AND likes.likable_type = 'Profile' GROUP BY likes.likable_id ORDER BY total DESC LIMIT 5[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT u.*, count(likes.id) as total FROM users u, profiles p, likes WHERE u.id = p.user_id AND p.id = likes.likable_id AND u.role_id = 3 AND likes.likable_type = 'Profile' GROUP BY likes.likable_id ORDER BY total DESC LIMIT 5
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT u.*, count(likes.id) as total FROM users u, profiles p, likes WHERE u.id = p.user_id AND p.id = likes.likable_id AND u.role_id = 1 AND likes.likable_type = 'Profile' GROUP BY likes.likable_id ORDER BY total DESC LIMIT 5[0m
+  Rendered shared/_top.html.erb (1.4ms)
+  Rendered shared/_advertise.html.erb (0.0ms)
+  Rendered shared/_videos.html.erb (0.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT p.* FROM posts p, users u WHERE p.user_id = u.id AND u.role_id = 1 AND p.post_type_id = 2
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT p.*, count(likes.id) as total FROM posts p, likes WHERE p.id = likes.likable_id AND p.validated = 1 AND p.id NOT IN('') AND likes.likable_type = 'Post' GROUP BY likes.likable_id ORDER BY total DESC LIMIT 5[0m
+  Rendered shared/_top_posts.html.erb (0.5ms)
+  Rendered shared/_submit.html.erb (0.2ms)
+  Rendered posts/_posts.html.erb (0.0ms)
+  Rendered posts/index.html.erb within layouts/application (7.4ms)
+  Rendered shared/_login.html.erb (35.9ms)
+  Rendered shared/_submit.html.erb (0.4ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` 
+  Rendered shared/_search.html.erb (0.0ms)
+  Rendered shared/_menu.html.erb (0.0ms)
+  Rendered shared/_analytics.html.erb (0.0ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 60.0ms (Views: 53.3ms | ActiveRecord: 1.5ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (63.3ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to DeviseCreateUsers (20110812090747)
+Migrating to CreateRoles (20110812095218)
+Migrating to CreateProfiles (20110812101126)
+Migrating to CreateLinkTypes (20110812113717)
+Migrating to CreateLinks (20110812114006)
+Migrating to AddAvatarToUsers (20110812153447)
+Migrating to CreateCompanies (20110812165143)
+Migrating to CreateWorkers (20110812165542)
+Migrating to AddDescriptionToCompanies (20110812201146)
+Migrating to AddAvatarToCompanies (20110816115128)
+Migrating to CreatePostTypes (20110816143720)
+Migrating to CreatePosts (20110816143746)
+Migrating to CreateProjects (20110817075116)
+Migrating to CreateEvents (20110817075218)
+Migrating to CreateJobs (20110817075248)
+Migrating to CreateAttachments (20110817090047)
+Migrating to AddUserIdToPosts (20110817092918)
+Migrating to CreateJobTypes (20110817103737)
+Migrating to CreateJobCategories (20110817103957)
+Migrating to CreateComments (20110817115610)
+Migrating to CreateBookmarks (20110817132336)
+Migrating to CreateLikes (20110817135815)
+Migrating to AddAdminToUsers (20110821084511)
+Migrating to AddLinkToEvents (20110821092602)
+Migrating to AddNotificationToComments (20110824123052)
+Migrating to AddValidatedToPosts (20110824144729)
+Migrating to CreateSchools (20110830081237)
+Migrating to AddUserFields (20110830081350)
+Migrating to AddCompanyAdminToUsers (20110914122430)
+Migrating to AddEventsData (20110914125407)
+Migrating to AddValidatedToSchoolsAndCompanies (20111003133324)
+Migrating to CreateActivities (20111007131625)
+Migrating to CreateInterviews (20111021121054)
+Migrating to AddPositionToRoles (20111102082140)
+Migrating to AddAddressToUsers (20111102083537)
+Migrating to AddLocationToJobs (20111105144410)
+Migrating to CreateCodes (20111114105107)
+Migrating to AddBaselineToCompany (20111206124936)
+Migrating to AddRefusedAtToPosts (20111223090822)
+Migrating to AddMailingToUsers (20120109082513)
+Migrating to CreateAlerts (20120205141718)
+Migrating to CreateMailings (20120304155700)
+  [1m[35m (0.1ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 

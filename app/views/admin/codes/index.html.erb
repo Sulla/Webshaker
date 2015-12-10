@@ -1,0 +1,36 @@
+<% content_for :h1 do %>
+	Codes
+<% end %>
+
+<% content_for :breadcrump do %>
+	> Codes
+<% end %>
+
+<% content_for :boxheader do %>
+	<h2>LISTING</h2>
+<% end %>
+
+<a href="http://vps.webinti.com/webshaker/admin/codes/new">Ajouter un code</a>
+
+<table cellpadding="0" cellspacing="0" width="100%" class="sortable">		
+	<thead>
+		<tr>
+		  <th>ID</th>
+			<th>Email</th>
+			<th>Code</th>
+			<th class="action">Action</th>
+		</tr>
+	</thead>
+	<tbody data-type="workers">
+	  <% @codes.each_with_index do |code, index| %>
+  		<tr class="<%= index % 2 == 0 ? 'one' : 'two' %>" id="codes_<%= code.id %>">
+  		  <td><%= code.id %></td>
+  			<td><%= code.email %></td>
+  			<td><%= code.code %></td>
+  			<td class="action">
+  			  <a href="#" class="delete" title="Delete" data-id="<%= code.id %>" data-type="codes">Delete</a>
+  			</td>
+  		</tr>
+  	<% end %>		
+	</tbody>
+</table>

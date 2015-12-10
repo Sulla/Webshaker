@@ -1,0 +1,7 @@
+<% if jobs.size == 0 %>
+  No jobs
+<% else %>
+  <% jobs.each do |job| %>
+    <%= render :partial => 'posts/post.html.erb', :locals => { :post => job.post } %>
+  <% end %>
+<% end %>

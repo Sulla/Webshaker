@@ -1,0 +1,20 @@
+<% if @user.is_employee? || @user.is_company_owner? || @user.is_company_admin? %>
+  <p>
+    <%= f.label :firstname %>
+    <%= f.text_field :firstname %>
+  </p>
+  <p>
+    <%= f.label :lastname %>
+    <%= f.text_field :lastname %>
+  </p>
+  <p>
+    <label>Company</label>
+   <input type="text" disabled="disabled" class="disabledInput" value="<%= @user.company_name %>"/> 
+   
+    <span class="note">If you want to change your company, <a href="mailto:info@webshaker.be">contact us</a> !</span>
+  </p>
+  <p>
+    <label>Job title</label>
+    <%= f.text_field :job_title %>
+  </p>
+<% end %>

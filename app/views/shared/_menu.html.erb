@@ -1,0 +1,13 @@
+<ul id="menu-main-menu" class="menu">
+  <% if @current_menu == 'shaker' %>
+	  <li class="menu-item current-menu-item" id="home-link"><a href="http://vps.webinti.com/webshaker"><span>The Shaker</span></a></li>
+	<% else %>
+	  <li class="menu-item" id="home-link"><a href="http://vps.webinti.com/webshaker/"><span>The Shaker</span></a></li>
+	<% end %>
+	<% if @current_menu == 'directory' %>
+	  <li class="menu-item current-menu-item" id="home-link"><a href="http://vps.webinti.com/webshaker/directory"><span>Directory</span></a></li>
+	<% else %>
+	  <li class="menu-item" id="home-link"><a href="http://vps.webinti.com/webshaker/directory"><span>Directory</span></a></li>
+	<% end %>
+	
+</ul>

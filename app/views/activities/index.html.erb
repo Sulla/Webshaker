@@ -1,0 +1,20 @@
+<% content_for :title do %>WebShaker: My Activities<% end %>
+<% content_for :sidebar do %>
+	 <%= render :partial => 'shared/advertise' %>	
+  <hr class="clear"/>
+  <span class="breath"></span>
+  
+  <%= render :partial => 'shared/videos' %>	
+  <hr class="clear"/>
+  <hr class="separator" />
+ 
+  <%= render :partial => 'shared/top' %>			
+<% end %>
+
+
+<div id="mainContent"><%= display_flash %>
+	<h2>My activities</h2>
+	<span class="breath"></span>
+<%= render :partial => 'shared/myActivity' %>
+
+</div>

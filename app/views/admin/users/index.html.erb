@@ -1,0 +1,39 @@
+<% content_for :h1 do %>
+	Users
+<% end %>
+
+<% content_for :breadcrump do %>
+	> Users
+<% end %>
+
+<% content_for :boxheader do %>
+	<h2>LISTING</h2>
+<% end %>
+
+<table cellpadding="0" cellspacing="0" width="100%" class="sortable">
+						
+	<thead>
+		<tr>
+		  <th>ID</th>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Role</th>
+			<th class="action">Action</th>
+		</tr>
+	</thead>
+	<tbody data-type="users">
+	  <% @users.each_with_index do |user, index| %>
+  		<tr class="<%= index % 2 == 0 ? 'one' : 'two' %>" id="users_<%= user.id %>">
+  		  <td><%= user.id %></td>
+  			<td><%= link_to user.fullname, "http://vps.webinti.com/webshaker/admin/users/#{user.id}" %></td>
+  			<td><%= user.email %></td>
+  			<td><%= user.try(:role).try(:name) %></td>
+  			<td class="action">
+  			  <a href="#" class="delete" title="Delete" data-id="<%= user.id %>" data-type="users">Delete</a>
+  			  <a href="http://vps.webinti.com/webshaker/admin/users/<%= user.id %>/edit"  title="Edit" data-id="<%= user.id %>" data-type="users"><img src="http://vps.webinti.com/webshaker/images/ico/edit.png"/></a>
+  			  
+  			</td>
+  		</tr>
+  	<% end %>		
+	</tbody>
+</table>

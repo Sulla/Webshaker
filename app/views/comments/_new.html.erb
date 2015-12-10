@@ -1,0 +1,33 @@
+<% if user_signed_in? %>
+	<div class="whoisComment">
+
+		<%= avatar(current_user) %>
+		<span>You are <%= current_user.fullname %></span>
+	</div>
+	<hr class="clear"/>
+	<form method="post" id="new_comment" class="main_form">
+	  <p>
+		
+	    
+	    <textarea cols="70" rows="6" name="content" id="comment_content"></textarea>
+	  </p>
+	   <p>
+	 		<input name="notification" id="notification" type="checkbox" value="1" /> Send me an email if this post receives any replies.
+	  </p>
+	  <p>
+	    <input type="submit" value="Add comment" id="submit_comment"/>
+	     <input type="hidden" name="post_id" value="<%= post.id %>"/>
+	  </p>
+	  
+	 
+	 
+	</form>
+
+<% else %>
+<div class="whoisComment">
+
+	<p>To comment you must be connected! <a href="http://vps.webinti.com/webshaker/users/sign_in" class="button">Sign in !</a></p>
+	</div>
+
+
+<% end %>

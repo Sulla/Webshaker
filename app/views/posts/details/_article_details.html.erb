@@ -1,0 +1,19 @@
+<% content_for :sidebar do %>
+	<div class="">
+		<%= render :partial => 'posts/author' %>
+	</div>
+<% end %>
+
+<div class="mee">
+	<%= render :partial => 'shared/actions', :locals => { :id => @post.id, :type => 'Post', :model => @post } %>
+	<div class="shareThis">
+		<span  class='st_twitter_button' displayText='Tweet'></span><span  class='st_facebook_button' displayText='Facebook'></span><span  class='st_plusone_button' ></span>
+	</div>
+	<hr class="clear" />
+</div>
+
+<span class="breath"/></span>
+
+	<p>
+    <%= sanitize_content(@post.content, @post) %>
+  </p>

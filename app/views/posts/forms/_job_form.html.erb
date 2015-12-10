@@ -1,0 +1,60 @@
+<p>
+  <label>Job title <em>*</em></label>
+  <input type="text" id="title" name="title" value="<%= get_post_value(:title, post) %>" />
+</p>
+
+<p>
+  <label>Job location <em>*</em></label>
+  <input type="text" id="location" name="location" value="<%= get_post_value(:location, post.unsaved_associated_model) %>" />
+</p>
+
+<p>
+  <label>Contract type <em>*</em></label>
+
+  <select name="job_type_id">
+    <% JobType.all.each do |job_type| %>
+      <% if job.job_type == job_type %>
+        <option value="<%= job_type.id %>" selected="selected"><%= job_type.name %></option>
+      <% else %>
+        <option value="<%= job_type.id %>"><%= job_type.name %></option>      
+      <% end %>
+    <% end %>
+  </select>
+</p>
+
+<p>
+
+  <hr class="clear"/>
+
+	<label>Categories <em>*</em></label>
+			<div class="formRightContent">
+	  <% JobCategory.all.each do |job_cat| %>
+	 	<span>
+	    <% if job.job_categories.include?(job_cat) %>
+	      <input type="checkbox" id="job_category[<%= job_cat %>]" name="job_category[]" value="<%= job_cat.id %>" checked="checked"/>
+	    <% else %>
+	      <input type="checkbox" id="job_category[<%= job_cat %>]" name="job_category[]" value="<%= job_cat.id %>"/>    
+	    <% end %>
+	    <label for="job_category[<%= job_cat %>]"><%= job_cat.name %></label>
+	   </span>
+	  <% end %>
+  </div>
+ </p>
+<hr class="clear"/>
+<p <%= field_with_error?(post, :content) %>>
+  <label>Description <em>*</em></label>
+ 
+  <textarea cols="70" rows="5" id="content" name="content" class="tinymce"><%= get_post_value(:content, post) %></textarea>
+</p>
+
+<p <%= field_with_error?(post.unsaved_associated_model, :skills) %>>
+  <label>Skills <em>*</em></label>
+  <textarea cols="70" rows="5" id="skills" name="skills" class="tinymce"><%= get_post_value(:skills, post.unsaved_associated_model) %></textarea>
+</p>
+
+<p <%= field_with_error?(post.unsaved_associated_model, :how_to_apply) %>>
+  <label>How to apply <em>*</em></label>
+   
+  <textarea cols="70" rows="5" id="how_to_apply" name="how_to_apply" class="tinymce"><%= get_post_value(:how_to_apply, post.unsaved_associated_model) %></textarea>
+</p>
+<input type="hidden" name="post_type_id" value="4"/>

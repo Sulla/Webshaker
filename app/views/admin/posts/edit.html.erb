@@ -1,0 +1,28 @@
+<% content_for :scripts do %>
+  <%= javascript_include_tag 'posts' %>
+<% end %>
+<% content_for :h1 do %>
+	Posts
+<% end %>
+
+<% content_for :breadcrump do %>
+	> <a href="http://vps.webinti.com/webshaker/admin/posts">Posts</a>
+	> <%= @post.title %>
+	> Edit
+<% end %>
+
+<% content_for :boxheader do %>
+	<h2>EDIT</h2>
+<% end %>
+
+<form id="new_post" action="http://vps.webinti.com/webshaker/admin/posts/<%= @post.id %>" method="post" class="main_form" >
+  <%= render :partial => 'posts/forms/form', :locals => { :post => @post, :post_type_id => @post.post_type_id }%>
+  <input type="hidden" name="_method" value="put">
+  <input type="submit" value="Save"/>
+</form>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    enableUploader();
+  });
+</script>

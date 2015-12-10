@@ -1,0 +1,17 @@
+<hr class="separator" />
+<span class="breath"></span>
+<h3><a href="http://vps.webinti.com/webshaker/posts/top" class="right">See the whole list</a>  Top posts</h3>
+<% Post.top(5).each do |post| %>
+	<div class="topPost">
+    <a href="http://vps.webinti.com/webshaker/posts/<%= post.id %>" class="titleTopPost"> <%= post.title %></a>
+    <%= author_name(post) %>
+ </div>
+	
+<% end %>
+
+
+
+
+
+
+

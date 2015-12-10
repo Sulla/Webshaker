@@ -1,0 +1,28 @@
+<% content_for :title do %>WebShaker: My bookmarks<% end %>
+<% content_for :sidebar do %>
+	<%= render :partial => 'shared/myActivity' %>
+	<%= render :partial => 'shared/signup' %>	
+	
+
+
+<% end %>
+
+
+
+<div id="mainContent">
+	<h2>	My bookmarks</h2>
+	<span class="breath"></span>
+	<% if @bookmarks.size==0 %>
+  		<p><span class="pictos">* </span>Sorry, but you have no bookmark right now.</p>
+  	<% else %>
+	<ul id="bookmarksList">
+	  <% @bookmarks.each do |bookmark| %>
+	    <li>
+	    	<!--<a href="#" class="button right"><span class="pictos">*</span> Remove</a>-->
+	      <a href="<%= bookmark.link %>"> <span class="type"><%= bookmark.bookmarkable_type %></span><%= bookmark.title %></a> 
+	     
+	    </li>
+	  <% end %>
+	</ul>
+	<% end %>
+</div>

@@ -1,0 +1,61 @@
+<% content_for :sidebar do %>
+	<div class="">
+		
+		
+	
+		<h3>More informations:</h3>
+		<div class="explaination">
+			<ul class="infosPost">
+				<li class="odd">
+					<strong>Contract type :</strong>
+					<%= job.try(:job_type).try(:name) %>
+				</li>
+				<li>
+					<strong>Categories:</strong>
+					<% job.try(:job_categories).each do |cat| %>
+      			<%= cat.name %>,
+  		  <% end %>
+				</li>
+  			<li class="odd">
+  				<strong>Location:</strong>
+          <%= job.location %>
+  			</li>
+			</ul>
+		</div>	
+		<hr class="separator"/>
+		
+		<%= render :partial => 'posts/author' %>	 
+	 	 </div>
+<% end %>
+
+<div class="mee">
+	<%= render :partial => 'shared/actions', :locals => { :id => @post.id, :type => 'Post', :model => @post } %>
+	<div class="shareThis">
+		<span  class='st_twitter_button' displayText='Tweet'></span><span  class='st_facebook_button' displayText='Facebook'></span><span  class='st_linkedin_button' displayText='LinkedIn'></span><span  class='st_plusone_button' ></span>
+	</div>
+	<hr class="clear" />
+</div>
+
+<span class="breath"/></span>
+
+ <h3>Description</h3>
+	
+    <%= sanitize_content @post.content, @post %>
+ 
+  <% if @post.job.skills.present? %>
+    <h3 id="apply">Skills</h3>
+  
+      <%= sanitize_content @post.job.skills, @post %>  
+  <% end %>
+  
+	<h3 id="apply">How to apply ?</h3>
+	<div class="mee">
+		
+	  <% if user_signed_in? %>
+		  <%= sanitize_content job.try(:how_to_apply), job.post %>
+		<% else %>
+		 <p> You must be connected to apply to this job.
+		  <br/>
+		  Please <a href="http://vps.webinti.com/webshaker/users/sign_in">sign in</a>.</p>
+		<% end %>
+	</div>

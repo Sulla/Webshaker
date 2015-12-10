@@ -1,0 +1,41 @@
+<% content_for :h1 do %>
+	Comments
+<% end %>
+
+<% content_for :breadcrump do %>
+	> Comments
+<% end %>
+
+<% content_for :boxheader do %>
+	<h2>LISTING</h2>
+<% end %>
+
+<table cellpadding="0" cellspacing="0" width="100%" class="sortable">
+	<thead>
+		<tr>
+		  <th>ID</th>
+			<th>User</th>
+			<th>Content</th>
+			<th>Post</th>			
+			<th class="action">Action</th>
+		</tr>
+	</thead>
+	<tbody data-type="comments">
+	  <% @comments.each_with_index do |comment, index| %>
+  		<tr class="<%= index % 2 == 0 ? 'one' : 'two' %>" id="comments_<%= comment.id %>">
+  		  <td><%= comment.id %></td>
+  			<td><%= comment.user.fullname %></td>
+  			<td><%= comment.content %></td>
+  			<td>
+  			  <% if comment.commentable %>
+  			    <a href="/<%= comment.commentable_type.downcase.pluralize %>/<%= comment.commentable.id %>"><%= comment.title %>
+  			  <% end %>
+  			</td>
+  			<td class="action">
+  			  <a href="http://vps.webinti.com/webshaker/admin/comments/<%= comment.id %>/edit" ><img src="/images/ico/edit.png"/></a>  			  
+  			  <a href="#" class="delete" title="Delete" data-id="<%= comment.id %>" data-type="comments">Delete</a>
+  			</td>
+  		</tr>
+  	<% end %>		
+	</tbody>
+</table>

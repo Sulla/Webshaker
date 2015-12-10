@@ -1,0 +1,48 @@
+<% content_for :scripts do %>
+  <%= javascript_include_tag('malo_js/companies') %>
+<% end %>
+
+<% content_for :h1 do %>
+	Companies
+<% end %>
+
+<% content_for :breadcrump do %>
+	> Companies
+<% end %>
+
+<% content_for :boxheader do %>
+	<h2>LISTING</h2>
+<% end %>
+
+<table cellpadding="0" cellspacing="0" width="100%" class="sortable">				
+	<thead>
+		<tr>
+		  <th>ID</th>
+			<th>Name</th>
+			<th>Admin(s)</th>
+			<th class="action">Action</th>
+		</tr>
+	</thead>
+	<tbody data-type="companies">
+	  <% @companies.each_with_index do |company, index| %>
+  		<tr class="<%= index % 2 == 0 ? 'one' : 'two' %>" id="companies_<%= company.id %>">
+  		  <td><%= company.id %></td>
+  			<td><%= link_to company.name, "http://vps.webinti.com/webshaker/admin/companies/#{company.id}" %></td>
+  			<td><%= company.admin %> </td>
+  			
+  			<td class="action">
+  			  <a href="http://vps.webinti.com/webshaker/admin/companies/<%= company.id %>/edit" ><img src="http://vps.webinti.com/webshaker/images/ico/edit.png"/></a>
+  			  <a href="#" class="delete" title="Delete" data-id="<%= company.id %>" data-type="companies">Delete</a>
+  			  
+  			  <a href="#" data-id="<%= company.id %>" class="company_visibility">
+    			  <% if company.validated %>
+    			    <img src="http://vps.webinti.com/webshaker/images/ico/accept.png"/>
+    			  <% else %>
+    			    <img src="http://vps.webinti.com/webshaker/images/ico/cross.png"/>
+    			  <% end %>
+    			</a>
+  			</td>
+  		</tr>
+  	<% end %>		
+	</tbody>
+</table>

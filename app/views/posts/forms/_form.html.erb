@@ -1,0 +1,35 @@
+<% content_for :scripts do %>
+  <%= javascript_include_tag 'tiny_mce/jquery.tinymce' %>
+<% end %>
+
+<% if post_type_id == 1 %>
+  <%= render :partial => 'posts/forms/article_form', :locals => { :article => post } %>
+<% elsif post_type_id == 2 %>
+  <%= render :partial => 'posts/forms/project_form', :locals => { :post => post, :project => post.project } %>
+<% elsif post_type_id == 3 %>
+  <%= render :partial => 'posts/forms/event_form', :locals => { :post => post, :event => post.event } %>
+<% elsif post_type_id == 4 %>
+  <%= render :partial => 'posts/forms/job_form', :locals => { :post => post, :job => post.job } %>
+<% elsif post_type_id == 5 %>
+  <%= render :partial => 'posts/forms/interview_form', :locals => { :post => post, :interview => post.interview } %>
+<% end %>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+  	$('textarea.tinymce').tinymce({
+  		script_url : 'http://vps.webinti.com/webshaker/javascripts/tiny_mce/tiny_mce.js',
+
+  		theme : "advanced",
+  		plugins : "pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,advlist",
+
+  		theme_advanced_buttons1 : "code,bold,italic,underline,strikethrough|,bullist,numlist,|,link,unlink,|",
+  		theme_advanced_buttons2 : "",
+  		theme_advanced_buttons3 : "",
+  		theme_advanced_buttons4 : "",
+  		theme_advanced_toolbar_location : "top",
+  		theme_advanced_toolbar_align : "left",
+  		theme_advanced_statusbar_location : "bottom",
+  		theme_advanced_resizing : true
+  	});
+  });
+</script>

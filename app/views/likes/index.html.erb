@@ -1,0 +1,15 @@
+<h1>Likes</h1>
+<% if @likes.size > 0 %>
+  <ul>
+    
+    <% @likes.each do |like| %>
+      <li>
+        <%= avatar_micro(like.user) %>
+        <a href="<%= like.link %>"><%= like.title %></a> 
+        (<%= like.likable_type %>)
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  Nobody likes this post!
+<% end %>

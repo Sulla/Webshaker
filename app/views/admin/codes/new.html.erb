@@ -1,0 +1,15 @@
+<%= form_for [:admin, @code] do |f| %>
+  <p>
+    <label>Email</label>
+    <%= f.text_field :email %>
+  </p>
+  
+  <p>
+    <label>Code</label>
+    <%= f.text_field :code %>  
+  </p>
+    
+  <p>
+    <%= f.submit 'Ok' %>
+  </p>
+<% end %>

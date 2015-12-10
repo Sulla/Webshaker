@@ -1,0 +1,22 @@
+<% if @user.is_freelance? %>
+  <p>
+    <label>Freelance Name</label>
+    <%= f.text_field :freelance_name %>
+  </p>
+  <p>
+    <label>Job title</label>
+    <%= f.text_field :job_title %>
+  </p>
+  <p>
+    <label>Street</label>
+    <%= f.text_field :street %>
+  </p>
+  <p>
+    <label>Zipcode</label>
+    <%= f.text_field :zipcode %>
+  </p>
+  <p>
+    <label>City</label>
+    <%= f.text_field :city %>
+  </p>      
+<% end %>

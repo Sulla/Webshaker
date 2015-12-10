@@ -1,0 +1,68 @@
+input.button-medium {
+	background: url('http://vps.webinti.com/webshaker/images/malo_images/button-medium-blackred.png') no-repeat;
+}
+
+input.button-medium:hover {
+	background: url('http://vps.webinti.com/webshaker/images/malo_images/button-medium-red.png') no-repeat;
+}
+
+input.button-large {
+	background: url('http://vps.webinti.com/webshaker/images/malo_images/button-large-blackred.png') no-repeat;
+}
+
+input.button-large:hover {
+	background: url('http://vps.webinti.com/webshaker/images/malo_images/button-large-red.png') no-repeat;
+}
+
+a{
+	text-decoration:none;
+	color:#aa1f1f;
+}
+
+a:hover{
+	color:#de4343;
+}
+
+#navigation a, #navigation span {
+	background: #000 url('http://vps.webinti.com/webshaker/images/malo_images/bg-nav-a-red.png') left top repeat-x;
+}
+
+#navigation a:hover, #navigation .toggleSubMenu a:hover{
+	background: #000 url('http://vps.webinti.com/webshaker/images/malo_images/bg-nav-a-red.png') left center repeat-x;
+}
+
+#navigation .toggleSubMenu a, #navigation .toggleSubMenu span {
+	background: #000 url('http://vps.webinti.com/webshaker/images/malo_images/bg-nav-a-red.png') left top repeat-x;
+}
+
+#navigation .open a:hover {
+	background: #000 url('http://vps.webinti.com/webshaker/images/malo_images/bg-nav-a-red.png') left bottom repeat-x;
+}
+
+#navigation .open a, #navigation .open span {
+	background: #000 url('http://vps.webinti.com/webshaker/images/malo_images/bg-nav-a-red.png') left bottom repeat-x;
+}
+
+#navigation ul.subMenu a:hover {
+	background: #000 url('http://vps.webinti.com/webshaker/images/malo_images/bg-nav-a-red.png') left center repeat-x;
+}
+
+div.page-list a.active-page {
+	background: none repeat scroll 0 0 #de4343;
+    border: 1px solid #aa1f1f;
+}
+
+form textarea:focus, input.text:focus {
+	border: 1px solid #aa1f1f;
+	-moz-box-shadow: 0px 0px 3px #aa1f1f;
+	-webkit-box-shadow: 0px 0px 3px #aa1f1f;
+	box-shadow: 0px 0px 3px #aa1f1f;
+}
+
+ul.tabs li a:hover {
+	color: #de4343;
+}
+
+ul.tabs li.active a {
+	color: #aa1f1f;
+}

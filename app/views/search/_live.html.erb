@@ -1,0 +1,83 @@
+<div id="mainContent"><%= display_flash %>
+
+  <h2>Live search </h2>
+		<hr class="clear"/>
+	<span class="breath"></span>
+	
+<% if params[:keywords] && params[:keywords].size > 1 %>
+  
+	<% if @users.size==0 && @companies.size==0 && @posts.size==0 && @jobs.size==0 %>
+  		<p><span class="pictos">* </span>Sorry, but there's nothing that matches your criteria.</p>
+  	<% else %>
+		<% if @users.size > 0 %>
+		<div class="searchType">
+			<div class="headList left"><span class="type">People</span></div>			
+			<ul class="searchList">
+	      		<% @users.each do |u| %>
+	        		<li>
+	        			<a class="fullList" href="<%= profile_path(u.profile) %>" title="See <%= u.fullname %>'s profile">
+		        			<%= avatar_micro(u) %>
+		        			<p class="searchListName"><%= u.fullname %></p>
+		        			<span class="underline"><%= u.job_title%></span>
+		        			<hr class="clear" />
+	        			</a>
+	        		</li>
+	      		<% end %>
+			</ul>
+			<hr class="clear" />
+		</div>
+	  	<% end %>
+	
+	  	<% if @companies.size > 0 %>
+	 	<div class="searchType">	
+	 		<div class="headList left"><span class="type">Company</span></div>
+	  		<ul class="searchList">
+	      		<% @companies.each do |c| %>
+	      			
+	      			<li>
+	        			<a class="fullList" href="http://vps.webinti.com/webshaker/companies/<%= c.id %>" title="See <%= c.name %>'s profile">
+		        			<%= avatar_micro(c) %>
+		        			<p class="searchListName"><%= c.name %></p>
+		        			<hr class="clear" />
+	        			</a>
+	        		</li>
+	      			
+	      			
+
+	     		<% end %>
+	  		</ul>
+	  		<hr class="clear" />
+	  	</div>
+	  	<% end %>
+	
+	  	<% if @posts.size > 0 %>
+	   	<div class="searchType">	
+	   		<div class="headList left"><span class="type">News</span></div>
+	  		<ul class="searchList">
+	      		<% @posts.each do |p| %>
+	           		<li><%= link_to p.title, p %></li>
+	           	<% end %>
+			</ul>
+			<hr class="clear" />
+		</div>
+		<% end %>
+	
+	
+	  	<% if @jobs.size > 0 %>
+	 	<div class="searchType">	
+	 		<div class="headList left"><span class="type">Job</span></div>
+	  		<ul class="searchList">
+	      		<% @jobs.each do |j| %>
+	     			<li>  <%= link_to j.post.title, j.post %></li>
+	     		<% end %>
+	 		</ul>
+	 		<hr class="clear" />
+	 	</div>
+	  	<% end %>
+	<% end %>
+  
+
+<% else %>
+  <p><span class="pictos">s </span>Please enter a criteria for your search (more than 1 character).</p>
+<% end %>
+</div>

@@ -1,0 +1,134 @@
+<% content_for :scripts do %>
+  <script type="text/javascript" src="http://maps.google.com/maps/api/js?v=3.3&sensor=false"></script>
+  <%= javascript_include_tag 'markermanager_packed' %>
+  <%= javascript_include_tag 'StyledMarker' %>
+  <%= javascript_include_tag 'jquery.metadata' %>
+  <%= javascript_include_tag 'jquery.jmapping.min' %>
+<% end %>
+
+<% content_for :title do %>WebShaker: <%= @profile.user.fullname %><% end %>
+<% content_for :sidebar do %>
+    <% if @profile.user.lat.present? %>
+    
+    <h3><span class="pictos">G</span> Map</h3>
+    <div id="map">
+      <div id="map-side-bar">
+        <div class="map-location" data-jmapping="{id: <%= @profile.user.id %>, point: {lat: <%= @profile.user.lat %>, lng: <%= @profile.user.lng %>}}">
+          <a href="#" class="map-link"><%= @profile.user.freelance_name %></a>
+          <div class="info-box">
+            <h1><%= @profile.user.freelance_name %></h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <span class="pictos">@</span> <%= @profile.user.street %> <%= @profile.user.zipcode %> <%= @profile.user.city %>
+    <span class="breath"></span>
+    <hr class="separator" />
+  <% end %>
+	
+
+  <%= render :partial => 'shared/signup' %>	
+	
+ 	<%= render :partial => 'shared/top' %>
+ 	
+		 
+<% end %>
+
+
+  	
+  	
+  	
+
+<div id="mainContent"><%= display_flash %>
+	
+	<div class="profileTop">
+	  <% if user_signed_in? %>
+	    <% if current_user == @profile.user %><%= link_to 'Edit Your Profile', "http://vps.webinti.com/webshaker/profiles/#{current_user.profile.id}/edit",:class=>"right" %><% end %> 
+	  <% end %>
+		<%= avatar(@profile.user, 'avatarProfile') %>
+		<h2>
+	
+		<%= @profile.user.fullname %>
+	</h2>
+	<br />
+	<span class="underline"><%= raw @profile.user.job_where %> 	<% if @profile.user.is_freelance? && @profile.user.email.present? %>
+	    | <a href="mailto:<%= @profile.user.email %>"><span class="pictos">M</span> Contact <%= @profile.user.name %></a>
+  	<% end %></span> 
+	<%= render :partial => 'shared/actions', :locals => { :id => @profile.id, :type => 'Profile', :model => @profile } %>
+  <hr class="clear"/>
+  </div>
+	<span class="breath"></span>
+	<div class="profileLinks">
+		
+		<% if @profile.links.size==0 %>
+			<h3><span class="pictos">j </span><%= t('profile.links') %></h3>
+			<p>No link</p>
+		<% else %>
+			<h3><span class="pictos">j </span><%= t('profile.links') %></h3>
+			<ul>
+	    	<% @profile.links.each do |link| %>
+	    	  <li>
+	    	    
+	    	    <a href="<%= link.url %>"><img src="<%= link.try(:link_type).try(:icon) %>"/><%= link.name %></a>
+	    	  </li>
+	    	<% end %>
+	  		</ul>
+	  	<% end %>	
+	</div>
+	<div class="profileDescription">
+		<h3><span class="pictos">U </span><%= t('profile.Bio') %></h3>
+		
+		  <% if @profile.summary.blank? %>
+		  	<p>No description for the moment</p>
+		  <% else %>
+		  	
+		    <%= simple_format @profile.summary %>
+		  <% end %>
+	
+  </div>
+	
+	<% if @profile.user.is_student? %>
+	    <hr class="clear"/>
+    <span class="breath"/></span>
+
+  	<hr class="separator" />
+  	<% if user_signed_in? %>
+	    <% if current_user == @profile.user %><%= link_to 'Add project', "http://vps.webinti.com/webshaker/profiles/submit",:class=>"right" %><% end %> 
+	  <% end %>
+  	<div class="portfolio">
+  		<h3><span class="pictos">P</span> Portfolio</h3>
+  		<% if @profile.user.posts.projects.size > 0 %>
+    		<% @profile.user.posts.projects.each_with_index do |post, index| %>
+      		<a href="http://vps.webinti.com/webshaker/profiles/<%= @profile.id %>/portfolio/<%= post.id %>" class="<%= index == 3 ? 'fourth' : '' %>">
+      		  <% if post.attachments.size > 0 %>
+    		      <img src="<%= post.attachments.first.picture.url(:thumb) %>" class="showcase-img" alt="<%= post.title %>"/>	
+    		    <% end %>
+      			<span><%= post.title %></span>
+      		</a>
+      	<% end %>
+    	<% else %>
+    	  <% if user_signed_in? %>
+	    <% if current_user == @profile.user %><%= link_to 'Add your first project', "http://vps.webinti.com/webshaker/profiles/submit",:class=>"button" %><% end %> 
+	  <% end %>
+    	<% end %>
+  	</div>
+  <% end %>
+	
+	
+  <hr class="clear"/>
+  <span class="breath"/></span>
+	
+	<hr class="separator" />
+	
+
+<h3>All submissions by <%= @profile.user.fullname %></h3>
+<%= render :partial => 'posts/posts', :locals => { :posts => @posts } %>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#map').jMapping({
+  		default_zoom_level: 13
+  	});
+  });
+</script>

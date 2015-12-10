@@ -1,0 +1,7 @@
+<% if post.comments.size == 0 %>
+  <span id="nocom">No comment yet. Be the first!</span>
+<% else %>
+  <% post.comments.each do |comment| %>
+    <%= render :partial => 'comments/comment', :locals => { :comment => comment, :post => post }%>
+  <% end %>
+<% end %>

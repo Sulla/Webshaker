@@ -1,0 +1,14 @@
+<% if @user.is_student? %>
+  <p>
+    <%= f.label :firstname %>
+    <%= f.text_field :firstname %>
+  </p>
+  <p>
+    <%= f.label :lastname %>
+    <%= f.text_field :lastname %>
+  </p>
+  <p>
+    <label>School</label>
+    <%= select :user, :school_id, School.all.collect{|p| [p.name, p.id]}%>
+  </p>
+<% end %>

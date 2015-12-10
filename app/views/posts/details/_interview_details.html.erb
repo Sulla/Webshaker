@@ -1,0 +1,29 @@
+<% content_for :sidebar do %>
+	<div class="">
+
+
+		<h3>About the author</h3>
+		<a href="http://vps.webinti.com/webshaker/profiles/<%= @post.user.profile.id %>" class="tableLink">
+			<%= avatar(@post.user, "left avatarStyle") %>
+			<h4><%= @post.user.fullname %></h4>
+			<p><%= @post.user.job_title %></p>
+		</a>
+		 
+	</div>
+<% end %>
+
+<div class="mee">
+	<%= render :partial => 'shared/actions', :locals => { :id => @post.id, :type => 'Post', :model => @post } %>
+	<div class="shareThis">
+		<span  class='st_twitter_button' displayText='Tweet'></span><span  class='st_facebook_button' displayText='Facebook'></span><span  class='st_plusone_button' ></span>
+	</div>
+	<hr class="clear" />
+</div>
+
+<span class="breath"/></span>
+<iframe src="http://player.vimeo.com/video/<%= @post.interview.movie_url %>?byline=0" width="623" height="350" frameborder="0" webkitAllowFullScreen allowFullScreen></iframe>
+
+<span class="breath"/></span>
+
+<%= sanitize_content(@post.content, @post) %>
+

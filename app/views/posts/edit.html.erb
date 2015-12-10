@@ -1,0 +1,46 @@
+<% content_for :title do %>WebShaker: Edit <%= @post.title %><% end %>
+<% content_for :scripts do %>
+  <%= javascript_include_tag 'posts' %>
+<% end %>
+
+<% content_for :sidebar do %>
+	<%= render :partial => 'shared/myPostsSidebar' %>
+
+<% end %>
+<div class="headerContent">
+	<h2><span class="type"><%= @post.type_label %></span> Edit <%= @post.title %></h2>
+</div>
+<div id="mainContent"><%= display_flash %>
+
+  
+  
+  <% if current_user == @post.user %>
+    <a href="http://vps.webinti.com/webshaker/profiles/posts" id="backShaker"><span class="pictos">[</span> Back to my posts</a>
+    <div class="mee">
+      <% if @post.validated %>
+    	  <span class="online">Online</span>      
+      <% elsif @post.refused_at %>
+    	  <span class="refused">Refused</span>    
+    	  <a href="http://vps.webinti.com/webshaker/posts/<%= @post.id %>/repost" id="repost_btn" class="button right">Repost</a>
+      <% else %>
+    	  <span class="pending">Pending</span>
+    	<% end %>
+    	<hr class="clear"/>
+    </div>
+  <% end %>
+  
+  
+  <span class="breath"></span>
+  <form id="new_post" action="http://vps.webinti.com/webshaker/posts/<%= @post.id %>" method="post" class="main_form" >
+    <%= render :partial => 'posts/forms/form', :locals => { :post => @post, :post_type_id => @post.post_type_id }%>
+    <input type="hidden" name="_method" value="put"/>
+    <input type="hidden" id="repost" name="repost" value="false"/>    
+    <input type="submit" value="Save"/>
+  </form>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    enableUploader();
+  });
+</script>

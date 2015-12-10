@@ -1,0 +1,26 @@
+<% content_for :title do %>WebShaker: Top Companies<% end %>
+<% content_for :sidebar do %>
+	
+	
+	<%= render :partial => 'shared/myActivity' %>
+	<%= render :partial => 'shared/signup' %>	
+		<%= render :partial => 'shared/top' %>
+	<%= render :partial => 'shared/advertise' %>	
+ 	<%= render :partial => 'shared/videos' %>	
+ 
+
+<% end %>
+
+<% content_for :scripts do %>
+  <%= javascript_include_tag 'posts' %>
+<% end %>
+
+
+
+<div id="mainContent">
+	<%= display_flash %>
+	<h2>Top of posts</h2>
+	<span class="breath"></span>
+  <%= render :partial => 'posts', :locals => { :posts => Post.top } %>
+</div>
+

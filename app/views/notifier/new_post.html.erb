@@ -1,0 +1,15 @@
+<p>
+  Un nouveau post a été créé et est en attente de validation
+</p>
+<p>
+  <%= @post.title %>
+</p>
+<p>
+  <%= raw @post.content %>
+</p>
+<p>
+  Par <%= @post.user.fullname %> le <%= @post.created_at %>
+</p>
+<p>
+  <a href="http://vps.webinti.com/webshaker/admin">Valider le post</a>
+</p>

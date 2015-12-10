@@ -1,0 +1,59 @@
+<div id="mainContent">
+<h2>Account Settings</h2>
+<h3><%= t('profiles.avatar') %></h3>
+
+<%= avatar(@user) %>
+
+<hr class="separator" />
+<h3><%= t('profiles.edit') %></h3>
+
+<%= form_for [:admin, @user] ,:html=>{:class=>"main_form"} do |f| %>
+  <p>
+    <label>Firstname</label>
+    <%= f.text_field :firstname %>
+  </p>
+  <p>
+    <label>Lastname</label>
+    <%= f.text_field :lastname %>
+  </p>
+  <p>
+    <label>Email</label>
+    <%= f.text_field :email %>
+  </p>
+  
+  <% if @user.is_freelance? %>
+    <p>
+      <label>Freelance Name</label>
+      <%= f.text_field :freelance_name %>
+    </p>
+    <p>
+      <label>Job title</label>
+      <%= f.text_field :job_title %>
+    </p>
+  <% end %>
+  
+  <% if @user.is_student? %>
+    <p>
+      <label>School</label>
+      <%= select :user, :school_id, School.all.collect{|p| [p.name, p.id]}%>
+    </p>
+  <% end %>
+
+  <% if @user.is_employee? || @user.is_company_owner? || @user.is_company_admin? %>
+    <p>
+      <label>Company</label>
+      <%= select :user, :company_id, Company.all.collect{|p| [p.name, p.id]}%>
+    </p>
+  
+    <p>
+      <label>Job title</label>
+      <%= f.text_field :job_title %>
+    </p>
+  <% end %>
+  
+  <p>
+    <%= f.submit t('profiles.save') %>
+  </p>
+<% end %>
+
+</div>

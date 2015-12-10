@@ -1,0 +1,38 @@
+<% content_for :h1 do %>
+	Comments
+<% end %>
+
+<% content_for :breadcrump do %>
+	> <a href="http://vps.webinti.com/webshaker/admin/comments">Comments</a>
+	> <%= @comment.user.fullname %>
+<% end %>
+
+<% content_for :boxheader do %>
+	<a href="" title="New page" class="button-medium link-header">Edit comment</a>
+	<h2>Content</h2>
+<% end %>
+
+<p>
+  <label>ID</label>
+  <%= @comment.id %>
+</p>
+
+<p>
+  <label>Fullname</label>
+  <%= @comment.user.fullname %>
+</p>
+
+<p>
+  <label>Post</label>
+  <%= @comment.commentable.title %>
+</p>
+
+<p>
+  <label>Content</label>
+  <%= @comment.content %>
+</p>
+
+<p>
+  <label>Date</label>
+  <%= @comment.created_at %>
+</p>

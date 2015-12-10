@@ -1,0 +1,78 @@
+<% content_for :title do %>WebShaker: Edit profile<% end %>
+<% content_for :scripts do %>
+  <%= javascript_include_tag 'links' %>
+  <%= javascript_include_tag 'mustache' %>
+  <%= javascript_include_tag 'registration' %>
+<% end %>
+
+
+<% content_for :sidebar do %>
+	   
+<h3><span class="pictos">j </span><%= t('profiles.Your links') %></h3>
+<p class="note">These links appear on your profile !</p>
+<%= render :partial => 'links/manage', :locals => { :linkable => 'profile' } %>
+
+<% end %>
+
+<div id="mainContent">
+<h2>Edit my account</h2>
+
+<%= render :partial => 'shared/accountMenu', :locals => {:selected_menu => "profile" } %>
+  
+
+<% if @user.avatar_file_name.present? %>
+  <form method="post" action="http://vps.webinti.com/webshaker/profiles/reset_avatar" class="deleteAvatarForm">
+    <input type="submit" class="button" value="<%= t('profiles.reset_avatar') %>"/>
+  </form>
+<% end %>
+
+<%= form_for @user, :url => "http://vps.webinti.com/webshaker/profiles/<%= @profile.id %>", :method => :put, :html => { :class => "main_form", :multipart => true } do |f| %>
+  <% if @user.errors.any? %>  
+    <div id="errorExplanation">  
+      <h3><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h3>
+      <ul>  
+      	<% @user.errors.full_messages.each do |msg| %>
+        	<li><%= msg %></li>  
+      	<% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div>
+  	<%= f.label :avatar %>
+ 	<div class="avatar_edit">
+ 		<%= avatar(@user) %>
+ 		<span>
+ 		
+ 		<div class="qq-upload-button">
+			<span class="pictos">P </span>Browse 
+			<input id="user_avatar" type="file" name="user[avatar]" >
+		</div>
+ 			<span class="uploadImage" id="filename"><span class="pictos">P </span></span>
+  			<p class="note">Upload a photo so other WebShaker members can put a name to a face.<br/>Photos must be at least 200px square and either png or jpeg. You may edit your account here instead.</p>
+  		</span>
+  	</div>
+  </div>
+  
+  <%= render :partial => 'profiles/form/freelance', :locals => { :f => f } %>
+  
+  <%= render :partial => 'profiles/form/student', :locals => { :f => f } %>
+
+  <%= render :partial => 'profiles/form/company', :locals => { :f => f } %>
+  
+  <%= render :partial => 'profiles/form/other', :locals => { :f => f } %>  
+  
+  <p>
+    <label><%= t("profiles.description") %></label>
+    <textarea rows="20" name="profile[summary]" id="profile_summary" cols="40"><%= @profile.summary %></textarea>
+  </p>
+  
+  <p>
+    <%= f.submit t('profiles.save'), :value => "Submit" %>
+  </p>
+<% end %>
+<hr class="clear"/>
+<span class="breath"></span>
+<p class="right"><span class="pictos">1 </span>You want to change your profile type ? <a href="mailto:info@webshaker.be">Please send us an email</a>.</p>
+
+</div>

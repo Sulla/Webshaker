@@ -1,0 +1,89 @@
+<% content_for :title do %>WebShaker: Submit in the Shaker<% end %>
+<% content_for :scripts do %>
+  <%= javascript_include_tag 'posts' %>
+<% end %>
+
+<% content_for :sidebar do %>
+<div class="explaination">
+ 	<h2><span class="pictos">2</span> Quality  first !</h2>
+			<p class="subQuality">Your post needs to be validated before it goes online in order to ensure the high quality of content. <br />We reserve the right to invalidate your submission if it does not respect the following advices:</p>
+			<br />
+			<strong>Général:</strong>
+			<ul>
+				<li>Use English if it is posssible.</li>
+				<li>Watch your spelling and/or grammar.</li>
+				<li>Your life is not as interesting as you might think. Try to keep your mood status for your Facebook friends.</li>
+				<li>Only submit finished, relevant and commented work. </li>
+			</ul>
+			<strong><span class="pictos">P</span> Projects</strong>
+			<ul>
+				<li>To post a project in the shaker you need to be administrator of your agency or be freelance</li>
+				<li>We recommend to upload more visual</li>
+
+ </div>  
+<span class="breath"></span>
+<!--
+<div class="explaination">
+  <div id="post_type_1" class="post_desc">
+  	<h3><span class="pictos size2">N</span> Post a good new !</h3>
+    
+  </div>
+  <div id="post_type_2" class="post_desc hidden">
+  	<h3><span class="pictos size2">P</span> Post an amazing project !</h3>
+   
+  </div>
+  <div id="post_type_3" class="post_desc hidden">
+  	<h3><span class="pictos size2">\</span> Post an event !</h3>
+   
+  </div>
+  <div id="post_type_4" class="post_desc hidden">
+    <h3><span class="pictos size2">O</span> Post a job offer !</h3>
+  
+  </div> 
+ </div>  -->
+ <% end %>
+
+
+<div id="mainContent"><%= display_flash %>
+		<h2>New submission in the Shaker</h2>
+		<span class="breath"></span>
+		  		
+	<div class="mee whatPost">
+		  <span class="left whatPost">What do you want to post ?</span>
+		  <% if current_user.has_permission?(:post_article) %>
+		    <a href="#" class="new_post newsType <%= get_selected_post_type(@post, 1) %>" data-id="1"><span class="pictos size2">N</span> A news</a>
+		  <% end %>
+		  <% if current_user.has_permission?(:post_project) %>	  
+		    <a href="#" class="new_post projectType <%= get_selected_post_type(@post, 2) %>" data-id="2"><span class="pictos size2">P</span> A project</a>
+		  <% end %>
+		  <% if current_user.has_permission?(:post_event) %>	  
+		    <a href="#" class="new_post eventType <%= get_selected_post_type(@post, 3) %>" data-id="3"><span class="pictos size2">\</span> An event</a>
+		  <% end %>
+		  <% if current_user.has_permission?(:post_job) %>	  
+		    <a href="#" class="new_post jobType <%= get_selected_post_type(@post, 4) %>" data-id="4"><span class="pictos size2">O</span> A job offer</a>
+		  <% end %>
+		  <% if current_user.has_permission?(:post_interview) %>	  
+		    <a href="#" class="new_post interviewType <%= get_selected_post_type(@post, 5) %>" data-id="5"><span class="pictos size2">O</span> Interview</a>
+		  <% end %>		  
+		  <hr class="clear"/>
+	</div>
+  <hr class="clear"/>
+  <form id="new_post" action="http://vps.webinti.com/webshaker/posts" method="post" class="main_form" enctype="multipart/form-data">
+  	<p class="right note">* means that the following field is required.</p>
+  	<hr class="clear" />
+    <div id="form">
+    	
+      <%= render :partial => 'posts/forms/form', :locals => { :post => @post, :post_type_id => @post.post_type_id } %>
+    </div>
+    <hr class="clear"/>
+    <p>
+      <input type="submit" class="submit" id="submit_shaker" value="Submit in the Shaker"/>
+    </p>
+  </form>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    enableUploader();
+  });
+</script>

@@ -1,0 +1,26 @@
+**********************
+******** TODO ********
+**********************
+
+b3189a4c3f7844224181477f31502eba-us2
+57eac79b59
+
+gb = Gibbon.new("b3189a4c3f7844224181477f31502eba-us2")
+gb.listSubscribe({:id => "57eac79b59", :email_address => "ahe@intotheweb.be"})
+
+Subscribe(string id, string email_address, array merge_vars, string email_type, bool double_optin, bool update_existing, bool replace_interests, bool send_welcome)
+
+
+
+Search(id, user_id, name, notification)
+SearchCriteria(id, search_id, keywords, user_id, company_id, articles, projects, events, jobs)
+
+- validation des formulaires
+- Advanced search
+- Save adv searches and notifications
+
+Actions en WRITE :
+- En tant qu'étudiant / demandeur d'emploi je peux poster une news et un event
+- En tant que freelance, je peux poster une news, un event et un projet
+- En tant qu'admin d'agence, je peux poster une news, un event, un projet et un job
+- En tant qu'admin je peux tout faire

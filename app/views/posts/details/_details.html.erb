@@ -1,0 +1,11 @@
+<% if post.post_type_id == 1 %>
+  <%= render :partial => 'posts/details/article_details', :locals => { :article => post } %>
+<% elsif post.post_type_id == 2 %>
+  <%= render :partial => 'posts/details/project_details', :locals => { :post => post, :project => post.project } %>
+<% elsif post.post_type_id == 3 %>
+  <%= render :partial => 'posts/details/event_details', :locals => { :post => post, :event => post.event } %>
+<% elsif post.post_type_id == 4 %>
+  <%= render :partial => 'posts/details/job_details', :locals => { :post => post, :job => post.job } %>
+<% elsif post.post_type_id == 5 %>
+  <%= render :partial => 'posts/details/interview_details', :locals => { :post => post, :job => post.interview } %>
+<% end %>

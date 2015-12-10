@@ -1,0 +1,56 @@
+<% content_for :title do %>WebShaker: <%= @post.title %> <% end %>
+<% content_for :scripts do %>
+  <%= javascript_include_tag 'post' %>
+<% end %>
+
+<% content_for :sidebar do %>
+ 	
+<% end %>
+
+<div class="headerContent">
+<% if current_user && current_user == @post.user %>
+    <a href="http://vps.webinti.com/webshaker/posts/<%= @post.id %>/edit" title="Edit your post" class="button right" />Edit your post</a>
+  <% end %>
+ <h2><span class="type"><%= @post.type_label %></span> <%= @post.title %></h2>  
+</div>
+<div id="mainContent">
+
+<%= display_flash %>
+<% if current_user == @post.user && !@post.validated %>
+  <a href="http://vps.webinti.com/webshaker/profiles/posts" id="backShaker"><span class="pictos">[</span> Back to my posts</a>
+  <div class="mee">
+    <% if @post.refused_at %>
+  	  <span class="refused">Refused</span>    
+  	  <a href="http://vps.webinti.com/webshaker/posts/<%= @post.id %>/repost" class="button right">Repost</a>
+    <% else %>
+  	  <span class="pending">Pending</span>
+  	<% end %>
+  	<hr class="clear"/>
+  </div>
+<% else %>
+  <a href="http://vps.webinti.com/webshaker" id="backShaker"><span class="pictos">[</span>Back to Shaker</a>
+<% end %>
+   
+ 
+  
+<hr class="clear"/>
+
+	  
+
+<%= render :partial => 'posts/details/details', :locals => { :post => @post } %>
+
+<hr class="separator">
+
+<% if include_comments_for(@post) %>
+  <h3>Comments</h3>
+  <div id="comments">
+      <%= render :partial => 'comments/comments', :locals => { :post => @post } %>
+  </div>
+	<div id="commentsBox" class="mee">
+  <h3>Add a comment</h3>
+    <%= render :partial => 'comments/new', :locals => { :post => @post } %>
+  
+<% end %>
+<hr class="clear" />
+</div>
+</div>

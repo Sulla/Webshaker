@@ -1,0 +1,25 @@
+<% content_for :title do %>WebShaker: Reset password<% end %>
+<% content_for :sidebar do %>
+<%= render :partial => 'shared/signup' %>	
+
+<% end %>
+
+<div class="headerContent">
+		<h2>Forgot your password?</h2>
+
+</div>
+<div id="mainContent"><%= display_flash %>
+
+
+
+<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post, :class=>"main_form" }) do |f| %> 
+  <%= devise_error_messages! %>
+
+  <p><%= f.label :email %>
+  <%= f.email_field :email %></p>
+
+  <p><%= f.submit "Send me reset password instructions" %></p>
+<% end %>
+
+
+</div>

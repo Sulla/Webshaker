@@ -1,0 +1,24 @@
+
+/* Queries */
+/*@media screen and (orientation:portrait) {*/
+
+@media screen and (max-width: 900px) {
+	body{background-color: red;}
+	.center {
+    width: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+	}
+	#mainNav{
+
+	width: auto;
+	}
+	
+	#mainContent, div#main-contentn, #footer-content {
+	width: auto;
+	}
+	
+	.headerContent { width: auto}
+	aside { display: none;}
+}
+

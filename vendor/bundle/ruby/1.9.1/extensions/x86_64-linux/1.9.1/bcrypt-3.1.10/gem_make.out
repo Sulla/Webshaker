@@ -1,0 +1,16 @@
+/home/webshaker/.rvm/rubies/ruby-1.9.3-p551/bin/ruby -r ./siteconf20150822-20307-qyx3sw.rb extconf.rb 
+creating Makefile
+
+make  clean
+
+make
+compiling bcrypt_ext.c
+compiling crypt_blowfish.c
+compiling wrapper.c
+compiling crypt.c
+compiling crypt_gensalt.c
+linking shared-object bcrypt_ext.so
+
+make  install
+/usr/bin/install -m 0755 bcrypt_ext.so .gem.20150822-20307-1fwcd7r
+installing default bcrypt_ext libraries

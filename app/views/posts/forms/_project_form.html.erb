@@ -1,0 +1,45 @@
+
+<p <%= field_with_error?(post, :title) %>>
+  <label>Project title <em>*</em></label>
+	<input type="text" id="title" name="title" value="<%= get_post_value(:title, post) %>" />
+</p>
+
+<p <%= field_with_error?(post.unsaved_associated_model, :url) %>>
+  <label>Project url</label>
+	<input type="text" id="url" name="url" value="<%= get_post_value(:url, post.unsaved_associated_model) %>" />
+</p>
+
+<p <%= field_with_error?(post, :content) %>>
+  <label>Project description <em>*</em></label>
+  <textarea cols="70" rows="5" id="content" name="content" class="tinymce"><%= get_post_value(:content, post) %></textarea>
+</p>
+
+<p>
+  <label>Screenshots <em>*</em></label>
+
+  <div id="file-uploader" data-id="<%= post.id %>"></div>
+  <span class="note left">Optimal size: at least 620px wide and either png or jpeg.</span>
+  <hr class="clear"/>
+  <ul id="attachments">
+  	
+      <% post.attachments.each do |attachment| %>
+        <li id="attachment_<%= attachment.id %>">
+          <span><%= image_tag attachment.picture(:thumb) %></span>
+          <span>
+            <a href="#" class="delete" title="Delete" data-id="<%= attachment.id %>"><img src="http://vps.webinti.com/webshaker/images/ico/cross.png"></a>
+          </span>
+        </li>
+      <% end %>
+      <% Attachment.find_pendings_by_user(current_user.id).each do |attachment| %>
+        <li id="attachment_<%= attachment.id %>">
+          <span><%= image_tag attachment.picture(:thumb) %></span>
+          <span>
+            <a href="#" class="delete" title="Delete" data-id="<%= attachment.id %>"><img src="http://vps.webinti.com/webshaker/images/ico/cross.png"></a>
+          </span>
+        </li>
+      <% end %>
+      </ul>
+      <hr class="clear"/>
+  
+</p>
+<input type="hidden" name="post_type_id" id="post_type_id" value="2"/>

@@ -1,0 +1,32 @@
+<% users.each_with_index do |user, index| %>
+  <% if user.respond_to?(:profile) %>
+    <a class="member <%= set_odd(index) %>" title="" href="http://vps.webinti.com/webshaker/profiles/<%= user.profile.id %>">
+  <% else %>
+    <a class="member <%= set_odd(index) %>" title="" href="http://vps.webinti.com/webshaker/companies/<%= user.id %>">  
+  <% end %>
+    <%= avatar_small(user) %>
+    <h3>
+      <% if user.respond_to?(:profile) %>
+        <%= user.fullname %>
+      <% else %>
+        <%= user.name %>
+      <% end %>
+    </h3>
+    <% if user.instance_of?(User) %>
+      <% if user.is_student? %>
+        <span><%= user.try(:school).try(:name) %></span>
+       <% elsif user.is_other? %>
+        <span><%= user.job_title %></span>
+      <% elsif user.is_employee? %>
+        <span class="underline"><%= user.job_where_no_link %></span>
+      <% elsif user.is_freelance? %>
+        <span><%= user.job_title %></span>
+      <% elsif user.is_company_owner? %>
+        <span><%= user.try(:company).try(:name) %> </span>
+      <% end %>
+     <% elsif user.instance_of?(Company) %>
+     <span class="underline"><%= user.try(:city)%></span>
+    <% end %>
+    <hr class="clear">
+  </a>
+<% end %>

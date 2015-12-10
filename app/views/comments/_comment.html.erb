@@ -1,0 +1,22 @@
+
+
+<% if comment.user == comment.commentable.user %>
+  <div class="comment author">
+  <img src="http://vps.webinti.com/webshaker/images/bg-author.png" class="ribbon" alt="author" />
+<% elsif comment.user.is_admin? %>
+  <div class="comment admin">  
+<% else %>
+  <div class="comment">
+<% end %>
+  <div class="whoisComment">
+		<a href="http://vps.webinti.com/webshaker/profiles/<%= comment.user.profile.id %>"><%= avatar(comment.user) %></a>
+	  <p class="meta"> By <a href="http://vps.webinti.com/webshaker/profiles/<%= comment.user.profile.id %>"><%= comment.user.fullname %></a> -   <%= format_date comment.created_at %></p>
+	</div>
+	<p>
+    <%= comment.content %>
+  </p>
+  
+</div>
+
+
+

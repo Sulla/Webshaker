@@ -1,0 +1,19 @@
+<% content_for :title do %>WebShaker: Edit company<% end %>
+<% content_for :scripts do %>
+  <%= javascript_include_tag 'companies' %>
+  <%= javascript_include_tag 'mustache' %>
+  <%= javascript_include_tag 'links' %>
+<% end %>
+
+<% content_for :sidebar do %>
+	<h3><span class="pictos">j </span><%= t('profiles.links') %></h3>
+	<p class="note">These links appear on your profile !</p>
+	<%= render :partial => '/links/manage.html.erb', :locals => { :linkable => 'company' } %>
+<% end %>
+
+<div id="mainContent">
+<h2><%= t('companies.edit') %></h2>
+<%= render :partial => 'menu', :locals => {:selected_menu => "company" } %>
+<span class="breath"></span>
+<%= render :partial => '/companies/form.html.erb' %>
+</div>

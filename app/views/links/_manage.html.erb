@@ -1,0 +1,42 @@
+<form id="add_link" class="second_form" action="http://vps.webinti.com/webshaker/links" method="post">
+ <p>
+    <label><%= t('links.type') %></label>
+    <select id="link_type" name="type">
+      <% @link_types.each do |lt| %>
+        <option value="<%= lt.id %>"><%= lt.name %></option>
+      <% end %>
+    </select>
+  	<hr class="clear" />
+  </p>
+  <p>
+    <label>Name</label>
+    <input id="link_name" type="text" name="name"/>
+  	<hr class="clear" />
+  </p>  
+  <p>
+    <label><%= t('links.url') %></label>
+    <input id="link_url" type="text" name="url" value="http://" />
+  	<hr class="clear" />
+  </p>  
+  
+  <p>
+    <input type="submit" class="button right" value="<%= t('links.create') %>"/>
+    <input id="linkable" type="hidden" name="linkable" value="<%= linkable %>"/>
+  	<hr class="clear" />
+  </p>
+</form>
+
+
+<ul id="links_list">
+	<% @links.each do |link| %>
+	<li data-id="<%= link.id %>" class="link_row tableLink">
+		<img src="<%= link.try(:link_type).try(:icon) %>"/><h4><a href="<%= link.url %>"><%= link.name %></a></h4>
+		<a class="delete_link right" data-id="<%= link.id %>" href="#">
+           <span class="pictos">#</span>
+        </a>
+		<a class="edit_link right" data-id="<%= link.id %>" href="#">
+           <span class="pictos" action="edit">p</span>
+        </a>	
+	</li>
+	<% end %>
+</ul>

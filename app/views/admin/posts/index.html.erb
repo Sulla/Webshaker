@@ -1,0 +1,70 @@
+<% content_for :scripts do %>
+  <%= javascript_include_tag('malo_js/posts') %>
+<% end %>
+
+<% content_for :h1 do %>
+	Posts
+<% end %>
+
+<% content_for :breadcrump do %>
+	> Posts
+<% end %>
+
+<% content_for :boxheader do %>
+	<h2>LISTING</h2>
+<% end %>
+
+<table cellpadding="0" cellspacing="0" width="100%" class="sortable">
+						
+	<thead>
+		<tr>
+		  <th>ID</th>
+			<th>Title</th>
+			<th>Auteur</th>			
+			<th>Type</th>
+			<th>Accepted</th>
+			<th class="action">Action</th>
+		</tr>
+	</thead>
+	<tbody data-type="posts">
+	  <% @posts.each_with_index do |post, index| %>
+  		<tr class="<%= index % 2 == 0 ? 'one' : 'two' %>" id="posts_<%= post.id %>">
+  		  <td><%= post.id %></td>
+  			<td><%= link_to post.title, "http://vps.webinti.com/webshaker/admin/posts/#{post.id}" %></td>
+  			<td><%= post.try(:user).try(:fullname) %></td>
+  			<td>
+  			  <% if post.post_type_id == 1 %>
+            Article
+          <% elsif post.post_type_id == 2 %>
+            Project
+          <% elsif post.post_type_id == 3 %>
+            Event
+          <% elsif post.post_type_id == 4 %>
+            Job
+          <% end %>
+  			</td>
+  			<td>
+  			  <% if post.accepted_at.nil? %>
+            <a href="#" data-id="<%= post.id %>" class="accept_post"><img src="http://vps.webinti.com/webshaker/images/ico/accept.png"/></a>  			  
+            <a href="#" data-id="<%= post.id %>" class="refuse_post"><img src="http://vps.webinti.com/webshaker/images/ico/delete.png"/></a>
+          <% else %>
+            <%= post.accepted_at %>
+			    <% end %>
+  			</td>
+  			<td class="action">
+  			  <a href="http://vps.webinti.com/webshaker/admin/posts/<%= post.id %>" ><img src="http://vps.webinti.com/webshaker/images/ico/eye.png"/></a>  			  
+  			  <a href="http://vps.webinti.com/webshaker/admin/posts/<%= post.id %>/edit" ><img src="http://vps.webinti.com/webshaker/images/ico/edit.png"/></a>
+  			  <a href="#" class="delete" title="Delete" data-id="<%= post.id %>" data-type="posts">Delete</a>
+  			  <a href="#" data-id="<%= post.id %>" class="post_visibility">
+    			  <% if post.online %>
+    			    <img src="http://vps.webinti.com/webshaker/images/ico/accept.png"/>
+    			  <% else %>
+    			    <img src="http://vps.webinti.com/webshaker/images/ico/cross.png"/>
+    			  <% end %>
+    			</a>
+  			</td>
+  		</tr>
+  	<% end %>		
+	</tbody>
+</table>
+<input type="hidden" id="clicked_item" value=""/>

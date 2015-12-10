@@ -1,0 +1,105 @@
+<% content_for :title do %>WebShaker: Edit company<% end %>
+<% content_for :scripts do %>
+  <%= javascript_include_tag 'companies' %>
+  <%= javascript_include_tag 'mustache' %>
+  <%= javascript_include_tag 'links' %>
+<% end %>
+
+<% content_for :sidebar do %>
+		<h3>
+			<span class="pictos">M </span>
+			<span class="" title="">Invitations</span>
+		</h3>
+		<p class="note">You can invite your colleagues to join you on WebShaker </p>
+ 
+ 		<form class="second_form">
+  	  <p>
+  	    <label>Email</label>
+  	    <input type="text" id="email"/>
+  	  </p>
+		  <p>
+  	    <input type="submit" value="Send invitation" class="right" id="send_invite"/>
+  	  </p>
+  	  <hr class="clear"/>
+  	 </form>
+  	
+
+<% end %>
+
+<div id="mainContent">
+	
+  <h2><%= t('companies.manage_employees') %></h2>
+  <%= render :partial => 'menu', :locals => {:selected_menu => "employees" } %>
+
+  <span class="breath"></span>
+  
+   <h3>Current employees</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Nom</th>
+        <th>Admin</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="employees_tbody">
+      <% @company.workers.validated.each do |worker| %>
+        <% if worker.user %>
+          <tr class="employee_row" data-id="<%= worker.id %>">
+         
+            <td><%= worker.user.fullname %></td>
+            <td>
+              <% if worker.removable %>
+                <% if worker.admin %>
+                  <input class="worker_admin" type="checkbox" data-id="<%= worker.id %>" checked="checked"/>
+                <% else %>
+                  <input class="worker_admin" type="checkbox" data-id="<%= worker.id %>"/>
+                <% end %>
+              <% end %>
+            </td>
+            <td>
+              <% if worker.removable %>
+                <a class="delete_worker" href="#" data-id="<%= worker.id %>">
+                  <img src="http://vps.webinti.com/webshaker/images/ico/delete.png"/>
+                </a>
+              <% end %>
+            </td>
+          </tr>  
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+ 	<span class="breath"></span>
+ 
+  <span class="breath"></span>
+
+  <h3><%= t('companies.requests validation') %></h3>
+  <table>
+    <thead>
+      <tr>
+      
+        <th> Nom
+        <th> Actions
+    
+    <tbody>
+      <% @requests.each do |worker| %>
+        <% if worker.user && worker.user != current_user %>
+          <tr class="request_row" data-id="<%= worker.id %>">
+         
+            <td><%= worker.user.fullname %></td>
+            <td>
+              <a class="accept_worker" href="#" data-id="<%= worker.id %>">
+                <img src="http://vps.webinti.com/webshaker/images/ico/accept.png"/>
+              </a>
+              <a class="refuse_worker" href="#" data-id="<%= worker.id %>">            
+                <img src="http://vps.webinti.com/webshaker/images/ico/delete.png"/>
+              </a>
+              <%= link_to image_tag('ico/eye.png'), worker.user.profile %>
+            </td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<% content_for :h1 do %>
+	Companies
+<% end %>
+
+<% content_for :breadcrump do %>
+	> <a href="http://vps.webinti.com/webshaker/admin/companies">Companies</a>
+	> <%= @company.name %>
+<% end %>
+
+<% content_for :boxheader do %>
+	<a href="" title="New page" class="button-medium link-header">Edit company</a>
+	<h2>Details</h2>
+<% end %>
+
+<p>
+  <label>ID</label>
+  <%= @company.id %>
+</p>
+
+<p>
+  <label>Company</label>
+  <%= @company.name %>
+</p>
+
+<p>
+  <label>Created at</label>
+  <%= @company.created_at %>
+</p>

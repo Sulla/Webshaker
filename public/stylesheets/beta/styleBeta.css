@@ -1,0 +1,377 @@
+@import "anim.css";
+
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+/* remember to define focus styles! */
+:focus {
+	outline: 0;
+}
+body {
+	line-height: 1;
+	color: black;
+	background: white;
+}
+ol, ul {
+	list-style: none;
+}
+
+.WantCode{
+color: #fff;
+font-family: Georgia;
+font-size: 14px;
+position: relative;
+top:25px;
+}
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+	border-collapse: separate;
+	border-spacing: 0;
+}
+caption, th, td {
+	text-align: left;
+	font-weight: normal;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: "";
+}
+blockquote, q {
+	quotes: "" "";
+}
+
+body {
+	/*background: url(/images/beta/bg.jpg) #e8e7e3;*/
+	background-color: #E7E6E1;
+	color: #fff;
+}
+
+.cousure {
+	height: 2px;
+	width: 100%;
+	background: url(/images/beta/cousure.png) repeat-x transparent 0 50%;
+	position: absolute;
+	border: none;
+}
+
+.top {top: -1px;}
+.bottom {bottom: 0;}
+.left {float: left;}
+.right {float: right;}
+
+	#container {
+		width: 100%;
+		height: 410px;
+		background-color: #312d2a;
+		position: absolute;
+		top: 50%;
+		margin-top: -205px;
+		border-top: 1px solid #363330;
+		-webkit-box-shadow: -5px 3px 5px #888;
+		-moz-box-shadow: -5px 3px 5px #888;
+		-webkit-animation: animContent 0.6s ease 1;
+		-moz-animation: animContent 0.6s ease 1;
+		
+	}
+	
+		#content {
+			width: 100%;
+			height: 100%;
+			position: relative;
+			
+		}
+		
+		#main {
+			width: 920px;
+			margin: 0 auto;
+			height: 100%;
+			position: relative;
+			
+			background: url(/images/beta/bg-container.jpg) no-repeat top center;
+		}
+		
+			#main #img {
+				position: absolute;
+				top: -120px;
+			
+				left: 0;
+				z-index: 2;
+				
+				background: url(/images/beta/the-shaker.png) no-repeat;
+				width: 335px;
+				height: 640px;
+				
+				-webkit-animation: animShaker 1.2s ease 1;
+				-moz-animation: animShaker 1.2s ease 1;
+				
+				
+			}
+			
+		
+			
+		#real-content {
+			text-align: center;
+			margin-top: 30px;
+			width: 570px;
+			
+		}			
+	
+		#real-content h1 {
+			background: url(/images/beta/logo.png) no-repeat top center;
+			width: 260px;
+			height: 120px;
+			display: block;
+			text-indent: -9999px;
+			margin: 0 auto;
+			-webkit-animation: animLogo 1s ease 1;
+		}
+		
+		#real-content p {
+			font-family: Georgia;
+			font-style: italic;
+			font-size: 18px;
+			font-weight: 100;
+			color: #fff;
+			line-height: 26px;
+			margin: 0 auto;
+			height: 50px;
+			text-shadow: 0px 2px 5px #000;
+			margin: 20px auto 30px;
+			-webkit-animation: animBaseline 1s ease 1;
+		}
+		
+
+		
+		
+		
+		#real-content #container-form {
+			
+			height: 50px;
+			border: 1px solid #1b1b1b;
+			margin-bottom: 20px;
+			padding: 5px;
+			background: url(/images/beta/bg-container-form.png) repeat-x;
+			-webkit-border-radius: 5px;
+			-moz-border-radius: 5px;
+			-webkit-animation: animForm 2s ease 1;
+			
+		}
+		
+			#real-content #container-form form {
+				height: 50px;
+				width: 100%;
+				
+				margin:auto;
+				-webkit-border-radius: 5px;
+				-moz-border-radius: 5px;
+				
+			}
+			
+			#real-content form p {position: relative; margin: 0; padding: 0;}
+			
+			.mc-field-group{
+			
+			position: relative;
+			}
+			
+			.mc-field-group label.labelMail {
+				position: absolute;
+				top: 15px;
+				left: 20px;
+				width: 300px;
+				text-align: left;
+				font-weight: 100;
+				cursor: text;
+				font-size: 18px;
+				font-style: italic;
+				font-family: Georgia;
+			}
+			
+			.mc-field-group label.labelCode {
+				position: absolute;
+				top: 15px;
+				left: 290px;
+				width: 300px;
+				text-align: left;
+				font-weight: 100;
+				cursor: text;
+				font-size: 18px;
+				font-style: italic;
+				font-family: Georgia;
+			}
+
+
+			
+			.mc-field-group label strong {
+				display: none;
+			}
+
+
+			
+			form input[type="text"].mailBeta {
+				height: 45px;
+				
+				padding-left: 20px;
+				width: 250px;
+				padding-top: 3px;
+				text-align: left;
+				line-height: normal;
+				float: left;
+				background: none;
+				border: none;
+				color: #fff;
+				margin-right: 7px;
+				font-size: 18px;
+				font-style: italic;
+				font-family: Georgia;
+				text-shadow: 0px 1px 0px #000;
+				background: url(/images/beta/bg-input.png) repeat-x;
+				-webkit-border-radius: 5px;
+				-moz-border-radius: 5px;
+				border-radius: 5px;
+				border: 1px solid #1b1b1b;
+				
+				
+			}
+		
+		form input[type="text"].codeBeta {
+				height: 45px;
+				
+				padding-left: 20px;
+				width: 125px;
+				padding-top: 3px;
+				text-align: left;
+				line-height: normal;
+				float: left;
+				background: none;
+				border: none;
+				color: #fff;
+				font-size: 18px;
+				font-style: italic;
+				font-family: Georgia;
+				text-shadow: 0px 1px 0px #000;
+				background: url(/images/beta/bg-input.png) repeat-x;
+				-webkit-border-radius: 5px;
+				-moz-border-radius: 5px;
+				border-radius: 5px;
+				border: 1px solid #1b1b1b;
+				
+				
+			}
+		
+		
+			form #mc-embedded-subscribe {
+				background: url(/images/beta/bg-submit.png) repeat-x;
+				border: none;
+				font-size: 16px;
+				height: 36px;
+				width: 116px;
+				position: relative;
+				left: 3px;
+				text-align: center;
+				color: #fff;
+				-webkit-border-radius: 5px;
+				-moz-border-radius: 5px;
+				cursor: pointer;
+				
+				margin: 7px 7px 0 0;
+				text-shadow: 0px 1px 5px #a57815;
+			}
+			
+			
+			
+			
+			#mc_embed_close {
+			display: none;
+			}
+			
+			.mce_inline_error, #mce-error-response, #mce-success-response{
+				/*padding-top: 70px;*/
+				text-align: center;
+				padding-left: 0px;
+				color: #e6b300;
+				/*float: left;*/
+				width: 100%;
+				margin: auto;
+		
+			}
+			
+			.indicate-required{
+				display: none;
+			}
+
+		/*
+		#real-content a {
+			font-family: Museo;
+			text-decoration: none;
+			color: #e4e2e0;
+			padding: 4px 12px 6px 12px;
+			background: url(/images/beta/bg-twitter.png);
+			border-radius: 3px;
+			-moz-border-radius: 3px;
+			opacity: .5;
+			-webkit-transition: all 0.5s ease;
+		  	-moz-transition: all 0.5s ease;
+		  	-o-transition: all 0.5s ease;
+		 	transition: all 0.5s ease;
+			
+			float: right;
+			-webkit-animation: animFollow 0.4s ease 1;
+			
+		}
+		
+			#real-content a:hover {opacity: 1;}
+			#real-content a:focus {position: relative; top:1px;}
+		
+		#real-content a img {
+			margin-left: 5px;
+			position: relative;
+			top: 4px;
+		}
+		
+		*/
+		
+		#real-content .social{
+		padding-left: 130px;
+		}
+		
+		#real-content .social .fb_iframe_widget{
+		float: left;
+		
+		width: 150px;
+		
+		}
+		
+		#real-content .social .twitter-follow-button{
+		
+		float: left;
+		width: 100px!important;
+		}
+		
+		
+		#real-content .social .twitter-share-button{
+		float: left;
+		width: 150px!important;
+		
+		
+		}
+		
+		
+		
+		

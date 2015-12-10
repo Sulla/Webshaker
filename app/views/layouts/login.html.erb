@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+	<head>
+   	<meta charset="UTF-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">		
+		<%= stylesheet_link_tag 'malo_styles/reset' %>
+    <%= stylesheet_link_tag 'malo_styles/all' %>
+		
+		<%= javascript_include_tag 'jquery.min' %>			
+		<%= javascript_include_tag 'malo_js/scripts' %>
+		<!--[if IE]><script type="text/javascript" src="/javascripts/malo_js/html5-ie.js"></script><![endif]-->
+		
+		<title>Login</title>     
+	</head>
+
+	<body id="login">
+		<div class="box">
+			<div class="boxHeader">
+				<h2>Login</h2>
+			</div>
+			<div class="boxBody">
+				<%= yield %>
+			</div>
+		
+		</div>
+	</body>
+</html>

@@ -1,0 +1,32 @@
+
+<p>
+	<label>Your company <em>*</em></label>
+  	<%= f.collection_select :company_id, Company.where(:validated => true), :id, :name, { :include_blank => 'Please Select' }, { :id => 'user_company' } %>
+  <p id="existing_owner" class="hidden checkboxP note">
+			Are you the <a href="#" class="tooltip" title="Only administrators can edit the information of the company">administrator</a> of this company? 
+			<input type="radio" name="user[company_admin_request]" value="on"/> Yes <input type="radio" name="user[company_admin_request]" value="0"/> No
+		</p>
+  	<span class="note">Can't find your company? 
+   		<a href="#" id="create_company">Create it</a>
+    </span>
+		
+  	<div id="create_company_form" class="hidden">
+  	  <p>
+  	    <label>Company name</label>
+  	    <input type="text" id="company_name"/>
+  	  </p>
+  	  <p class="note">
+  	    I am the owner of this company
+  	    <input type="radio" name="owner" value="1"/> Yes <input type="radio" name="owner" value="0"/> No
+  	  </p>
+  	  <p id="set_owner_email" class="hidden">
+  	    <label>Email address of the owner</label>
+  	    <input type="text" id="owner_email"/>
+  	    <span class="note">not required if you don't know it</span>
+  	  </p>
+  	  <p>
+  	    <input type="submit" value="Create" id="create_company_btn"/>
+  	  </p>
+  	  <hr class="clear"/>
+  	</div>
+</p>

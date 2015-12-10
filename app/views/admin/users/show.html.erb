@@ -1,0 +1,73 @@
+<% content_for :h1 do %>
+	Users
+<% end %>
+
+<% content_for :breadcrump do %>
+	> <a href="http://vps.webinti.com/webshaker/admin/users">Users</a>
+	> <%= @user.fullname %>
+<% end %>
+
+<% content_for :boxheader do %>
+	<a href="http://vps.webinti.com/webshaker/admin/users/<%= @user.id %>/edit" title="Edit page" class="button-medium link-header">Edit User</a>
+	<h2>DETAILS</h2>
+<% end %>
+
+<p>
+  <label>ID</label>
+  <%= @user.id %>
+</p>
+
+<p>
+  <label>Fullname</label>
+  <%= @user.fullname %>
+</p>
+
+<p>
+  <label>Role</label>
+  <%= @user.role.name %>
+</p>
+
+<p>
+  <label>Email</label>
+  <%= @user.email %>
+</p>
+
+<p>
+  <label>Sign in count</label>
+  <%= @user.sign_in_count %>
+</p>
+
+<p>
+  <label>Last sign in</label>
+  <%= @user.last_sign_in_at %>
+</p>
+
+<p>
+  <label>Registered at</label>
+  <%= @user.created_at %>
+</p>
+
+<p>
+  <label>Freelance Name</label>
+  <%= @user.freelance_name %>
+</p>
+
+<p>
+  <label>Job title</label>
+  <%= @user.job_title %>
+</p>
+
+<p>
+  <label>School</label>
+  <%= @user.try(:school).try(:name) %>
+</p>
+
+<p>
+  <label>Company</label>
+  <%= @user.try(:company).try(:name) %>
+</p>
+
+<p>
+  <label>Avatar</label>
+  <%= avatar(@user) %>
+</p>

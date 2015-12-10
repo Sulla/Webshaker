@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+	<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+		<head>
+	   	<meta charset="UTF-8">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">		
+      <%= stylesheet_link_tag 'malo_styles/reset' %>
+      <%= stylesheet_link_tag 'malo_styles/all' %>
+      <%= stylesheet_link_tag 'malo_styles/facebox' %>
+	    <%= stylesheet_link_tag 'fileuploader' %>	      
+			
+			<%= javascript_include_tag 'jquery.min' %>
+			<%= javascript_include_tag 'admin' %>			
+			<%= javascript_include_tag 'malo_js/scripts' %>
+			<%= javascript_include_tag 'malo_js/facebox' %>
+			<%= javascript_include_tag 'malo_js/infieldlabels' %>
+      <%= javascript_include_tag 'fileuploader' %>			
+			<%= yield :scripts %>
+			<!--[if IE]><script type="text/javascript" src="/javascripts/malo_js/html5-ie.js"></script><![endif]-->
+
+			<title>WebShaker Admin</title>     
+		</head>
+
+		<body>
+			<div id="sidebar">
+				
+				<div id="logo">
+					<a href="http://vps.webinti.com/webshaker/admin" title=""><img src="http://vps.webinti.com/webshaker/images/malo_images/logo.png" alt="logo" /></a>
+				</div>
+				
+				<a href="http://vps.webinti.com/webshaker" class="button-website">View the site</a>
+				<hr class="spacer" />
+				<p id="infos">Good morning, <%= current_user.fullname %><br />
+				<%= link_to 'Logout', destroy_user_session_path %><br />
+				
+				 <ul id="navigation">
+				 		  <% if @current_menu == 'posts' %>
+			          <li class="open"><a href="http://vps.webinti.com/webshaker/admin/posts" title="">Posts</a></li>
+			        <% else %>
+			          <li><a href="http://vps.webinti.com/webshaker/admin/posts" title="">Posts</a></li>
+			        <% end %>
+				      <% if @current_menu == 'users' %>
+			          <li class="open"><a href="http://vps.webinti.com/webshaker/admin/users" title="">Users</a></li>
+			        <% else %>
+			          <li><a href="http://vps.webinti.com/webshaker/admin/users" title="">Users</a></li>
+			        <% end %>
+				      <% if @current_menu == 'workers' %>
+			          <li class="open"><a href="/admin/workers" title="">Requests</a></li>
+			        <% else %>
+			          <li><a href="http://vps.webinti.com/webshaker/admin/workers" title="">Requests</a></li>
+			        <% end %>			        
+			       <% if @current_menu == 'companies' %>
+			          <li class="open"><a href="http://vps.webinti.com/webshaker/admin/companies" title="">Companies</a></li>
+			        <% else %>
+			          <li><a href="http://vps.webinti.com/webshaker/admin/companies" title="">Companies</a></li>
+			        <% end %>
+			        <% if @current_menu == 'schools' %>
+ 			          <li class="open"><a href="http://vps.webinti.com/webshaker/admin/schools" title="">Schools</a></li>
+ 			        <% else %>
+ 			          <li><a href="http://vps.webinti.com/webshaker/admin/schools" title="">Schools</a></li>
+ 			        <% end %>
+			        <% if @current_menu == 'comments' %>
+			          <li class="open"><a href="http://vps.webinti.com/webshaker/admin/comments" title="">Comments</a></li>
+			        <% else %>
+			          <li><a href="http://vps.webinti.com/webshaker/admin/comments" title="">Comments</a></li>
+			        <% end %>
+			        <% if @current_menu == 'codes' %>
+			          <li class="open"><a href="http://vps.webinti.com/webshaker/admin/codes" title="">Codes beta</a></li>
+			        <% else %>
+			          <li><a href="http://vps.webinti.com/webshaker/admin/codes" title="">Codes beta</a></li>
+			        <% end %>
+			        <li><a href="http://vps.webinti.com/webshaker/admin/main/mailing" title="">Mailing</a></li>
+			       
+			    </ul>   
+			</div>
+			<div id="main-content">
+				<h1><%= yield :h1 %></h1>
+				
+				<div id="breadcrumbs">
+				  <p>
+				    <a href="http://vps.webinti.com/webshaker/admin">HOME</a>
+				    <%= yield :breadcrump %>
+				  </p>
+				</div>
+				<div class="box">
+        	<div class="boxHeader">
+        	  <%= yield :boxheader %>
+        	</div>
+        	<div class="boxBody">
+            <%= yield %>
+        	</div>
+        </div>				
+				<div id="footer">
+					<p>Design by <a href="http://www.noomiastudio.com?ref=malopanel" title="se rendre sur Noomiastudio.com">Noomiastudio</a></p>
+				</div>
+			</div>
+		</body>
+</html>

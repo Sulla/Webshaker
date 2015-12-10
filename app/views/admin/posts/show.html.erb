@@ -1,0 +1,21 @@
+<% content_for :h1 do %>
+	Posts
+<% end %>
+
+<% content_for :breadcrump do %>
+	> <a href="http://vps.webinti.com/webshaker/admin/posts">Posts</a>
+	> <%= @post.title %>
+<% end %>
+
+<% content_for :boxheader do %>
+	<a href="" title="New page" class="button-medium link-header">Edit post</a>
+	<h2>Content</h2>
+<% end %>
+	<h3>Title</h3>
+  <%= @post.title %>
+	<h3>Content</h3>
+  <%= raw @post.content %>
+
+<%= render :partial => 'posts/details/details', :locals => { :post => @post } %>
+
+<%= yield :sidebar %>

@@ -1,0 +1,814 @@
+/*======================================================*/
+/*=== @ Font-face									 ===*/
+/*======================================================*/
+
+@font-face {
+    font-family: 'KreonLight';
+    src: url('http://vps.webinti.com/webshaker/fonts/kreon-light-webfont.eot');
+    src: url('http://vps.webinti.com/webshaker/fonts/kreon-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('http://vps.webinti.com/webshaker/fonts/kreon-light-webfont.woff') format('woff'),
+         url('http://vps.webinti.com/webshaker/fonts/kreon-light-webfont.ttf') format('truetype'),
+         url('http://vps.webinti.com/webshaker/fonts/kreon-light-webfont.svg#KreonLight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+/*======================================================*/
+/*=== Generalities									 ===*/
+/*======================================================*/
+
+body{
+	background:#f8f8f8 url('http://vps.webinti.com/webshaker/images/malo_images/bg.png') repeat-y;
+	font-size:12px;
+	font-family:"Trebuchet MS", Helvetica, Verdana;
+	margin:0;
+	color: #594840;
+	padding:0;
+	line-height: 1.3em;
+}
+
+body#login {
+	background: #fafafa url("http://vps.webinti.com/webshaker/images/malo_images/bg-content.png") repeat;
+}
+
+h1{
+	font-family: "KreonLight", Helvetica, sans-serif;
+	padding-bottom: 8px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-size: 280%;
+	letter-spacing: normal;
+	color: #76635A;
+	text-shadow: 1px 1px 0 #FFFFFF;
+	font-weight: normal;
+	text-transform: uppercase;
+}
+
+h2 {
+	font-family: "KreonLight", Helvetica, sans-serif;
+	font-size: 200%;
+	color: #76635A;
+	font-weight: normal;
+	letter-spacing: normal;
+	text-transform: uppercase;
+	text-shadow: 1px 1px 0 #FFFFFF;
+}
+
+h3{
+	font-size: 120%;
+	margin-bottom: 10px;
+	margin-top: 20px;
+}
+
+h3:first-child {
+	margin-top: 0px;
+}
+
+a{
+	text-decoration:none;
+	color:#33999C;
+}
+
+a:hover{
+	color:#dda522;
+}
+
+p{
+	margin-top:2px;
+	margin-bottom:8px;
+}
+
+.spacer{
+	clear:both;
+	visibility:hidden;
+	height: 0px;
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+ul li{
+}
+
+a img{
+	border:0px solid red;
+}
+
+.left{
+	float:left;
+
+}
+.right{
+	float:right;
+}
+
+.width49{
+	width: 49%;
+}
+
+.mee{
+	color:#f4bd00;
+}
+
+.margin-top {
+	margin-top: 20px;
+}
+
+
+/*======================================================*/
+/*=== Logo											 ===*/
+/*======================================================*/
+
+#logo{
+	background-color: #362e2c;
+	-moz-border-radius:5px 5px 5px 5px;
+	-webkit-border-radius: 5px 5px 5px 5px;
+	-moz-box-shadow:0 1px 5px rgba(0, 0, 0, 0.5) inset, 0 1px 0 rgba(66, 67, 72, 0.9), 0 -1px 0 rgba(0, 0, 0, 0.6);
+	width: 242px;
+	height: 70px;
+	position: relative;
+	left:-15px;
+	padding-top: 10px;
+	margin-bottom: 20px;
+}
+
+
+/*======================================================*/
+/*=== Sidebar										 ===*/
+/*======================================================*/
+
+#sidebar{
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#615551', endColorstr='#453c39');
+	background: -webkit-gradient(linear, left top, left bottom, from(#615551), to(#453c39));
+	background: -moz-linear-gradient(center top , #615551 0%, #453c39 20px, #453c39 100%) repeat scroll 0 0 transparent;
+	height: 500px;
+	float: left;
+	width: 242px;
+	padding-top: 20px;
+	color: #fff;
+	position:fixed;
+	top:0px;
+	left: 0px;
+}
+
+#infos{
+	padding: 15px;
+	margin-bottom: 0px;
+}
+
+
+/*======================================================*/
+/*=== Navigation									 ===*/
+/*======================================================*/
+
+#navigation {
+	list-style: none;
+}
+
+#navigation a, #navigation span {
+	display: block;
+	height: 30px;
+	padding: 15px 15px 0 15px;
+	color: #fff;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+	text-decoration: none;
+	text-align: right;
+
+
+	
+}
+
+#navigation a:hover, #navigation .toggleSubMenu a:hover{
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3d3432', endColorstr='#2c2726');
+	background: -webkit-gradient(linear, left top, left bottom, from(#3d3432), to(#2c2726));
+	background: -moz-linear-gradient(center top , #3d3432 0%, #2c2726 100%) repeat scroll 0 0 transparent;
+	
+	box-shadow: 0 0 0px rgba(0, 0, 0, 0.8), 0 0 1px rgba(255, 255, 255, 0.4) inset;
+}
+
+#navigation .open a:hover {
+
+}
+
+#navigation .toggleSubMenu a, #navigation .toggleSubMenu span {
+	background: #000 url('http://vps.webinti.com/webshaker/images/malo_images/bg-nav-a.png') left top repeat-x;
+}
+
+#navigation .open a, #navigation .open span {
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3bb4b8', endColorstr='#3c9c9e');
+background: -webkit-gradient(linear, left top, left bottom, from(#3bb4b8), to(#3c9c9e));
+background: -moz-linear-gradient(top,  #3bb4b8,  #3c9c9e);
+background-color: #f8f8f8;
+}
+
+#navigation .subMenu {
+	font-size: .8em;
+	font-size: .9em;
+	margin: 0;
+	padding: 0;
+	border-bottom: 1px solid #666;
+}
+#navigation ul.subMenu a {
+	background: none;
+	padding: 10px 15px 5px 15px;
+	height: 20px;
+}
+
+#navigation ul.subMenu a:hover {
+	background: none;
+	padding: 9px 15px 5px 15px;
+	height: 19px;
+	border-bottom: 1px solid #34363f;
+	border-top: 1px solid #34363f;
+	background: #FFFFFF url(/images/malo_images/bg-nav-a.png) left center repeat-x;
+}
+
+
+/*======================================================*/
+/*=== Button										 ===*/
+/*======================================================*/
+
+a.button-website {
+ -webkit-transition: all 0.2s ease;
+ 	 	-moz-transition: all 0.2s ease;
+ 		 -o-transition: all 0.2s ease;
+ 	 transition: all 0.2s ease;
+    background-color: #fff;
+   border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+  float: right;
+    display: inline-block;
+    font-weight: 500;
+    line-height: 16px;
+    padding: 3px 10px;
+  color: #453C39;
+   
+margin-right: 15px;
+}
+
+a.button-website:hover {
+
+background-color: #33999C;
+color: #fff;
+}
+
+a.button-website:focus {
+	position: relative;
+	top: 1px;
+}
+
+input[type="submit"] {
+	background: url(/images/malo_images/button-medium.png) no-repeat;
+	width: 110px;
+	height: 21px;
+	margin: 0;
+	border: 0;
+	padding: 0;
+	outline: none;
+	color: white;
+	text-shadow: 0px -1px 0 rgba(0,0,0, 0.6);
+	font-size: 12px;
+	line-height: normal;
+}
+
+.button-medium:focus {
+	position: relative;
+	top: 1px;
+}
+
+.button-medium:hover {
+	background: url(/images/malo_images/button-medium-blue.png) no-repeat;
+	cursor: pointer;
+	color: white;
+}
+
+.button-large {
+	background: url(/images/malo_images/button-large.png) no-repeat;
+	width: 160px;
+	height: 21px;
+	margin: 0;
+	border: 0;
+	padding: 0;
+	outline: none;
+	color: white;
+	text-shadow: 0px -1px 0 rgba(0,0,0, 0.6);
+	font-size: 12px;
+	line-height: normal;
+	padding-bottom: 2px;
+}
+
+.button-large:focus {
+	position: relative;
+	top: 1px;
+}
+
+.button-large:hover {
+	background: url(/images/malo_images/button-large-blue.png) no-repeat;
+	cursor: pointer;
+	color: white;
+}
+
+/*======================================================*/
+/*=== Messages										 ===*/
+/*======================================================*/
+
+div.msg {
+	margin: 10px 0;
+	padding: 10px 15px 10px 15px;
+	-moz-border-radius: 3px 3px 3px 3px;
+	-webkit-border-radius: 3px 3px 3px 3px;
+	font-weight: bold;
+}
+
+div.msg p {
+	margin-bottom: 0;
+	float: left;
+	width: 90%;
+	text-shadow:0 1px 0 #FFFFFF;
+}
+
+div.msg-error {
+	background-color: #f6cece; 
+	background: 
+	-moz-linear-gradient(
+	    center bottom,
+	    rgb(246,206,206) 32%,
+	    rgb(255,235,235) 83%);
+	background: -webkit-gradient(
+	    linear,
+	    left bottom,
+	    left top,
+	    color-stop(0.32, rgb(246,206,206)),
+	    color-stop(0.83, rgb(255,235,235)));
+	border: 1px solid #e56255;
+	color: #e56255;
+}
+
+div.msg-success {
+	background-color: #dae0b8;
+	background:
+	-moz-linear-gradient(
+	    center bottom,
+	    rgb(218,224,184) 32%,
+	    rgb(250,255,224) 83%);
+	background: -webkit-gradient(
+	    linear,
+	    left bottom,
+	    left top,
+	    color-stop(0.32, rgb(218,224,184)),
+	    color-stop(0.83, rgb(250,255,224)));	    
+	border:1px solid #89c778;
+	color: #52a042;
+}
+
+div.msg-warning {
+	background-color: #FEFDE2;
+	background: 
+	-moz-linear-gradient(
+	    center bottom,
+	   	rgb(245,243,199) 32%,
+	   	rgb(255,253,227) 83%);
+	background: -webkit-gradient(
+	    linear,
+	    left bottom,
+	    left top,
+	    color-stop(0.32, rgb(245,243,199)),
+	    color-stop(0.83, rgb(255,253,227)));
+	border:1px solid #DDB147;
+	color: #ddb147;
+}
+
+div.msg-information {
+	background-color: #d4ddef; 
+	background: 
+	-moz-linear-gradient(
+	    center bottom,
+	   	rgb(185,203,235) 32%,
+	   	rgb(237,242,250) 83%);
+	background: -webkit-gradient(
+	    linear,
+	    left bottom,
+	    left top,
+	    color-stop(0.32, rgb(185,203,235)),
+	    color-stop(0.83, rgb(237,242,250)));
+	border:1px solid #6d9ed6;
+	color: #6086b4;
+}
+
+span.hide {
+	float: right;
+	height: 16px;
+	width: 16px;
+	margin-top: 1px;
+	cursor: pointer;
+}
+
+span.hide-error {
+	background: url("/images/malo_images/cross-error.png") no-repeat scroll 0 0 transparent;
+}
+
+span.hide-success {
+	background: url("/images/malo_images/cross-success.png") no-repeat scroll 0 0 transparent;
+}
+
+span.hide-warning {
+	background: url("/images/malo_images/cross-warning.png") no-repeat scroll 0 0 transparent;
+}
+
+span.hide-information {
+	background: url("/images/malo_images/cross-information.png") no-repeat scroll 0 0 transparent;
+}
+
+.img-success {
+	float: left;
+	height: 16px;
+	width: 16px;
+	margin-right: 20px;
+	background: url("/images/malo_images/accept.png") no-repeat;
+}
+
+.img-error {
+	float: left;
+	height: 16px;
+	width: 16px;
+	margin-right: 20px;
+	background: url("/images/malo_images/exclamation.png") no-repeat;
+}
+
+.img-warning {
+	float: left;
+	height: 16px;
+	width: 16px;
+	margin-right: 20px;
+	background: url("/images/malo_images/error.png") no-repeat;
+}
+
+.img-information {
+	float: left;
+	height: 16px;
+	width: 16px;
+	margin-right: 20px;
+	background: url("/images/malo_images/information.png") no-repeat;
+}
+
+/*======================================================*/
+/*=== Content basic									 ===*/
+/*======================================================*/
+
+#main-content {
+	
+	margin:0 0 0 242px;
+	padding: 20px;
+}
+
+.box {
+	background:none repeat scroll 0 0 #efefef;
+	margin:  10px 0; 
+	-moz-box-shadow: 0px 0px 3px #CCCCCC;
+	-webkit-box-shadow: 0px 0px 3px #CCCCCC;
+	box-shadow: 0px 0px 3px #CCCCCC;
+	border:1px solid #CCCCCC;
+	-moz-border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 5px 5px 5px 5px;
+	border-radius: 5px 5px 5px 5px; 
+}
+
+#login .box {
+	width: 400px;
+	margin: auto;
+	margin-top: 150px;
+}
+
+.boxHeader {
+	background:transparent url(/images/malo_images/bg-boxHeader.png) repeat-x left top;
+	height:14px;
+	-moz-border-radius: 5px 5px 0px 0px;
+	-webkit-border-radius: 5px 5px 0px 0px;
+	border-radius: 5px 5px 0px 0px;
+	padding: 10px 15px 10px 15px;
+	position: relative;
+}
+
+a.link-header {
+	float: right;
+	text-align: center;
+	margin-top: -3px;
+	padding-top: 3px;
+	height: 19px;
+}
+
+.boxBody{
+	padding: 10px 15px 10px 15px;
+	background-color: #fdfdfd;
+	-moz-border-radius: 0px 0px 5px 5px;
+	-webkit-border-radius: 0px 0px 5px 5px;
+	border-radius: 0px 0px 5px 5px;
+}
+
+
+/*======================================================*/
+/*=== Table											 ===*/
+/*======================================================*/
+
+tr {
+	border-bottom: 1px solid #CCCCCC;
+}
+
+tr.one {
+	
+}
+
+tr.two {
+	background-color: #EEEEEE;
+}
+
+td, th {
+	padding: 5px;
+	text-align: left;
+}
+
+a.delete {
+	float: right;
+	display: block;
+	text-indent: 9999px;
+	overflow: hidden;
+	width: 16px;
+	height: 16px;
+	background: url(/images/malo_images/bin_closed.png) no-repeat;
+	margin-left: 3px;
+}
+
+a.edit {
+	float: right;
+	display: block;
+	text-indent: 9999px;
+	overflow: hidden;
+	width: 16px;
+	height: 16px;
+	background: url(/images/malo_images/pencil.png) no-repeat;
+	margin-left: 3px;
+}
+
+a.lock {
+	float: right;
+	display: block;
+	text-indent: 9999px;
+	overflow: hidden;
+	width: 16px;
+	height: 16px;
+	background: url(/images/malo_images/lock.png) no-repeat;
+	margin-left: 3px;
+}
+
+.action {
+	text-align: right;
+}
+
+/*======================================================*/
+/*=== Forms											 ===*/
+/*======================================================*/
+
+form label {
+	display: block;
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+form label.normal {
+	display: inline;
+	font-weight: normal;
+}
+
+form textarea, input[type="text"] {
+	-moz-border-radius: 4px 4px 4px 4px;
+	-webkit-border-radius: 4px 4px 4px 4px;
+	border: 1px solid #CCCCCC;
+	padding: 5px;
+	font-size: 12px;
+}
+
+form textarea:focus, input.text:focus {
+	border: 1px solid #2f78d7;
+	-moz-box-shadow: 0px 0px 3px #2f78d7;
+	-webkit-box-shadow: 0px 0px 3px #2f78d7;
+	box-shadow: 0px 0px 3px #2f78d7;
+}
+
+form input.small-input {
+	width: 25%;
+}
+
+form input.medium-input {
+	width: 50%;
+}
+
+form input.large-input {
+	width: 98.8%;
+}
+
+form textarea {
+	width: 98.8%;
+}
+
+#login form input.text {
+	width: 358px;
+}
+
+form p.error input.text, form p.error textarea {
+	border: 1px solid #e56255;
+	background-color: #f6cece; 
+}
+
+form p.error input.text:focus, form p.error textarea:focus {
+	border: 1px solid #e56255;
+	-moz-box-shadow: 0px 0px 3px #e56255;
+	-webkit-box-shadow: 0px 0px 3px #e56255;
+	box-shadow: 0px 0px 3px #e56255;
+}
+
+form p.error label {
+	color: #E56255;
+}
+
+
+/*======================================================*/
+/*=== Page List										 ===*/
+/*======================================================*/
+
+div.page-list a {
+	display: block;
+	float: left;
+	-moz-border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 5px 5px 5px 5px;
+	border: 1px solid #3c3f48;
+	background: url('/images/malo_images/bg-pagination.png') repeat-x;
+    margin: 0 0 0 5px;
+    padding: 2px 6px 0 6px;
+	height: 17px;
+	-moz-box-shadow: inset 0px 1px 1px #696e78;
+	-webkit-box-shadow: inset 0px 1px 1px #696e78;
+	box-shadow: inset 0px 1px 1px #696e78;
+	color: white;
+}
+
+div.page-list a:hover {
+	color: #ffffff;
+	opacity: 0.85;`
+}
+
+div.page-list a.active-page {
+	background: url('/images/malo_images/bg-pagination_active.png') repeat-x;;
+    height: 17px;
+    border: 1px solid #cccccc;
+    color: #2f78d7;	
+    -moz-box-shadow: inset 0px 1px 1px #999999;
+    -webkit-box-shadow: inset 0px 1px 1px #999999;
+    box-shadow: inset 0px 1px 1px #999999;
+}
+
+
+/*======================================================*/
+/*=== Tabs											 ===*/
+/*======================================================*/
+
+ul.tabs {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+}
+
+ul.tabs li {
+	float: left;
+	list-style: none;
+	height: 16px;
+	margin-right: 6px;
+	margin-left: 6px;
+}
+
+ul.tabs li a {
+	color: #888888;
+	text-shadow: 1px 1px 0 #FFFFFF;
+}
+
+ul.tabs li a:hover {
+	color: #2fa2d7;
+}
+
+ul.tabs li.active {
+	background-color: #FDFDFD;
+	padding: 5px 5px 7px 5px;
+	margin-top: -5px;
+	margin-right: 0;
+	margin-left: 0;
+	border-top: 1px solid #CCCCCC;
+	border-left: 1px solid #CCCCCC;
+	border-right: 1px solid #CCCCCC;
+	-moz-border-radius:5px 5px 0px 0px;
+	-webkit-border-radius: 5px 5px 0px 0px;
+}
+
+ul.tabs li.active a {
+	color: #2f78d7;
+}
+
+
+/*======================================================*/
+/*=== Breadcrumbs									 ===*/
+/*======================================================*/
+
+div#breadcrumbs {
+	display: none;
+	padding: 5px;
+	background-color: #DDDDDD;
+	margin-bottom: 15px;
+	-moz-border-radius:3px 3px 3px 3px;
+	-webkit-border-radius: 3px 3px 3px 3px;
+	border-radius: 3px 3px 3px 3px;
+	-moz-box-shadow: 0px 1px 0px #FFFFFF, inset 0px 1px 0px #CCCCCC;
+    -webkit-box-shadow: 0px 1px 0px #FFFFFF, inset 0px 1px 0px #CCCCCC;
+	box-shadow: 0px 1px 0px #FFFFFF, inset 0px 1px 0px #CCCCCC;	
+}
+
+div#breadcrumbs p {
+	margin: 0;
+}
+
+
+/*======================================================*/
+/*=== Search										 ===*/
+/*======================================================*/
+
+#search {
+	padding: 0 15px 0 15px;
+	margin-bottom: 15px;
+	position: relative;
+}
+
+#search input#inputSearch {
+	border: 0px solid #888888;
+	-moz-border-radius:3px 3px 3px 3px;
+	-webkit-border-radius: 3px 3px 3px 3px;
+	border-radius: 3px 3px 3px 3px;
+	padding: 3px 25px 3px 3px;
+	width: 184px;
+	height: 16px;
+	-moz-box-shadow: 0px 1px 0px rgba(255,255,255,0.4), inset 0px 1px 0px #CCCCCC;
+	-webkit-box-shadow: 0px 1px 0px #FFFFFF, inset 0px 1px 0px #CCCCCC;
+	box-shadow: 0px 1px 0px #FFFFFF, inset 0px 1px 0px #CCCCCC;	
+	background: 
+	-moz-linear-gradient(
+	    center bottom,
+	    rgb(255,255,255) 32%,
+	    rgb(220,220,220) 83%);
+	background: -webkit-gradient(
+	    linear,
+	    left bottom,
+	    left top,
+	    color-stop(0.32, rgb(255,255,255)),
+	    color-stop(0.83, rgb(220,220,220)));
+}
+
+#search input#inputSearch:focus {
+	border: 1px solid #2f78d7;
+	-moz-box-shadow: 0px 0px 3px #2f78d7;
+	-webkit-box-shadow: 0px 0px 3px #2f78d7;
+	box-shadow: 0px 0px 3px #2f78d7;
+	height: 14px;
+	width: 182px;
+	
+}
+
+#search .img-search {
+	position: absolute;
+	background: url('/images/malo_images/zoom.png') no-repeat;
+	width: 16px;
+	height: 16px;
+	top: 3px;
+	left: 205px;
+	padding: 0;
+	margin: 0;
+	border: 0;
+	cursor: pointer;
+}
+
+#search #labelSearch {
+	position: absolute;
+	top: 3px;
+	left: 20px;
+	color: black;
+	font-weight: normal;
+}
+
+
+#footer{
+font-size: 90%;
+}
+
+#footer p{
+text-align: right;
+}

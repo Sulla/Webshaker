@@ -1,0 +1,7 @@
+<% if posts.size == 0 %>
+  <span class="profileTop alignCenter">No post</span>
+<% else %>
+  <% posts.each do |post| %>
+    <%= render :partial => 'posts/post.html.erb', :locals => { :post => post } %>
+  <% end %>
+<% end %>

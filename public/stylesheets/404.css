@@ -1,0 +1,82 @@
+*{
+margin: 0;
+padding: 0;
+}
+
+body{
+background-color: #e7e6e1;
+font: 0.8em/1.3em "Helvetica Neue",Helvetica,Arial,sans-serif;
+line-height: normal;
+color: #534A46;
+text-align: center;
+}
+#oups{
+padding: 20px;
+height: 200px;
+
+background-color: #f5f5f5;
+border-top:1px solid #fff;
+border-bottom:1px solid #fff;
+margin-top: 10%;
+}
+
+.center{
+width: 960px;
+margin: auto;
+
+}
+
+.infos{
+
+float: left;
+width: 600px;
+}
+
+#illu{
+
+padding-right: 20px;
+float: left;
+position: relative;
+bottom: 70px;
+}
+
+
+h2{
+font-family: omnes-pro-1,omnes-pro-2,sans-serif;
+font-style: normal;
+font-weight: 500;
+font-size: 3em;
+margin-bottom: 15px;
+}
+
+a.button {
+    
+   	 -webkit-transition: all 0.2s ease;
+ 	 	-moz-transition: all 0.2s ease;
+ 		 -o-transition: all 0.2s ease;
+ 	 transition: all 0.2s ease;
+    background-color: #403733;
+    background-image: -moz-linear-gradient(center top , rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.05) 100%);
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.8), 0 0 4px rgba(255, 255, 255, 0.2) inset;
+    display: inline-block;
+    font-weight: 500;
+    line-height: 16px;
+    padding: 3px 10px;
+    color: #fff;
+    text-shadow: 0 -1px 1px #000000;
+    text-decoration: none;
+    margin-top: 30px;
+}
+
+a.button:hover {
+    background-color: #5f534d;
+    color: #fff;
+  
+}
+
+a.button:focus {
+    position: relative;
+    top:1px;
+}

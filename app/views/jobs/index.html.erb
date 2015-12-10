@@ -1,0 +1,50 @@
+<% content_for :scripts do %>
+  <%= javascript_include_tag 'jobs' %>
+<% end %>
+
+<% content_for :sidebar do %>
+
+<%= render :partial => 'shared/myActivity' %>	
+  <hr class="clear"/>
+
+ <%= render :partial => 'shared/cta_directory' %>
+  <hr class="clear"/>
+	<hr class="separator" />  	
+  <span class="breath"></span>
+ 
+
+
+
+	
+	<a href="http://vps.webinti.com/webshaker/jobs/map" id="onTheMap">See jobs on the map</a>
+	
+	<% end %>
+	
+<div class="headerContent">
+	<span class="labelIngredients">Types: </span> 	
+	 <a href="#" class="show_posts show_types <%= set_selected(:job_type_id, 0) %> first" data-id="">All jobs</a>
+	 <% JobType.all.each do |type| %>
+      <a href="#" class="show_posts show_types <%= set_selected(:job_type_id, type.id) %>" data-id="<%= type.id %>"><%= type.name %></a>
+  <% end %>
+</div>
+
+<div id="mainContent"><%= display_flash %>
+	<h2>Jobs</h2>
+ 
+  <span class="count hidden" id="loading"><img src="http://vps.webinti.com/webshaker/images/loader.gif" /> Loading...</span>
+   <span class="breath"></span>
+  <ul class="filterList">
+	  <li>
+	    <a href="#" class="show_cats <%= set_selected(:job_category_id, 0) %> first" data-id="">All</a>
+	  </li>
+	  <% JobCategory.all.each do |cat| %>
+	    <li>
+	      <a href="#" class="show_cats <%= set_selected(:job_category_id, cat.id) %>" data-id="<%= cat.id %>"><%= cat.name %></a>
+	    </li>
+	  <% end %>
+	</ul>	
+  <div id="jobs">
+    <%= render :partial => 'jobs/jobs', :locals => { :jobs => @jobs } %>
+  </div>
+  
+</div>

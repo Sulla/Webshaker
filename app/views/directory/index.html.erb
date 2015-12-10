@@ -1,0 +1,83 @@
+<% content_for :title do %>WebShaker: The Directory
+<% end %>
+
+<% content_for :scripts do %>
+  <%= javascript_include_tag 'directory' %>
+  
+
+<% end %>
+
+<% content_for :sidebar do %>
+	<%= render :partial => 'shared/myActivity' %>	
+	<%= render :partial => 'shared/cta_directory' %>
+	<%= render :partial => 'shared/top' %>
+<% end %>
+
+<div class="headerContent">
+	<span class="labelIngredients">Profiles:</span>
+	<a class="directory_listing show_posts selected"  href="http://vps.webinti.com/webshaker/directory/search?role_id=4" data-id="5">Companies</a>
+	<a class="directory_listing show_posts" href="http://vps.webinti.com/webshaker/directory/search?role_id=2" data-id="2">Workers</a>
+	<a class="directory_listing show_posts" href="http://vps.webinti.com/webshaker/directory/search?role_id=3" data-id="3">Freelancers</a>
+	<a class="directory_listing show_posts" href="http://vps.webinti.com/webshaker/directory/search?role_id=1" data-id="1">Students</a>
+	<a class="directory_listing show_posts" href="http://vps.webinti.com/webshaker/directory/search?role_id=1" data-id="4">Others</a>	
+
+</div>
+
+<div id="mainContent"><%= display_flash %>
+	<a href="http://vps.webinti.com/webshaker/directory/map" class="button right">On map</a>
+	<h2>Directory</h2>
+	<span class="count hidden" id="loading"><img src="http://vps.webinti.com/webshaker/images/loader.gif" /> Loading...</span>	
+	
+	<p class="underTitle">Everyone in the Belgian web</p>
+
+	
+	<hr class="clear"/>
+	<div class="mee">
+	<div class="filtre">
+		<label for="name_filter">Name, city, status, ...</label>
+		<input id="name_filter" type="text" value=""/>
+		<button id="filter"  type="submit">Search</button>
+		<button id="reset"  type="submit"><span class="pictos">*</span></button>
+	</div>
+		<form class="listTri">
+			<label>Sorting by:</label>
+			<select id="sort_param">
+			  <% if session[:sort_param] == 'Random' %>
+				  <option value="Random" selected="selected">Random</option>
+				<% else %>
+				  <option value="Random">Random</option>
+				<% end %>
+			  <% if session[:sort_param] == 'Alphabet' %>
+				  <option value="Alphabet" selected="selected">Alphabet</option>
+				<% else %>
+				  <option value="Alphabet">Alphabet</option>
+				<% end %>
+				<% if session[:sort_param] == 'City' %>
+				  <option value="City" selected="selected">City</option>
+				<% else %>
+				  <option value="City">City</option>
+				<% end %>
+				<% if session[:sort_param] == 'Most liked' %>
+				  <option value="Most liked" selected="selected">Most liked</option>
+				<% else %>
+				  <option value="Most liked">Most liked</option>
+				<% end %>
+			</select>
+		</form>
+		<hr class="clear"/>
+	</div>
+	<div id="listing" data-page="0">
+	  <%= render :partial => 'list', :locals => { :users => @users } %>
+	</div>
+	
+	<% if @users.size >= 10 %>
+	  <a id="load_more" class="button" href="http://vps.webinti.com/webshaker/directory/search?role_id=<%= params[:role_id] %>&page=<%= @page + 1 %>" data-page="1"><span class="pictos">&amp;</span>I want more !</a>
+	<% else %>
+	  <a id="load_more" class="button" href="http://vps.webinti.com/webshaker/directory/search?role_id=<%= params[:role_id] %>&page=<%= @page + 1 %>" data-page="1" style="display:none"><span class="pictos">&amp;</span>I want more !</a>
+	<% end %>
+	</div>
+	<input type="hidden" id="treated_ids" value="<%= @users.map(&:clean_id).join('_') %>"/>
+
+
+
+	

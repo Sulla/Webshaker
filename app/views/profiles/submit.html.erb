@@ -1,0 +1,36 @@
+<% content_for :title do %>WebShaker: Submit in the Shaker<% end %>
+<% content_for :scripts do %>
+  <%= javascript_include_tag 'posts' %>
+<% end %>
+
+<% content_for :sidebar do %>
+
+<% end %>
+
+
+<div id="mainContent"><%= display_flash %>
+		<h2>New submission in your portfolio</h2>
+		
+		<%= render :partial => 'shared/accountMenu', :locals => {:selected_menu => "portfolio" } %>
+		
+		<span class="breath"></span>
+		 
+  <form id="new_post" action="http://vps.webinti.com/webshaker/profiles/submit" method="post" class="main_form" enctype="multipart/form-data">
+  	<p class="right note">* means that the following field is required.</p>
+  	<hr class="clear" />
+    <div id="form">
+    	
+    <%= render :partial => 'posts/forms/form', :locals => { :post => @post, :post_type_id => @post.post_type_id } %>
+    </div>
+    <hr class="clear"/>
+    <p>
+      <input type="submit" class="submit" id="submit_shaker" value="Add to your portfolio"/>
+    </p>
+  </form>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    enableUploader();
+  });
+</script>

@@ -1,0 +1,135 @@
+<% content_for :title do %>WebShaker: <%= @company.name %><% end %>
+<% content_for :scripts do %>
+  <script type="text/javascript" src="http://maps.google.com/maps/api/js?v=3.3&sensor=false"></script>
+  <%= javascript_include_tag 'markermanager_packed' %>
+  <%= javascript_include_tag 'StyledMarker' %>
+  <%= javascript_include_tag 'jquery.metadata' %>
+  <%= javascript_include_tag 'jquery.jmapping.min' %>
+  <%= javascript_include_tag 'company' %>
+<% end %>
+
+<% content_for :sidebar do %>
+
+	 <h3><%= t('companies.employees') %></h3>
+  <% @company.workers.validated.each do |worker| %>
+    <% if worker.user %>
+      <a class="tableLink odd" title="" href="http://vps.webinti.com/webshaker/profiles/<%= worker.user.profile.id %>">  
+        <%= avatar_small(worker.user) %>
+      
+        <h4><%= worker.user.fullname %></h4>
+        <span class="jobs">
+          <% if worker.user.simple_job_title.present? %>
+            <%= worker.user.simple_job_title %>
+          <% end %>
+        </span>
+        <hr class="clear">
+      </a>
+      <hr class="clear"/>
+    <% end %>
+  <% end %>
+
+ <hr class="separator"/>
+  <% if @company.lat.present? %>
+    
+    <h3><span class="pictos">G</span> Map</h3>
+    <div id="map">
+      <div id="map-side-bar">
+        <div class="map-location" data-jmapping="{id: '<%= @company.id %>', point: {lat: <%= @company.lat %>, lng: <%= @company.lng %>}}">
+          <a href="#" class="map-link"><%= @company.name %></a>
+          <div class="info-box">
+            <h3><%= @company.name %></h3>
+          </div>
+        </div>
+      </div>
+    </div>
+    <span class="pictos">@</span> <%= @company.street %> <%= @company.zipcode %> <%= @company.city %>
+    <span class="breath"></span>
+    
+  <% end %>
+	
+
+ 	
+ <% end %>
+
+<div id="mainContent"><%= display_flash %>
+
+	<div class="profileTop">
+		
+		
+		<% if current_user && current_user.company_worker != @company && current_user.can_join_company? %>
+      <form id="join_company" method="post" action="/workers">
+        <input type="submit" class="button right" value="<%= t('companies.join') %>"/>
+        <input type="hidden" name="company_id" value="<%= @company.id %>"/>
+      </form>
+     
+    <% end %>
+    
+    <% if current_user && current_user.company_worker == @company && !current_user.can_admin_company?(@company.id) %>
+      <form id="admin_company" method="post" action="http://vps.webinti.com/webshaker/workers/admin_request">
+        <input type="submit" class="button right" value="Become administrator"/>
+        <input type="hidden" name="company_id" value="<%= @company.id %>"/>
+      </form>
+      
+    <% end %>
+    
+	  <% if user_signed_in? %>
+		  <% if current_user.can_admin_company?(@company.id) %><%= link_to 'Edit your company', edit_company_path(current_user.company),:class=>"right" %><% end %>
+		
+		<% end %>
+		<%= avatar(@company, 'avatarProfile') %>
+	  
+		<h2><%= @company.name %></h2>
+		
+		 <span class="underline"><%= @company.baseline %></span>
+		 <span class="underline"> <% if @company.city.present? %><span class="pictos">@</span> <%= @company.city %> <% end %>  <% if @company.phone.present? %> | <span class="pictos">q</span> <%= @company.phone %> <% end %> <% if @company.email.present? %>
+	    | <a href="mailto:<%= @company.email %>"><span class="pictos">M</span> Contact <%= @company.name %></a>
+  	<% end %>
+</span>
+		
+	 <%= render :partial => 'shared/actions', :locals => { :id => @company.id, :type => 'Company', :model => @company } %>
+	 <hr class="clear"/>
+	</div>
+	<span class="breath"></span>
+
+	<div class="profileLinks">
+		<h3><span class="pictos">j </span><%= t('companies.links') %></h3>
+
+
+<% if @company.links.blank? %>
+	No link 
+<% else %>
+	<ul>
+  <% @company.links.each do |link| %>
+    <li>
+      
+      <a href="<%= link.url %>"><img src="<%= link.link_type.icon %>"/> <%= link.name %></a>
+    </li>
+  <% end %>
+</ul>
+<% end %>
+	</div>
+	<div class="profileDescription">
+		<h3><span class="pictos">U </span><%= t('company.description') %></h3>
+<p> 
+  <% if @company.summary.blank? %>
+    No description
+  <% else %>
+    <%= @company.summary %>
+  <% end %>
+</p>
+
+	</div>
+
+
+  
+
+<hr class="clear">
+
+
+
+
+<hr class="separator" />
+
+<h3>All submissions by <%= @company.name %>'s workers</h3>
+<%= render :partial => 'posts/posts', :locals => { :posts => @company.posts.order('id desc') } %>
+</div>

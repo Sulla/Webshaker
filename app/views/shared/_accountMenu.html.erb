@@ -1,0 +1,7 @@
+<div id="accountMenu">
+	<a href="http://vps.webinti.com/webshaker/profiles/1/edit" class="<%= current_acount_menu_selected("profile", selected_menu) %>"><span class="pictos">U </span>Profile</a>
+	<% if @user.is_student? %>
+	  <a href="http://vps.webinti.com/webshaker/profiles/submit" class="<%= current_acount_menu_selected("portfolio", selected_menu) %>"><span class="pictos">P </span>Portfolio</a>
+	<% end %>
+	<a href="http://vps.webinti.com/webshaker/users/edit" class="<%= current_acount_menu_selected("acount", selected_menu) %>"><span class="pictos">y </span>Account</a>
+</div>

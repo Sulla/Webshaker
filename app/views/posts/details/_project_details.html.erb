@@ -1,0 +1,45 @@
+
+<% content_for :sidebar do %>
+	<div class="">
+		
+		<%= render :partial => 'posts/author' %>
+		<hr class="separator"/> 
+		  <% if project.url.present? %>
+	    <a href="<%= project.clean_url %>" class="button2">View Live</a>
+	  <% end %>
+	  <hr class="clear"/>
+	  <span class="breath"></span>
+	 	<h3>Description</h3>
+		<p>
+	    <%= sanitize @post.content, @post %>
+	  </p>
+	  
+	
+	
+	  
+		
+		
+	 	</div>
+<% end %>
+<div class="mee">
+	<%= render :partial => 'shared/actions', :locals => { :id => @post.id, :type => 'Post', :model => @post } %>
+	<div class="shareThis">
+		<span  class='st_twitter_button' displayText='Tweet'></span><span  class='st_facebook_button' displayText='Facebook'></span><span  class='st_linkedin_button' displayText='LinkedIn'></span><span  class='st_plusone_button' ></span>
+	</div>
+	<hr class="clear" />
+</div>
+
+<span class="breath"/></span>
+
+<% post.attachments.each do |attach| %>
+  <div class="project">
+    <% if attach.size.width <= 620 %>
+      <img src="<%= attach.picture.url %>"/>
+    <% else %>
+      <a href="<%= attach.picture.url %>" rel="shadowbox[album]">
+        <img src="<%= attach.picture.url(:portfolio) %>"/>
+        <span class="overview"><span class="pictos">s</span></span>
+      </a>
+    <% end %>
+  </div>
+<% end %>

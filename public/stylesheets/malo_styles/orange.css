@@ -1,0 +1,68 @@
+input.button-medium {
+	background: url('http://vps.webinti.com/webshaker/images/malo_images/button-medium-orange.png') no-repeat;
+}
+
+input.button-medium:hover {
+	background: url('http://vps.webinti.com/webshaker/images/malo_images/button-medium-gold.png') no-repeat;
+}
+
+input.button-large {
+	background: url('http://vps.webinti.com/webshaker/images/malo_images/button-large-orange.png') no-repeat;
+}
+
+input.button-large:hover {
+	background: url('http://vps.webinti.com/webshaker/images/malo_images/button-large-gold.png') no-repeat;
+}
+
+a{
+	text-decoration:none;
+	color:#d08e15;
+}
+
+a:hover{
+	color:#e2bb52;
+}
+
+#navigation a, #navigation span {
+	background: #000 url('http://vps.webinti.com/webshaker/images/malo_images/bg-nav-a-orange.png') left top repeat-x;
+}
+
+#navigation a:hover, #navigation .toggleSubMenu a:hover{
+	background: #000 url('http://vps.webinti.com/webshaker/images/malo_images/bg-nav-a-orange.png') left center repeat-x;
+}
+
+#navigation .toggleSubMenu a, #navigation .toggleSubMenu span {
+	background: #000 url('http://vps.webinti.com/webshaker/images/malo_images/bg-nav-a-orange.png') left top repeat-x;
+}
+
+#navigation .open a:hover {
+	background: #000 url('http://vps.webinti.com/webshaker/images/malo_images/bg-nav-a-orange.png') left bottom repeat-x;
+}
+
+#navigation .open a, #navigation .open span {
+	background: #000 url('http://vps.webinti.com/webshaker/images/malo_images/bg-nav-a-orange.png') left bottom repeat-x;
+}
+
+#navigation ul.subMenu a:hover {
+	background: #000 url('http://vps.webinti.com/webshaker/images/malo_images/bg-nav-a-orange.png') left center repeat-x;
+}
+
+div.page-list a.active-page {
+	background: none repeat scroll 0 0 #e2bb52;
+    border: 1px solid #d08e15;
+}
+
+form textarea:focus, input.text:focus {
+	border: 1px solid #d08e15;
+	-moz-box-shadow: 0px 0px 3px #d08e15;
+	-webkit-box-shadow: 0px 0px 3px #d08e15;
+	box-shadow: 0px 0px 3px #d08e15;
+}
+
+ul.tabs li a:hover {
+	color: #e2bb52;
+}
+
+ul.tabs li.active a {
+	color: #d08e15;
+}

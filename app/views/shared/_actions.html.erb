@@ -1,0 +1,27 @@
+<div class="<%= get_bookmark_status(current_user, type, id) %>">
+	<a href="#" class="add_bookmark" data-id="<%= id %>" data-type="<%= type %>">
+	  <span class="pictos">S</span>
+	  <span id="bookmark_label">	  
+  	  <% if current_user && current_user.has_bookmarked?(type, id) %>
+  	    Remove bookmark
+  	  <% else %>
+  	    Add bookmark
+  	  <% end %>
+	  </span>
+	</a>
+</div>
+<div class="<%= get_like_status(current_user, type, id) %>">
+	<a href="/likes/<%= id %>?type=<%= type %>" class="likeCount">
+  	<span id="like_count"><%= model.likes %></span>
+	</a>
+	<a href="#" class="like_it" data-id="<%= id %>" data-type="<%= type %>">
+	  <span class="pictos">k</span>
+	  <span id="like_label">
+  	  <% if current_user && current_user.has_liked?(type, id) %>
+  	    Unlike
+  	  <% else %>
+  	    Like
+  	  <% end %>
+  	</span>
+	</a>
+</div>

@@ -1,0 +1,31 @@
+/home/webshaker/.rvm/rubies/ruby-1.9.3-p551/bin/ruby -r ./siteconf20150822-20307-sz2uai.rb extconf.rb 
+checking for ruby/thread.h... no
+checking for rb_thread_blocking_region()... yes
+checking for rb_wait_for_single_fd()... yes
+checking for rb_hash_dup()... yes
+checking for rb_intern3()... yes
+-----
+Using mysql_config at /usr/bin/mysql_config
+-----
+checking for mysql.h... yes
+checking for errmsg.h... yes
+checking for mysqld_error.h... yes
+-----
+Setting libpath to /usr/lib/x86_64-linux-gnu
+-----
+creating Makefile
+
+make  clean
+
+make
+compiling mysql2_ext.c
+compiling infile.c
+compiling result.c
+result.c: In function ‘msec_char_to_uint’:
+result.c:189:17: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+compiling client.c
+linking shared-object mysql2/mysql2.so
+
+make  install
+/usr/bin/install -m 0755 mysql2.so .gem.20150822-20307-1u3h4va/mysql2
+installing default mysql2 libraries

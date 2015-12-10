@@ -1,0 +1,35 @@
+<% content_for :title do %>WebShaker: likes on this post<% end %>
+<% content_for :sidebar do %>
+	<%= render :partial => 'shared/myActivity' %>
+	<%= render :partial => 'shared/signup' %>	
+	<%= render :partial => 'shared/top' %>
+	<%= render :partial => 'shared/advertise' %>	
+ 	<%= render :partial => 'shared/videos' %>	
+ 	
+<% end %>
+
+
+<div id="mainContent"><%= display_flash %>
+	<h2>Likes</h2>
+	<span class="breath"></span>
+
+
+	  <% if @likes.size > 0 %>
+  		<ul class="likeList">
+  		  <% @likes.each do |like| %>
+  		    <li>
+  		      <%= avatar_micro(like.user) %>
+  		      <%= link_to like.user.fullname, like.user.profile %>
+  		      <br/>
+  		      <%= raw like.user.job_where %>
+  		    </li>
+  		  <% end %>
+  		</ul>
+  	<% else %>
+  	  Nobody likes this post!
+  	<% end %>
+	
+
+
+</div>
+

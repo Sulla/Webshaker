@@ -1,0 +1,71 @@
+<% content_for :scripts do %>
+  <script type="text/javascript" src="http://maps.google.com/maps/api/js?v=3.3&sensor=false"></script>
+  <%= javascript_include_tag 'markermanager_packed' %>
+  <%= javascript_include_tag 'StyledMarker' %>
+  <%= javascript_include_tag 'jquery.metadata' %>
+  <%= javascript_include_tag 'jquery.jmapping.min' %>
+  <%= javascript_include_tag 'event' %>
+<% end %>
+
+<% content_for :sidebar do %>
+	<div class="">	
+		
+		<h3>More informations:</h3>
+		<div class="explaination">
+			
+			<ul class="infosPost">
+				<li class="odd"><strong>When ?</strong> <%= format_date event.occurs_on %></li>
+				<li>
+					<strong>Address:</strong>
+					<%= event.street %>
+					<%= event.zipcode %>
+					<%= event.city %>
+				</li>
+				<li class="odd">
+					<strong>Access:</strong>
+					<%= event.access %>
+				</li>
+				<li><strong>More information on:</strong> <%= link_to event.link, event.link %></li>
+				<li class="odd"><strong>Inscription:</strong> <a href="<%= event.registration %>"><%= event.registration %></a></li>
+			</ul>
+			<hr class="clear"/>
+		</div>
+		<span class="breath"/></span>
+		<%= render :partial => 'posts/author' %>
+	</div>
+<% end %>
+
+<div class="mee">
+	<%= render :partial => 'shared/actions', :locals => { :id => @post.id, :type => 'Post', :model => @post } %>
+	<div class="shareThis">
+		<span  class='st_twitter_button' displayText='Tweet'></span><span  class='st_facebook_button' displayText='Facebook'></span><span  class='st_linkedin_button' displayText='LinkedIn'></span><span  class='st_plusone_button' ></span>
+	</div>
+	<hr class="clear" />
+</div>
+
+<span class="breath"/></span>
+
+<div class="left">
+	<h3>Description</h3>
+	
+	  <%= sanitize_content @post.content, @post %>
+	
+</div>
+<hr class="clear" />
+<% if event.lat.present? %>
+    <span class="breath"></span>
+    <h3>Map - <%= event.street %>
+					<%= event.zipcode %>
+					<%= event.city %></h3>
+    <div id="map">
+      <div id="map-side-bar">
+        <div class="map-location" data-jmapping="{id: <%= event.id %>, point: {lat: <%= event.lat %>, lng: <%= event.lng %>}}">
+          <a href="#" class="map-link"><%= @post.title %></a>
+          <div class="info-box">
+            <h1><%= @post.title %></h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
