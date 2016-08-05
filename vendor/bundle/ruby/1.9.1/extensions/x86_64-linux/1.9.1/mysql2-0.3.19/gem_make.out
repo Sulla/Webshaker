@@ -1,4 +1,4 @@
-/home/webshaker/.rvm/rubies/ruby-1.9.3-p551/bin/ruby -r ./siteconf20150822-20307-sz2uai.rb extconf.rb 
+/home/.rvm/rubies/ruby-1.9.3-p551/bin/ruby -r ./siteconf20150822-20307-sz2uai.rb extconf.rb
 checking for ruby/thread.h... no
 checking for rb_thread_blocking_region()... yes
 checking for rb_wait_for_single_fd()... yes

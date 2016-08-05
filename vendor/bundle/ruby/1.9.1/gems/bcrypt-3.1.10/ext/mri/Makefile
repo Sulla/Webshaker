@@ -12,11 +12,11 @@ ECHO = $(ECHO1:0=@echo)
 #### Start of system configuration section. ####
 
 srcdir = .
-topdir = /home/webshaker/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1
-hdrdir = /home/webshaker/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1
-arch_hdrdir = /home/webshaker/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1/$(arch)
+topdir = /home/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1
+hdrdir = /home/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1
+arch_hdrdir = /home/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1/$(arch)
 VPATH = $(srcdir):$(arch_hdrdir)/ruby:$(hdrdir)/ruby
-prefix = $(DESTDIR)/home/webshaker/.rvm/rubies/ruby-1.9.3-p551
+prefix = $(DESTDIR)/home/.rvm/rubies/ruby-1.9.3-p551
 rubylibprefix = $(libdir)/$(RUBY_BASE_NAME)
 exec_prefix = $(prefix)
 vendorhdrdir = $(rubyhdrdir)/vendor_ruby
@@ -88,7 +88,7 @@ RUBY_SO_NAME = ruby
 arch = x86_64-linux
 sitearch = $(arch)
 ruby_version = 1.9.1
-ruby = /home/webshaker/.rvm/rubies/ruby-1.9.3-p551/bin/ruby
+ruby = /home/.rvm/rubies/ruby-1.9.3-p551/bin/ruby
 RUBY = $(ruby)
 RM = rm -f
 RM_RF = $(RUBY) -run -e rm -- -rf

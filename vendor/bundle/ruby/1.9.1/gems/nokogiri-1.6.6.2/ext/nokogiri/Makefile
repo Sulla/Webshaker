@@ -12,11 +12,11 @@ ECHO = $(ECHO1:0=@echo)
 #### Start of system configuration section. ####
 
 srcdir = .
-topdir = /home/webshaker/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1
-hdrdir = /home/webshaker/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1
-arch_hdrdir = /home/webshaker/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1/$(arch)
+topdir = /home/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1
+hdrdir = /home/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1
+arch_hdrdir = /home/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1/$(arch)
 VPATH = $(srcdir):$(arch_hdrdir)/ruby:$(hdrdir)/ruby
-prefix = $(DESTDIR)/home/webshaker/.rvm/rubies/ruby-1.9.3-p551
+prefix = $(DESTDIR)/home/.rvm/rubies/ruby-1.9.3-p551
 rubylibprefix = $(libdir)/$(RUBY_BASE_NAME)
 exec_prefix = $(prefix)
 vendorhdrdir = $(rubyhdrdir)/vendor_ruby
@@ -71,7 +71,7 @@ warnflags = -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long 
 CFLAGS   = -fPIC $(cflags)  -fPIC  -g -DXP_UNIX -O3 -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline -DNOKOGIRI_USE_PACKAGED_LIBRARIES $(ARCH_FLAG)
 INCFLAGS = -I. -I$(arch_hdrdir) -I$(hdrdir)/ruby/backward -I$(hdrdir) -I$(srcdir)
 DEFS     = 
-CPPFLAGS = -DHAVE_XMLPARSEDOC -DHAVE_XSLTPARSESTYLESHEETDOC -DHAVE_EXSLTFUNCREGISTER -DHAVE_XMLHASFEATURE -DHAVE_XMLFIRSTELEMENTCHILD -DHAVE_XMLRELAXNGSETPARSERSTRUCTUREDERRORS -DHAVE_XMLRELAXNGSETPARSERSTRUCTUREDERRORS -DHAVE_XMLRELAXNGSETVALIDSTRUCTUREDERRORS -DHAVE_XMLSCHEMASETVALIDSTRUCTUREDERRORS -DHAVE_XMLSCHEMASETPARSERSTRUCTUREDERRORS -I/home/webshaker/www/code/vendor/bundle/ruby/1.9.1/gems/nokogiri-1.6.6.2/ports/x86_64-unknown-linux-gnu/libxslt/1.1.28/include -I/home/webshaker/www/code/vendor/bundle/ruby/1.9.1/gems/nokogiri-1.6.6.2/ports/x86_64-unknown-linux-gnu/libxml2/2.9.2/include/libxml2 -I/home/webshaker/www/code/vendor/bundle/ruby/1.9.1/gems/nokogiri-1.6.6.2/ports/x86_64-unknown-linux-gnu/libxml2/2.9.2/include/libxml2  $(DEFS) $(cppflags) -DNOKOGIRI_LIBXML2_PATH\=\"/home/webshaker/www/code/vendor/bundle/ruby/1.9.1/gems/nokogiri-1.6.6.2/ports/x86_64-unknown-linux-gnu/libxml2/2.9.2\" -DNOKOGIRI_LIBXML2_PATCHES\=\"0001-Revert-Missing-initialization-for-the-catalog-module.patch\ 0002-Fix-missing-entities-after-CVE-2014-3660-fix.patch\" -DNOKOGIRI_LIBXSLT_PATH\=\"/home/webshaker/www/code/vendor/bundle/ruby/1.9.1/gems/nokogiri-1.6.6.2/ports/x86_64-unknown-linux-gnu/libxslt/1.1.28\" -DNOKOGIRI_LIBXSLT_PATCHES\=\"0001-Adding-doc-update-related-to-1.1.28.patch\ 0002-Fix-a-couple-of-places-where-f-printf-parameters-wer.patch\ 0003-Initialize-pseudo-random-number-generator-with-curre.patch\ 0004-EXSLT-function-str-replace-is-broken-as-is.patch\ 0006-Fix-str-padding-to-work-with-UTF-8-strings.patch\ 0007-Separate-function-for-predicate-matching-in-patterns.patch\ 0008-Fix-direct-pattern-matching.patch\ 0009-Fix-certain-patterns-with-predicates.patch\ 0010-Fix-handling-of-UTF-8-strings-in-EXSLT-crypto-module.patch\ 0013-Memory-leak-in-xsltCompileIdKeyPattern-error-path.patch\ 0014-Fix-for-bug-436589.patch\ 0015-Fix-mkdir-for-mingw.patch\"
+CPPFLAGS = -DHAVE_XMLPARSEDOC -DHAVE_XSLTPARSESTYLESHEETDOC -DHAVE_EXSLTFUNCREGISTER -DHAVE_XMLHASFEATURE -DHAVE_XMLFIRSTELEMENTCHILD -DHAVE_XMLRELAXNGSETPARSERSTRUCTUREDERRORS -DHAVE_XMLRELAXNGSETPARSERSTRUCTUREDERRORS -DHAVE_XMLRELAXNGSETVALIDSTRUCTUREDERRORS -DHAVE_XMLSCHEMASETVALIDSTRUCTUREDERRORS -DHAVE_XMLSCHEMASETPARSERSTRUCTUREDERRORS -I/home/www/code/vendor/bundle/ruby/1.9.1/gems/nokogiri-1.6.6.2/ports/x86_64-unknown-linux-gnu/libxslt/1.1.28/include -I/home/www/code/vendor/bundle/ruby/1.9.1/gems/nokogiri-1.6.6.2/ports/x86_64-unknown-linux-gnu/libxml2/2.9.2/include/libxml2 -I/home/www/code/vendor/bundle/ruby/1.9.1/gems/nokogiri-1.6.6.2/ports/x86_64-unknown-linux-gnu/libxml2/2.9.2/include/libxml2  $(DEFS) $(cppflags) -DNOKOGIRI_LIBXML2_PATH\=\"/home/www/code/vendor/bundle/ruby/1.9.1/gems/nokogiri-1.6.6.2/ports/x86_64-unknown-linux-gnu/libxml2/2.9.2\" -DNOKOGIRI_LIBXML2_PATCHES\=\"0001-Revert-Missing-initialization-for-the-catalog-module.patch\ 0002-Fix-missing-entities-after-CVE-2014-3660-fix.patch\" -DNOKOGIRI_LIBXSLT_PATH\=\"/home/www/code/vendor/bundle/ruby/1.9.1/gems/nokogiri-1.6.6.2/ports/x86_64-unknown-linux-gnu/libxslt/1.1.28\" -DNOKOGIRI_LIBXSLT_PATCHES\=\"0001-Adding-doc-update-related-to-1.1.28.patch\ 0002-Fix-a-couple-of-places-where-f-printf-parameters-wer.patch\ 0003-Initialize-pseudo-random-number-generator-with-curre.patch\ 0004-EXSLT-function-str-replace-is-broken-as-is.patch\ 0006-Fix-str-padding-to-work-with-UTF-8-strings.patch\ 0007-Separate-function-for-predicate-matching-in-patterns.patch\ 0008-Fix-direct-pattern-matching.patch\ 0009-Fix-certain-patterns-with-predicates.patch\ 0010-Fix-handling-of-UTF-8-strings-in-EXSLT-crypto-module.patch\ 0013-Memory-leak-in-xsltCompileIdKeyPattern-error-path.patch\ 0014-Fix-for-bug-436589.patch\ 0015-Fix-mkdir-for-mingw.patch\"
 CXXFLAGS = $(CFLAGS) $(cxxflags)
 ldflags  = -L.  -rdynamic -Wl,-export-dynamic
 dldflags =  
@@ -88,7 +88,7 @@ RUBY_SO_NAME = ruby
 arch = x86_64-linux
 sitearch = $(arch)
 ruby_version = 1.9.1
-ruby = /home/webshaker/.rvm/rubies/ruby-1.9.3-p551/bin/ruby
+ruby = /home/.rvm/rubies/ruby-1.9.3-p551/bin/ruby
 RUBY = $(ruby)
 RM = rm -f
 RM_RF = $(RUBY) -run -e rm -- -rf
@@ -104,8 +104,8 @@ TOUCH = exit >
 
 preload = 
 
-libpath = . $(libdir) /home/webshaker/www/code/vendor/bundle/ruby/1.9.1/gems/nokogiri-1.6.6.2/ports/x86_64-unknown-linux-gnu/libxml2/2.9.2/lib /home/webshaker/www/code/vendor/bundle/ruby/1.9.1/gems/nokogiri-1.6.6.2/ports/x86_64-unknown-linux-gnu/libxslt/1.1.28/lib
-LIBPATH =  -L. -L$(libdir) -Wl,-R$(libdir) -L/home/webshaker/www/code/vendor/bundle/ruby/1.9.1/gems/nokogiri-1.6.6.2/ports/x86_64-unknown-linux-gnu/libxml2/2.9.2/lib -Wl,-R/home/webshaker/www/code/vendor/bundle/ruby/1.9.1/gems/nokogiri-1.6.6.2/ports/x86_64-unknown-linux-gnu/libxml2/2.9.2/lib -L/home/webshaker/www/code/vendor/bundle/ruby/1.9.1/gems/nokogiri-1.6.6.2/ports/x86_64-unknown-linux-gnu/libxslt/1.1.28/lib -Wl,-R/home/webshaker/www/code/vendor/bundle/ruby/1.9.1/gems/nokogiri-1.6.6.2/ports/x86_64-unknown-linux-gnu/libxslt/1.1.28/lib
+libpath = . $(libdir) /home/www/code/vendor/bundle/ruby/1.9.1/gems/nokogiri-1.6.6.2/ports/x86_64-unknown-linux-gnu/libxml2/2.9.2/lib /home/www/code/vendor/bundle/ruby/1.9.1/gems/nokogiri-1.6.6.2/ports/x86_64-unknown-linux-gnu/libxslt/1.1.28/lib
+LIBPATH =  -L. -L$(libdir) -Wl,-R$(libdir) -L/home/www/code/vendor/bundle/ruby/1.9.1/gems/nokogiri-1.6.6.2/ports/x86_64-unknown-linux-gnu/libxml2/2.9.2/lib -Wl,-R/home/www/code/vendor/bundle/ruby/1.9.1/gems/nokogiri-1.6.6.2/ports/x86_64-unknown-linux-gnu/libxml2/2.9.2/lib -L/home/www/code/vendor/bundle/ruby/1.9.1/gems/nokogiri-1.6.6.2/ports/x86_64-unknown-linux-gnu/libxslt/1.1.28/lib -Wl,-R/home/www/code/vendor/bundle/ruby/1.9.1/gems/nokogiri-1.6.6.2/ports/x86_64-unknown-linux-gnu/libxslt/1.1.28/lib
 DEFFILE = 
 
 CLEANFILES = mkmf.log
@@ -116,7 +116,7 @@ extout =
 extout_prefix = 
 target_prefix = /nokogiri
 LOCAL_LIBS = 
-LIBS = $(LIBRUBYARG_SHARED) /home/webshaker/www/code/vendor/bundle/ruby/1.9.1/gems/nokogiri-1.6.6.2/ports/x86_64-unknown-linux-gnu/libxslt/1.1.28/lib/libexslt.a -lrt -lm -ldl -lz /home/webshaker/www/code/vendor/bundle/ruby/1.9.1/gems/nokogiri-1.6.6.2/ports/x86_64-unknown-linux-gnu/libxml2/2.9.2/lib/libxml2.a /home/webshaker/www/code/vendor/bundle/ruby/1.9.1/gems/nokogiri-1.6.6.2/ports/x86_64-unknown-linux-gnu/libxslt/1.1.28/lib/libxslt.a -ldl -lm -lz /home/webshaker/www/code/vendor/bundle/ruby/1.9.1/gems/nokogiri-1.6.6.2/ports/x86_64-unknown-linux-gnu/libxml2/2.9.2/lib/libxml2.a -lpthread -lrt -ldl -lcrypt -lm   -lc 
+LIBS = $(LIBRUBYARG_SHARED) /home/www/code/vendor/bundle/ruby/1.9.1/gems/nokogiri-1.6.6.2/ports/x86_64-unknown-linux-gnu/libxslt/1.1.28/lib/libexslt.a -lrt -lm -ldl -lz /home/www/code/vendor/bundle/ruby/1.9.1/gems/nokogiri-1.6.6.2/ports/x86_64-unknown-linux-gnu/libxml2/2.9.2/lib/libxml2.a /home/www/code/vendor/bundle/ruby/1.9.1/gems/nokogiri-1.6.6.2/ports/x86_64-unknown-linux-gnu/libxslt/1.1.28/lib/libxslt.a -ldl -lm -lz /home/www/code/vendor/bundle/ruby/1.9.1/gems/nokogiri-1.6.6.2/ports/x86_64-unknown-linux-gnu/libxml2/2.9.2/lib/libxml2.a -lpthread -lrt -ldl -lcrypt -lm   -lc
 SRCS = xml_entity_reference.c xml_element_content.c xml_document.c xml_document_fragment.c xml_sax_parser.c xml_text.c xml_cdata.c xml_attr.c xml_schema.c xml_encoding_handler.c xml_reader.c xml_entity_decl.c html_document.c xml_io.c html_sax_push_parser.c html_sax_parser_context.c xml_dtd.c xml_element_decl.c xml_processing_instruction.c xml_node.c xml_namespace.c xml_sax_push_parser.c xml_relax_ng.c xslt_stylesheet.c xml_sax_parser_context.c html_entity_lookup.c html_element_description.c xml_libxml2_hacks.c xml_node_set.c xml_comment.c xml_attribute_decl.c nokogiri.c xml_syntax_error.c xml_xpath_context.c
 OBJS = xml_entity_reference.o xml_element_content.o xml_document.o xml_document_fragment.o xml_sax_parser.o xml_text.o xml_cdata.o xml_attr.o xml_schema.o xml_encoding_handler.o xml_reader.o xml_entity_decl.o html_document.o xml_io.o html_sax_push_parser.o html_sax_parser_context.o xml_dtd.o xml_element_decl.o xml_processing_instruction.o xml_node.o xml_namespace.o xml_sax_push_parser.o xml_relax_ng.o xslt_stylesheet.o xml_sax_parser_context.o html_entity_lookup.o html_element_description.o xml_libxml2_hacks.o xml_node_set.o xml_comment.o xml_attribute_decl.o nokogiri.o xml_syntax_error.o xml_xpath_context.o
 TARGET = nokogiri
