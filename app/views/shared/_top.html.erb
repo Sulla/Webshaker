@@ -11,7 +11,7 @@
       <div class="tabTop" id="tabs-1">
          
   <% Company.top(5).each do |company| %>
-  	<a class="tableLink odd" title="" href="http://vps.webinti.com/webshaker/companies/<%= company.id %>">  
+  	<a class="tableLink odd" title="" href="/companies/<%= company.id %>">
       <%= avatar_small(company) %>
       <h4><span class="pictos">k</span> <span class="like_count" data-id="#"><%= company.likes %> | </span> <%= company.name %> </h4>
      	<%= company.baseline %>
@@ -20,12 +20,12 @@
    
   <% end %>      
   <hr class="clear">
-  <a href="http://vps.webinti.com/webshaker/companies/top" class="right">See the whole list</a>
+  <a href="/companies/top" class="right">See the whole list</a>
       </div>
       
       <div class="tabTop" id="tabs-2">
 			  <% User.top(2, 5).each do |user| %>
-        	<a class="tableLink odd" title="" href="http://vps.webinti.com/webshaker/profiles/<%= user.profile.id %>">  
+        	<a class="tableLink odd" title="" href="/profiles/<%= user.profile.id %>">
             <%= avatar_small(user) %>
             <h4> <span class="pictos">k</span> <span class="like_count" data-id="#"><%= user.total %></span> | <%= user.fullname %> </h4>
             <%= user.job_where_no_link %></span>
@@ -33,12 +33,12 @@
           </a>
         <% end %>
         <hr class="clear">
-        <a href="http://vps.webinti.com/webshaker/companies/top?role_id=2" class="right">See the whole list</a>
+        <a href="/companies/top?role_id=2" class="right">See the whole list</a>
       </div>
       
       <div class="tabTop" id="tabs-3">
         <% User.top(3, 5).each do |user| %>
-        	<a class="tableLink odd" title="" href="http://vps.webinti.com/webshaker/profiles/<%= user.profile.id %>">  
+        	<a class="tableLink odd" title="" href="/profiles/<%= user.profile.id %>">
             <%= avatar_small(user) %>
             <h4><span class="pictos">k</span> <span class="like_count" data-id="#"><%= user.total %></span> | <%= user.fullname %> </h4>
            <%= user.job_title %>
@@ -46,12 +46,12 @@
           </a>
         <% end %>
         <hr class="clear">
-        <a href="http://vps.webinti.com/webshaker/companies/top?role_id=3" class="right">See the whole list</a>
+        <a href="/companies/top?role_id=3" class="right">See the whole list</a>
       </div>
       
       <div class="tabTop tab_tags" id="tabs-4">
      		<% User.top(1, 5).each do |user| %>
-        	<a class="tableLink odd" title="" href="http://vps.webinti.com/webshaker/profiles/<%= user.profile.id %>">  
+        	<a class="tableLink odd" title="" href="/profiles/<%= user.profile.id %>">
             <%= avatar_small(user) %>
             <h4><span class="pictos">k</span> <span class="like_count" data-id="#"><%= user.total %></span> | <%= user.fullname %> </h4>
           <%= user.try(:school).try(:name) %>
@@ -59,7 +59,7 @@
           </a>
         <% end %>
         <hr class="clear">
-        <a href="http://vps.webinti.com/webshaker/companies/top?role_id=1" class="right">See the whole list</a>
+        <a href="/companies/top?role_id=1" class="right">See the whole list</a>
        </div>
      <hr class="clear"/>
   

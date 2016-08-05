@@ -25,12 +25,12 @@
 	  <% @users.each_with_index do |user, index| %>
   		<tr class="<%= index % 2 == 0 ? 'one' : 'two' %>" id="users_<%= user.id %>">
   		  <td><%= user.id %></td>
-  			<td><%= link_to user.fullname, "http://vps.webinti.com/webshaker/admin/users/#{user.id}" %></td>
+  			<td><%= link_to user.fullname, "/admin/users/#{user.id}" %></td>
   			<td><%= user.email %></td>
   			<td><%= user.try(:role).try(:name) %></td>
   			<td class="action">
   			  <a href="#" class="delete" title="Delete" data-id="<%= user.id %>" data-type="users">Delete</a>
-  			  <a href="http://vps.webinti.com/webshaker/admin/users/<%= user.id %>/edit"  title="Edit" data-id="<%= user.id %>" data-type="users"><img src="http://vps.webinti.com/webshaker/images/ico/edit.png"/></a>
+  			  <a href="/admin/users/<%= user.id %>/edit"  title="Edit" data-id="<%= user.id %>" data-type="users"><img src="/images/ico/edit.png"/></a>
   			  
   			</td>
   		</tr>

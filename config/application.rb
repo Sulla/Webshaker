@@ -9,7 +9,7 @@ Bundler.require(:default, Rails.env) if defined?(Bundler)
 module Webshaker
   class Application < Rails::Application
     config.action_controller.default_url_options = {
-        :host => "serveur.webinti.com/webshaker/"
+        :host => "serveur.webinti.com/"
     }
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

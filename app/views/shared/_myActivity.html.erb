@@ -1,6 +1,6 @@
 <% if user_signed_in? %>
   <% if controller.controller_name != 'activities' %>
-    <h3><a href="http://vps.webinti.com/webshaker/activities" class="button right">All my activities</a> My Activities</h3>
+    <h3><a href="/activities" class="button right">All my activities</a> My Activities</h3>
   <% end %>
    <ul id="ActivityList" class="noListType">
       <% @activities.each do |activity| %>
@@ -28,19 +28,19 @@
           <% end %>
 
             <% if activity.noticeable_type == 'Post' %>
-              <a href="http://vps.webinti.com/webshaker/profiles/<%= current_user.profile.id %>">You</a> posted 
+              <a href="/profiles/<%= current_user.profile.id %>">You</a> posted
               <% if activity.noticeable %>
-                <a href="http://vps.webinti.com/webshaker/posts/<%= activity.noticeable_id %>"><%= activity.noticeable.title %></a>
+                <a href="/posts/<%= activity.noticeable_id %>"><%= activity.noticeable.title %></a>
               <% end %>
             <% elsif activity.noticeable_type == 'Like' %>
               <% if activity.from && activity.from.profile %>
                 <% if current_user == activity.from %>
-                  <a href="http://vps.webinti.com/webshaker/profiles/<%= activity.from.profile.id %>">You</a> like 
+                  <a href="/profiles/<%= activity.from.profile.id %>">You</a> like
                   <% if activity.noticeable %>
                     <a href="<%= activity.noticeable.link %>"><%= activity.noticeable.title %></a>
                   <% end %>
                 <% else %>
-                  <a href="http://vps.webinti.com/webshaker/profiles/<%= activity.from.profile.id %>"><%= activity.from.fullname %></a> likes 
+                  <a href="/profiles/<%= activity.from.profile.id %>"><%= activity.from.fullname %></a> likes
                   <% if activity.noticeable %>
                     <a href="<%= activity.noticeable.link %>"><%= activity.noticeable.title %></a>
                   <% end %>
@@ -49,12 +49,12 @@
             <% elsif activity.noticeable_type == 'Bookmark' %>
               <% if activity.from && activity.from.profile %>
                 <% if current_user == activity.from %>
-                  <a href="http://vps.webinti.com/webshaker/profiles/<%= activity.from.profile.id %>">You</a> bookmarked 
+                  <a href="/profiles/<%= activity.from.profile.id %>">You</a> bookmarked
                   <% if activity.noticeable %>
                     <a href="<%= activity.noticeable.link %>"><%= activity.noticeable.title %></a>
                   <% end %>
                 <% else %>
-                  <a href="http://vps.webinti.com/webshaker/profiles/<%= activity.from.profile.id %>"><%= activity.from.fullname %></a> bookmarked 
+                  <a href="/profiles/<%= activity.from.profile.id %>"><%= activity.from.fullname %></a> bookmarked
                   <% if activity.noticeable %>
                     <a href="<%= activity.noticeable.link %>"><%= activity.noticeable.title %></a>
                   <% end %>
@@ -62,9 +62,9 @@
               <% end %>                
             <% elsif activity.noticeable_type == 'Admin' %>
               <% cp = Company.find(activity.noticeable_id) %>
-              You are now the admin of <a href="http://vps.webinti.com/webshaker/companies/<%= cp.try(:id) %>"><%= cp.try(:name) %></a>
+              You are now the admin of <a href="/companies/<%= cp.try(:id) %>"><%= cp.try(:name) %></a>
             <% elsif activity.noticeable_type == 'Registration' %>              
-              <a href="http://vps.webinti.com/webshaker/profiles/<%= current_user.profile.id %>">You</a> registered on WebShaker !
+              <a href="/profiles/<%= current_user.profile.id %>">You</a> registered on WebShaker !
             <% end %>
          <span class="timeActivity"><%= distance_of_time_in_words_to_now(activity.created_at) %> ago</span>
         </li>

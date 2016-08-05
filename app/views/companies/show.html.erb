@@ -13,7 +13,7 @@
 	 <h3><%= t('companies.employees') %></h3>
   <% @company.workers.validated.each do |worker| %>
     <% if worker.user %>
-      <a class="tableLink odd" title="" href="http://vps.webinti.com/webshaker/profiles/<%= worker.user.profile.id %>">  
+      <a class="tableLink odd" title="" href="/profiles/<%= worker.user.profile.id %>">
         <%= avatar_small(worker.user) %>
       
         <h4><%= worker.user.fullname %></h4>
@@ -65,7 +65,7 @@
     <% end %>
     
     <% if current_user && current_user.company_worker == @company && !current_user.can_admin_company?(@company.id) %>
-      <form id="admin_company" method="post" action="http://vps.webinti.com/webshaker/workers/admin_request">
+      <form id="admin_company" method="post" action="/workers/admin_request">
         <input type="submit" class="button right" value="Become administrator"/>
         <input type="hidden" name="company_id" value="<%= @company.id %>"/>
       </form>

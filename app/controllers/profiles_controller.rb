@@ -21,7 +21,7 @@ class ProfilesController < ApplicationController
     end
     
     if saved
-      redirect_to 'http://vps.webinti.com/webshaker/profiles/1/edit', :notice => t('profiles.updated')
+      redirect_to '/profiles/1/edit', :notice => t('profiles.updated')
     else
       render 'profiles/edit'
     end
@@ -48,7 +48,7 @@ class ProfilesController < ApplicationController
         @post.validated = true
         @post.save
 
-        redirect_to "http://vps.webinti.com/webshaker/profiles/#{@post.user.profile.id}", :notice => "Your project has successfully been added to your portfolio!"
+        redirect_to "/profiles/#{@post.user.profile.id}", :notice => "Your project has successfully been added to your portfolio!"
       else
         render 'submit'
       end
@@ -81,7 +81,7 @@ class ProfilesController < ApplicationController
   def project
     @post = Post.find(params[:project])
     @current_menu = 'jobs' if @post.post_type_id == 4
-    render 'http://vps.webinti.com/webshaker/posts/show'
+    render '/posts/show'
   end
   
   private

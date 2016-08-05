@@ -18,7 +18,7 @@
 <% end %>
 
 <div id="mainContent"><%= display_flash %>    
-<a href="http://vps.webinti.com/webshaker/directory" id="backShaker"><span class="pictos">[</span>Back to Directory</a>
+<a href="/directory" id="backShaker"><span class="pictos">[</span>Back to Directory</a>
   <h2>Map</h2>
   <p class="underTitle">Find all the agencies and freelancers</p>
 
@@ -30,8 +30,8 @@
           <a href="#" class="map-link"><%= company.name %></a>
           <div class="info-box">
           	<div class="contentMap">
-           		 <a href="http://vps.webinti.com/webshaker/companies/<%= company.id %>" class="left"><%= avatar(company) %></a>            
-            	<h3> <a href="http://vps.webinti.com/webshaker/companies/<%= company.id %>"><%= company.name %></a></h3>
+           		 <a href="/companies/<%= company.id %>" class="left"><%= avatar(company) %></a>
+            	<h3> <a href="/companies/<%= company.id %>"><%= company.name %></a></h3>
             	<span class="underline"><%= company.city %></span> 
             </div>
           </div>
@@ -42,8 +42,8 @@
           <a href="#" class="map-link"><%= user.name %></a>
           <div class="info-box">
           	<div class="contentMap">
-            	<a href="http://vps.webinti.com/webshaker/profiles/<%= user.profile.id %>" class="left"><%= avatar(user) %></a>
-            	<h3> <a href="http://vps.webinti.com/webshaker/profiles/<%= user.profile.id %>"><%= user.fullname %></a></h3>
+            	<a href="/profiles/<%= user.profile.id %>" class="left"><%= avatar(user) %></a>
+            	<h3> <a href="/profiles/<%= user.profile.id %>"><%= user.fullname %></a></h3>
             	<span class="underline"><%= user.city %></span>
             </div>       
           </div>

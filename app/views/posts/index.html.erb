@@ -20,11 +20,11 @@
 
 <div class="headerContent">
 	<span class="labelIngredients">Ingredients:</span> 	
-	<a href="http://vps.webinti.com/webshaker/posts" class="show_posts show_data <%= set_selected(:post_type_id, 0) %> first" data-id="">All posts</a>
+	<a href="/posts" class="show_posts show_data <%= set_selected(:post_type_id, 0) %> first" data-id="">All posts</a>
 	<a href="#" class="show_posts show_data <%= set_selected(:post_type_id, 1) %>" data-id="1">News</a>
 	<a href="#" class="show_posts show_data <%= set_selected(:post_type_id, 2) %>" data-id="2">Projects</a>
 	<a href="#" class="show_posts show_data <%= set_selected(:post_type_id, 3) %>" data-id="3">Events</a>
-	<a href="http://vps.webinti.com/webshaker/jobs" class="show_posts show_data <%= set_selected(:post_type_id, 4) %>" data-id="4">Jobs</a> 
+	<a href="/jobs" class="show_posts show_data <%= set_selected(:post_type_id, 4) %>" data-id="4">Jobs</a>
 	<a href="#" class="show_posts show_data <%= set_selected(:post_type_id, 5) %>" data-id="5">Interviews</a>
 	<span class="from">from</span>
 	
@@ -42,7 +42,7 @@
 	<%= render :partial => 'shared/submit' %>
 
   <h2>The Shaker <span></span> </h2>
-   <span class="count hidden" id="loading"><img src="http://vps.webinti.com/webshaker/images/loader.gif" /> Loading...</span>
+   <span class="count hidden" id="loading"><img src="/images/loader.gif" /> Loading...</span>
   <p class="underTitle">All about belgian web</p>
  
 	<hr class="clear"/>
@@ -52,9 +52,9 @@
     <%= render :partial => 'posts', :locals => { :posts => @posts } %>
   </div>
   <% if @posts.size >= 10 %>
-	  <a id="load_more" class="button" href="http://vps.webinti.com/webshaker/?page=<%= @page + 1 %>" data-page="1"><span class="pictos">&amp;</span>I want more !</a>
+	  <a id="load_more" class="button" href="/?page=<%= @page + 1 %>" data-page="1"><span class="pictos">&amp;</span>I want more !</a>
 	<% else %>
-	  <a id="load_more" class="button" href="http://vps.webinti.com/webshaker/?page=<%= @page + 1 %>" data-page="1" style="display:none"><span class="pictos">&amp;</span>I want more !</a>
+	  <a id="load_more" class="button" href="/?page=<%= @page + 1 %>" data-page="1" style="display:none"><span class="pictos">&amp;</span>I want more !</a>
 	<% end %>
 </div>
 

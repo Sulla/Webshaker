@@ -240,7 +240,7 @@ class User < ActiveRecord::Base
       w = Worker.where(:user_id => self.id).first
       
       if w && w.company
-        str = %Q(#{job_title} at <a href="http://vps.webinti.com/webshaker/companies/#{w.company.id}">#{w.company.name}</a>)
+        str = %Q(#{job_title} at <a href="/companies/#{w.company.id}">#{w.company.name}</a>)
       else
         str = "#{job_title}"
       end

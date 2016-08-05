@@ -13,6 +13,7 @@ gem "html_truncator", "~>0.2"
 
 gem 'mysql2' # need to install libmysqlclient-dev
 
+gem "iconv", "~> 1.0.3"
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

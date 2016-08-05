@@ -43,7 +43,7 @@
 	
 	<div class="profileTop">
 	  <% if user_signed_in? %>
-	    <% if current_user == @profile.user %><%= link_to 'Edit Your Profile', "http://vps.webinti.com/webshaker/profiles/#{current_user.profile.id}/edit",:class=>"right" %><% end %> 
+	    <% if current_user == @profile.user %><%= link_to 'Edit Your Profile', "/profiles/#{current_user.profile.id}/edit",:class=>"right" %><% end %>
 	  <% end %>
 		<%= avatar(@profile.user, 'avatarProfile') %>
 		<h2>
@@ -93,13 +93,13 @@
 
   	<hr class="separator" />
   	<% if user_signed_in? %>
-	    <% if current_user == @profile.user %><%= link_to 'Add project', "http://vps.webinti.com/webshaker/profiles/submit",:class=>"right" %><% end %> 
+	    <% if current_user == @profile.user %><%= link_to 'Add project', "/profiles/submit",:class=>"right" %><% end %>
 	  <% end %>
   	<div class="portfolio">
   		<h3><span class="pictos">P</span> Portfolio</h3>
   		<% if @profile.user.posts.projects.size > 0 %>
     		<% @profile.user.posts.projects.each_with_index do |post, index| %>
-      		<a href="http://vps.webinti.com/webshaker/profiles/<%= @profile.id %>/portfolio/<%= post.id %>" class="<%= index == 3 ? 'fourth' : '' %>">
+      		<a href="/profiles/<%= @profile.id %>/portfolio/<%= post.id %>" class="<%= index == 3 ? 'fourth' : '' %>">
       		  <% if post.attachments.size > 0 %>
     		      <img src="<%= post.attachments.first.picture.url(:thumb) %>" class="showcase-img" alt="<%= post.title %>"/>	
     		    <% end %>
@@ -108,7 +108,7 @@
       	<% end %>
     	<% else %>
     	  <% if user_signed_in? %>
-	    <% if current_user == @profile.user %><%= link_to 'Add your first project', "http://vps.webinti.com/webshaker/profiles/submit",:class=>"button" %><% end %> 
+	    <% if current_user == @profile.user %><%= link_to 'Add your first project', "/profiles/submit",:class=>"button" %><% end %>
 	  <% end %>
     	<% end %>
   	</div>

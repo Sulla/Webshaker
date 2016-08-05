@@ -1,5 +1,5 @@
 <% if @company.avatar.present? %>
-  <form method="post" action="http://vps.webinti.com/webshaker/companies/<%= @company.id %>/reset_avatar" class="deleteAvatarForm">
+  <form method="post" action="/companies/<%= @company.id %>/reset_avatar" class="deleteAvatarForm">
     <input type="submit" class="button" value="Remove my avatar"/>
   </form>
 <% end %>

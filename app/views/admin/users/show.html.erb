@@ -3,12 +3,12 @@
 <% end %>
 
 <% content_for :breadcrump do %>
-	> <a href="http://vps.webinti.com/webshaker/admin/users">Users</a>
+	> <a href="/admin/users">Users</a>
 	> <%= @user.fullname %>
 <% end %>
 
 <% content_for :boxheader do %>
-	<a href="http://vps.webinti.com/webshaker/admin/users/<%= @user.id %>/edit" title="Edit page" class="button-medium link-header">Edit User</a>
+	<a href="/admin/users/<%= @user.id %>/edit" title="Edit page" class="button-medium link-header">Edit User</a>
 	<h2>DETAILS</h2>
 <% end %>
 

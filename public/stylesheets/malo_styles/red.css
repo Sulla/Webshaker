@@ -1,17 +1,17 @@
 input.button-medium {
-	background: url('http://vps.webinti.com/webshaker/images/malo_images/button-medium-blackred.png') no-repeat;
+	background: url('/images/malo_images/button-medium-blackred.png') no-repeat;
 }
 
 input.button-medium:hover {
-	background: url('http://vps.webinti.com/webshaker/images/malo_images/button-medium-red.png') no-repeat;
+	background: url('/images/malo_images/button-medium-red.png') no-repeat;
 }
 
 input.button-large {
-	background: url('http://vps.webinti.com/webshaker/images/malo_images/button-large-blackred.png') no-repeat;
+	background: url('/images/malo_images/button-large-blackred.png') no-repeat;
 }
 
 input.button-large:hover {
-	background: url('http://vps.webinti.com/webshaker/images/malo_images/button-large-red.png') no-repeat;
+	background: url('/images/malo_images/button-large-red.png') no-repeat;
 }
 
 a{
@@ -24,27 +24,27 @@ a:hover{
 }
 
 #navigation a, #navigation span {
-	background: #000 url('http://vps.webinti.com/webshaker/images/malo_images/bg-nav-a-red.png') left top repeat-x;
+	background: #000 url('/images/malo_images/bg-nav-a-red.png') left top repeat-x;
 }
 
 #navigation a:hover, #navigation .toggleSubMenu a:hover{
-	background: #000 url('http://vps.webinti.com/webshaker/images/malo_images/bg-nav-a-red.png') left center repeat-x;
+	background: #000 url('/images/malo_images/bg-nav-a-red.png') left center repeat-x;
 }
 
 #navigation .toggleSubMenu a, #navigation .toggleSubMenu span {
-	background: #000 url('http://vps.webinti.com/webshaker/images/malo_images/bg-nav-a-red.png') left top repeat-x;
+	background: #000 url('/images/malo_images/bg-nav-a-red.png') left top repeat-x;
 }
 
 #navigation .open a:hover {
-	background: #000 url('http://vps.webinti.com/webshaker/images/malo_images/bg-nav-a-red.png') left bottom repeat-x;
+	background: #000 url('/images/malo_images/bg-nav-a-red.png') left bottom repeat-x;
 }
 
 #navigation .open a, #navigation .open span {
-	background: #000 url('http://vps.webinti.com/webshaker/images/malo_images/bg-nav-a-red.png') left bottom repeat-x;
+	background: #000 url('/images/malo_images/bg-nav-a-red.png') left bottom repeat-x;
 }
 
 #navigation ul.subMenu a:hover {
-	background: #000 url('http://vps.webinti.com/webshaker/images/malo_images/bg-nav-a-red.png') left center repeat-x;
+	background: #000 url('/images/malo_images/bg-nav-a-red.png') left center repeat-x;
 }
 
 div.page-list a.active-page {

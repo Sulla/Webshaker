@@ -16,8 +16,8 @@
   
 
 	
-	<% if current_user.profile %>  <a href="http://vps.webinti.com/webshaker/profiles/<%= current_user.profile.id %>/edit" class="welcomeEdit"><span class="pictos">U</span>Complete your profile</a><% end %>
-	 <span class="orWelcome">or  <a href="http://vps.webinti.com/webshaker">browse the shaker</a></span>
+	<% if current_user.profile %>  <a href="/profiles/<%= current_user.profile.id %>/edit" class="welcomeEdit"><span class="pictos">U</span>Complete your profile</a><% end %>
+	 <span class="orWelcome">or  <a href="/webshaker">browse the shaker</a></span>
 	
 </div>
 

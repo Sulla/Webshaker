@@ -43,8 +43,8 @@ cursor:pointer;
 
 @font-face {
 font-family: 'Pictos';
-src: url('http://vps.webinti.com/webshaker/fonts/pictos-web.eot');
-src: local('☺'), url('http://vps.webinti.com/webshaker/fonts/pictos-web.woff') format('woff'), url('http://vps.webinti.com/webshaker/fonts/pictos-web.ttf') format('truetype'), url('http://vps.webinti.com/webshaker/fonts/pictos-web.svg#webfontIyfZbseF') format('svg');
+src: url('/fonts/pictos-web.eot');
+src: local('☺'), url('/fonts/pictos-web.woff') format('woff'), url('/fonts/pictos-web.ttf') format('truetype'), url('/fonts/pictos-web.svg#webfontIyfZbseF') format('svg');
 font-weight: normal;
 font-style: normal;
 }
@@ -422,7 +422,7 @@ margin-left: 0;
 }
 
 hr.separator {
-background: url("http://vps.webinti.com/webshaker/images/bg-separator.png") no-repeat scroll center bottom transparent;
+background: url("/images/bg-separator.png") no-repeat scroll center bottom transparent;
 border: 0 none !important;
 height: 25px !important;
 clear: both;
@@ -887,7 +887,7 @@ div#main-content {
 width: 960px;
 margin: auto;
 padding: 0px 0 20px 0;
-background: transparent url('http://vps.webinti.com/webshaker/images/bg-content.png') repeat-y  left top;
+background: transparent url('/images/bg-content.png') repeat-y  left top;
 /*border-top:5px #fff solid;*/
 -moz-border-radius-topleft: 0px;
 -moz-border-radius-topright:0px;
@@ -946,7 +946,7 @@ color: #33999C;
 
 aside .signup  a{
 
-background: url("http://vps.webinti.com/webshaker/images/bg-signup.jpg") no-repeat  top center transparent;
+background: url("/images/bg-signup.jpg") no-repeat  top center transparent;
 color: #fff;
 display: block;
 height: 38px;
@@ -963,7 +963,7 @@ transition: font-size 0.3s ease;
 
 aside .signup  a:hover{
 
-background: url("http://vps.webinti.com/webshaker/images/bg-signup.jpg") no-repeat  bottom center transparent;
+background: url("/images/bg-signup.jpg") no-repeat  bottom center transparent;
 
 }
 
@@ -975,7 +975,7 @@ background: url("http://vps.webinti.com/webshaker/images/bg-signup.jpg") no-repe
 ---------------------------------------------------------------------------------- */
 .headerContent {
 padding: 10px 10px 10px 20px;
-background: url("http://vps.webinti.com/webshaker/images/back-pagetitle.jpg") repeat-x scroll 0 0 #E3E2DE;
+background: url("/images/back-pagetitle.jpg") repeat-x scroll 0 0 #E3E2DE;
 border-bottom: 1px solid #fff;
 border-top: 1px solid #fff;
 border-right:0px;
@@ -1224,7 +1224,7 @@ top: 0px;
 }
 
 #mainNav ul#menu-main-menu li.current-menu-item a, #mainNav ul#menu-main-menu li.current-menu-item a:hover {
-background: url("http://vps.webinti.com/webshaker/images/bg-linkMenu.png") no-repeat left top transparent;
+background: url("/images/bg-linkMenu.png") no-repeat left top transparent;
 color: #fff;
 text-shadow: 0 1px 0 #fff;
 text-shadow: 0 1px 0 rgba(0, 0, 0, 0.6);
@@ -1237,7 +1237,7 @@ border-radius: 0px 20px 20px 0;
 border-radius: 5px;
 -moz-border-radius: 5px;
 -webkit-border-radius: 5px;
-background: url("http://vps.webinti.com/webshaker/images/bg-linkMenu.png") no-repeat right top transparent;
+background: url("/images/bg-linkMenu.png") no-repeat right top transparent;
 padding-bottom: 18px;
 }
 
@@ -1405,7 +1405,7 @@ padding-left: 15px;
 /*======================================================*/
 
 footer{
-background: #625751 url('http://vps.webinti.com/webshaker/images/bg-footer.png') repeat-x;
+background: #625751 url('/images/bg-footer.png') repeat-x;
 font-size: 12px;
 height: 140px;
 border-top: 1px solid #FFFFFF;
@@ -1517,15 +1517,15 @@ padding: 2px 0 2px 25px;
 }
 
 footer ul li#rss {
-background: url('http://vps.webinti.com/webshaker/images/rss.png') center left no-repeat;
+background: url('/images/rss.png') center left no-repeat;
 }
 
 footer ul li#twitter {
-background: url('http://vps.webinti.com/webshaker/images/twitter.png') center left no-repeat;
+background: url('/images/twitter.png') center left no-repeat;
 }
 
 footer ul li#facebook {
-background: url('http://vps.webinti.com/webshaker/images/facebook.png') center left no-repeat;
+background: url('/images/facebook.png') center left no-repeat;
 }
 
 
@@ -1829,7 +1829,7 @@ border: 1px solid #e1af3d;
 position: relative;
 }
 .comment.author img.ribbon{
-background: #f8eed7 url('http://vps.webinti.com/webshaker/images/bg-author.png') center left no-repeat;
+background: #f8eed7 url('/images/bg-author.png') center left no-repeat;
 position: absolute;
 right: -5px;
 top: -10px;
@@ -2158,7 +2158,7 @@ color: #555;
 background: #D8D8D8;
 text-decoration:none;
 }
-.ui-autocomplete-loading { background: #fff url('http://vps.webinti.com/webshaker/images/loading.gif') right center no-repeat; }
+.ui-autocomplete-loading { background: #fff url('/images/loading.gif') right center no-repeat; }
 * html .ui-autocomplete { width:1px; } /* without this, the menu expands to 100% in IE6 */
 
 
@@ -2276,7 +2276,7 @@ clear: both;
 
 
 h3.liveResults.work {
-background: url("http://vps.webinti.com/webshaker/images/loader.gif") no-repeat 250px 8px rgba(255, 204, 0, 0.1);
+background: url("/images/loader.gif") no-repeat 250px 8px rgba(255, 204, 0, 0.1);
 border-radius:3px;
 padding: 8px;
 border:1px solid #E5A313;
@@ -2764,7 +2764,7 @@ font-style: normal;
 font-weight: 500;
 font-size: 1.6em;
 
-background: url("http://vps.webinti.com/webshaker/images/bg-onMap.png") no-repeat 4px 4px #fff;
+background: url("/images/bg-onMap.png") no-repeat 4px 4px #fff;
 }
 
 
@@ -3043,7 +3043,7 @@ background-color:#fcf6e8;
 
 
 .filterList li a.selected {
-background: url("http://vps.webinti.com/webshaker/images/whiteV.png") no-repeat scroll 225px 6px #33999C !important;
+background: url("/images/whiteV.png") no-repeat scroll 225px 6px #33999C !important;
 box-shadow: 0 0 2px 0 #175052 inset;
 color: #FFFFFF !important;
 }
@@ -3587,7 +3587,7 @@ font-size:14px;
 font-weight:bold; 
 
 padding:7px 29px 6px 10px;
-background: transparent url('http://vps.webinti.com/webshaker/images/loginArrow.png') no-repeat 53px 7px;
+background: transparent url('/images/loginArrow.png') no-repeat 53px 7px;
 display:block;
 
 }
@@ -3766,27 +3766,27 @@ height: 22px;
 
 
 .facebook {
-background: url("http://vps.webinti.com/webshaker/images/facebook_signin.png") no-repeat scroll 0 0 transparent;
+background: url("/images/facebook_signin.png") no-repeat scroll 0 0 transparent;
 
 }
 .facebook:hover {
-background: url("http://vps.webinti.com/webshaker/images/facebook_signin.png") no-repeat scroll 0 -24px transparent;
+background: url("/images/facebook_signin.png") no-repeat scroll 0 -24px transparent;
 }
 .facebook:active {
-background: url("http://vps.webinti.com/webshaker/images/facebook_signin.png") no-repeat scroll 0 -48px transparent;
+background: url("/images/facebook_signin.png") no-repeat scroll 0 -48px transparent;
 }
 
 .twitter {
-background: url("http://vps.webinti.com/webshaker/images/twitter_signin.png") no-repeat scroll 0 0 transparent;
+background: url("/images/twitter_signin.png") no-repeat scroll 0 0 transparent;
 margin-left: 5px;
 } 
 
 .twitter:hover {
-background: url("http://vps.webinti.com/webshaker/images/twitter_signin.png") no-repeat scroll 0 -24px transparent;
+background: url("/images/twitter_signin.png") no-repeat scroll 0 -24px transparent;
 }
 
 .twitter:active {
-background: url("http://vps.webinti.com/webshaker/images/twitter_signin.png") no-repeat scroll 0 -48px transparent;
+background: url("/images/twitter_signin.png") no-repeat scroll 0 -48px transparent;
 }
 
 
@@ -3841,7 +3841,7 @@ font-style: italic;
 --------------------------------------------------------*/
 	
 a#barometer_tab {
-	background-image:url('http://vps.webinti.com/webshaker/images/feedback_tab.png');
+	background-image:url('/images/feedback_tab.png');
 	background-color:#898381;
 	color:#FFFFFF;
 	cursor:pointer;
@@ -3910,7 +3910,7 @@ a#barometer_tab {
 	}
 
 #barometer_overlay #barometer_main a#barometer_close {
-	background-image:url('http://vps.webinti.com/webshaker/images/barometer_close.png');
+	background-image:url('/images/barometer_close.png');
 	cursor:pointer;
 	height:42px;
 	outline-color:-moz-use-text-color;
@@ -3926,7 +3926,7 @@ a#barometer_tab {
 	}
 
 #barometer_overlay #barometer_main span {
-	background:url('http://vps.webinti.com/webshaker/images/close.png') no-repeat scroll 33px 0 transparent;
+	background:url('/images/close.png') no-repeat scroll 33px 0 transparent;
 	color:#FFFFFF;
 	cursor:pointer;
 	float:right;
@@ -3939,7 +3939,7 @@ a#barometer_tab {
 #barometer_iframe {
     width: 550px;
     height: 100%;
-    background: transparent url('http://vps.webinti.com/webshaker/images/barometer_loading.png') no-repeat;
+    background: transparent url('/images/barometer_loading.png') no-repeat;
 }
 #barometer_iframe.loaded {
       background: transparent;
@@ -3984,7 +3984,7 @@ a#barometer_tab {
  	float:right; 
 	height:20px; 
 	padding-right:20px; 
-	background: transparent url('http://vps.webinti.com/webshaker/images/close.png') no-repeat 33px 0;
+	background: transparent url('/images/close.png') no-repeat 33px 0;
  	text-decoration:underline; 
 	font-size:11px; 
 	cursor:pointer; 
@@ -4514,7 +4514,7 @@ margin-left: 0;
 #sb-body img{border:none;}
 #sb-loading{position:relative;height:100%;}
 #sb-loading-inner{position:absolute;font-size:14px;line-height:24px;height:24px;top:50%;margin-top:-12px;width:100%;text-align:center;}
-#sb-loading-inner span{background:url('http://vps.webinti.com/webshaker/images/shadowbox/loading.gif') no-repeat;padding-left:34px;display:inline-block;}
+#sb-loading-inner span{background:url('/images/shadowbox/loading.gif') no-repeat;padding-left:34px;display:inline-block;}
 #sb-body,#sb-loading{background-color:#060606;}
 #sb-title,#sb-info{position:relative;margin:0;padding:0;overflow:hidden;}
 #sb-title,#sb-title-inner{height:26px;line-height:26px;}
@@ -4523,11 +4523,11 @@ margin-left: 0;
 #sb-info-inner{font-size:12px;}
 #sb-nav{float:right;height:16px;padding:2px 0;width:45%;}
 #sb-nav a{display:block;float:right;height:16px;width:16px;margin-left:3px;cursor:pointer;background-repeat:no-repeat;}
-#sb-nav-close{background-image:url('http://vps.webinti.com/webshaker/images/shadowbox/close.png');}
-#sb-nav-next{background-image:url('http://vps.webinti.com/webshaker/images/shadowbox/next.png');}
-#sb-nav-previous{background-image:url('http://vps.webinti.com/webshaker/images/shadowbox/previous.png');}
-#sb-nav-play{background-image:url('http://vps.webinti.com/webshaker/images/shadowbox/play.png');}
-#sb-nav-pause{background-image:url('http://vps.webinti.com/webshaker/images/shadowbox/pause.png');}
+#sb-nav-close{background-image:url('/images/shadowbox/close.png');}
+#sb-nav-next{background-image:url('/images/shadowbox/next.png');}
+#sb-nav-previous{background-image:url('/images/shadowbox/previous.png');}
+#sb-nav-play{background-image:url('/images/shadowbox/play.png');}
+#sb-nav-pause{background-image:url('/images/shadowbox/pause.png');}
 #sb-counter{float:left;width:45%;}
 #sb-counter a{padding:0 4px 0 0;text-decoration:none;cursor:pointer;color:#fff;}
 #sb-counter a.sb-counter-current{text-decoration:underline;}
@@ -4600,7 +4600,7 @@ overflow: hidden;
 }
 
 .qq-upload-file {}
-.qq-upload-spinner {display:inline-block; background: url("http://vps.webinti.com/webshaker/images/loading.gif"); width:15px; height:15px; vertical-align:text-bottom;}
+.qq-upload-spinner {display:inline-block; background: url("/images/loading.gif"); width:15px; height:15px; vertical-align:text-bottom;}
 .qq-upload-size,.qq-upload-cancel {font-size:11px;}
 
 .qq-upload-failed-text {display:none;}
@@ -4806,7 +4806,7 @@ font-size: 1.1em;
 
 #tabsTop ul#navTop{
 	float:left;
-	background:url('http://vps.webinti.com/webshaker/images/tab_nav_bg.gif') repeat;
+	background:url('/images/tab_nav_bg.gif') repeat;
 	border: 0;
 	display: block;
 	height:39px;
@@ -4834,16 +4834,16 @@ margin-left: 0;
 	color: #76635A;
 	font-size:11px;
 	text-align:center;
-	background:url('http://vps.webinti.com/webshaker/images/tab_border.gif') repeat-y left;
+	background:url('/images/tab_border.gif') repeat-y left;
 }
 
 #tabsTop ul#navTop li a:hover{
-	background:url('http://vps.webinti.com/webshaker/images/tab_border.gif') repeat-y left #fff;
+	background:url('/images/tab_border.gif') repeat-y left #fff;
 	color: #DDA522;
 }
 
 #tabsTop ul#navTop li:hover{
-	background:url('http://vps.webinti.com/webshaker/images/tab_nav_hover_bg.gif') repeat;
+	background:url('/images/tab_nav_hover_bg.gif') repeat;
 }
 
 #tabsTop ul#navTop li{
@@ -4874,7 +4874,7 @@ margin-left: 0;
 }
 
 #tabsTop ul#navTop li.ui-tabs-selected a{
-	background:url('http://vps.webinti.com/webshaker/images/tab_border.gif') repeat-y left #fff;
+	background:url('/images/tab_border.gif') repeat-y left #fff;
 	
 	color: #33999C;
 	border-bottom: 2px solid #fff !important;

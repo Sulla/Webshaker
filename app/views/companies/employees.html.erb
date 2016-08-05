@@ -60,7 +60,7 @@
             <td>
               <% if worker.removable %>
                 <a class="delete_worker" href="#" data-id="<%= worker.id %>">
-                  <img src="http://vps.webinti.com/webshaker/images/ico/delete.png"/>
+                  <img src="/images/ico/delete.png"/>
                 </a>
               <% end %>
             </td>
@@ -89,10 +89,10 @@
             <td><%= worker.user.fullname %></td>
             <td>
               <a class="accept_worker" href="#" data-id="<%= worker.id %>">
-                <img src="http://vps.webinti.com/webshaker/images/ico/accept.png"/>
+                <img src="/images/ico/accept.png"/>
               </a>
               <a class="refuse_worker" href="#" data-id="<%= worker.id %>">            
-                <img src="http://vps.webinti.com/webshaker/images/ico/delete.png"/>
+                <img src="/images/ico/delete.png"/>
               </a>
               <%= link_to image_tag('ico/eye.png'), worker.user.profile %>
             </td>

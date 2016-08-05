@@ -27,18 +27,18 @@
 	  <% @companies.each_with_index do |company, index| %>
   		<tr class="<%= index % 2 == 0 ? 'one' : 'two' %>" id="companies_<%= company.id %>">
   		  <td><%= company.id %></td>
-  			<td><%= link_to company.name, "http://vps.webinti.com/webshaker/admin/companies/#{company.id}" %></td>
+  			<td><%= link_to company.name, "/admin/companies/#{company.id}" %></td>
   			<td><%= company.admin %> </td>
   			
   			<td class="action">
-  			  <a href="http://vps.webinti.com/webshaker/admin/companies/<%= company.id %>/edit" ><img src="http://vps.webinti.com/webshaker/images/ico/edit.png"/></a>
+  			  <a href="/admin/companies/<%= company.id %>/edit" ><img src="/images/ico/edit.png"/></a>
   			  <a href="#" class="delete" title="Delete" data-id="<%= company.id %>" data-type="companies">Delete</a>
   			  
   			  <a href="#" data-id="<%= company.id %>" class="company_visibility">
     			  <% if company.validated %>
-    			    <img src="http://vps.webinti.com/webshaker/images/ico/accept.png"/>
+    			    <img src="/images/ico/accept.png"/>
     			  <% else %>
-    			    <img src="http://vps.webinti.com/webshaker/images/ico/cross.png"/>
+    			    <img src="/images/ico/cross.png"/>
     			  <% end %>
     			</a>
   			</td>

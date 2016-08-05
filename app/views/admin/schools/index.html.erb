@@ -26,13 +26,13 @@
 	  <% @schools.each_with_index do |school, index| %>
   		<tr class="<%= index % 2 == 0 ? 'one' : 'two' %>" id="schools_<%= school.id %>">
   		  <td><%= school.id %></td>
-  			<td><%= link_to school.name, "http://vps.webinti.com/webshaker/admin/schools/#{school.id}" %></td>
+  			<td><%= link_to school.name, "/admin/schools/#{school.id}" %></td>
   			<td class="action">
           <a href="#" data-id="<%= school.id %>" class="school_visibility">
     			  <% if school.validated %>
-    			    <img src="http://vps.webinti.com/webshaker/images/ico/accept.png"/>
+    			    <img src="/images/ico/accept.png"/>
     			  <% else %>
-    			    <img src="http://vps.webinti.com/webshaker/images/ico/cross.png"/>
+    			    <img src="/images/ico/cross.png"/>
     			  <% end %>
     			</a>
   			</td>

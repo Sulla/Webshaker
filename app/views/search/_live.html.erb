@@ -35,7 +35,7 @@
 	      		<% @companies.each do |c| %>
 	      			
 	      			<li>
-	        			<a class="fullList" href="http://vps.webinti.com/webshaker/companies/<%= c.id %>" title="See <%= c.name %>'s profile">
+	        			<a class="fullList" href="/companies/<%= c.id %>" title="See <%= c.name %>'s profile">
 		        			<%= avatar_micro(c) %>
 		        			<p class="searchListName"><%= c.name %></p>
 		        			<hr class="clear" />

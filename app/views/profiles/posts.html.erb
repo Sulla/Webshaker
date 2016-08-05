@@ -7,7 +7,7 @@
 <% end %>
 
 <div id="mainContent"><%= display_flash %>
-	<a class="right yellowTop" href="http://vps.webinti.com/webshaker/submit">Submit new post in the shaker !</a>
+	<a class="right yellowTop" href="/submit">Submit new post in the shaker !</a>
 	<h2>My posts</h2>
 	<p class="underTitle">Manage your posts</p>
 	
@@ -27,22 +27,22 @@
           <td><%= post.type_label %></td>
           <td>
             <% if post.validated %>
-              <a href="http://vps.webinti.com/webshaker/posts/<%= post.id %>"><%= post.title %></a>
+              <a href="/posts/<%= post.id %>"><%= post.title %></a>
             <% else %>
               <%= post.title %>
             <% end %>
           </td>
 					<td class="<%= post.get_status[1]%>"><%= post.get_status[0]%></td>
           <td class="alignCenter">
-            <a class="#" href="http://vps.webinti.com/webshaker/posts/<%= post.id %>/edit" data-id="<%= post.id %>">
-              <img src="http://vps.webinti.com/webshaker/images/ico/edit.png" alt="Edit" title="Edit"/>
+            <a class="#" href="/posts/<%= post.id %>/edit" data-id="<%= post.id %>">
+              <img src="/images/ico/edit.png" alt="Edit" title="Edit"/>
             </a>
             <% if post.validated %>
               <a href="#" data-id="<%= post.id %>" class="post_visibility">
         			  <% if post.online %>
-        			    <img src="http://vps.webinti.com/webshaker/images/ico/accept.png" alt="Put offline" title="Put offline"/>
+        			    <img src="/images/ico/accept.png" alt="Put offline" title="Put offline"/>
         			  <% else %>
-        			    <img src="http://vps.webinti.com/webshaker/images/ico/cross.png" alt="Put online" title="Put online"/>
+        			    <img src="/images/ico/cross.png" alt="Put online" title="Put online"/>
         			  <% end %>
         			</a>
         		<% end %>

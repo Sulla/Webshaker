@@ -31,7 +31,7 @@
 	  <% @workers.each_with_index do |worker, index| %>
   		<tr class="<%= index % 2 == 0 ? 'one' : 'two' %>" id="workers_<%= worker.id %>">
   		  <td><%= worker.user.id %></td>
-  			<td><%= link_to worker.user.fullname, "http://vps.webinti.com/webshaker/admin/users/#{worker.user.id}" %></td>
+  			<td><%= link_to worker.user.fullname, "/admin/users/#{worker.user.id}" %></td>
   			<td><%= worker.user.email %></td>
   			<td><%= worker.try(:company).try(:name) %></td>
   			<td><%= worker.admin %></td>
@@ -39,8 +39,8 @@
           <%= worker.try(:company).try(:admin).try(:user).try(:fullname) %>
         </td>
   			<td class="action">
-  			  <a href="#" class="accept" data-id="<%= worker.id %>"><img src="http://vps.webinti.com/webshaker/images/ico/accept.png"/></a>
-  			  <a href="#" class="refuse" data-id="<%= worker.id %>"><img src="http://vps.webinti.com/webshaker/images/ico/cross.png"/></a>
+  			  <a href="#" class="accept" data-id="<%= worker.id %>"><img src="/images/ico/accept.png"/></a>
+  			  <a href="#" class="refuse" data-id="<%= worker.id %>"><img src="/images/ico/cross.png"/></a>
   			</td>
   		</tr>
   	<% end %>		

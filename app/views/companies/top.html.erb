@@ -32,7 +32,7 @@
 	<div id="topList">
 	  <% if params[:role_id].blank? %>
       <% @companies.each_with_index do |company, index| %>
-      	<a class="" title="" href="http://vps.webinti.com/webshaker/companies/<%= company.id %>">  
+      	<a class="" title="" href="/companies/<%= company.id %>">
       		<span class="idTop"><%= index+1 %></span>
           <%= avatar_small(company) %>
           <h4><%= company.name %></h4>
@@ -45,7 +45,7 @@
       <% end %>
     <% else %>
       <% @users.each_with_index do |user, index| %>
-      	<a class="" title="" href="http://vps.webinti.com/webshaker/profiles/<%= user.profile.id %>">  
+      	<a class="" title="" href="/profiles/<%= user.profile.id %>">
       		<span class="idTop"><%= index+1 %></span>
           <%= avatar_small(user) %>
           <h4><%= user.fullname %></h4>

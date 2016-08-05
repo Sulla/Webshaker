@@ -3,7 +3,7 @@
 
 
 		<h3>About the author</h3>
-		<a href="http://vps.webinti.com/webshaker/profiles/<%= @post.user.profile.id %>" class="tableLink">
+		<a href="/profiles/<%= @post.user.profile.id %>" class="tableLink">
 			<%= avatar(@post.user, "left avatarStyle") %>
 			<h4><%= @post.user.fullname %></h4>
 			<p><%= @post.user.job_title %></p>

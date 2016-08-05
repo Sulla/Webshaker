@@ -81,7 +81,7 @@ class PostsController < ApplicationController
         Notifier.new_post(@post).deliver
       end
     
-      redirect_to "http://vps.webinti.com/webshaker/profiles/posts", :notice => "Thanks for your post, we will validate it as soon as possible"
+      redirect_to "/profiles/posts", :notice => "Thanks for your post, we will validate it as soon as possible"
     else
       render 'submit'
     end
@@ -98,7 +98,7 @@ class PostsController < ApplicationController
       if params[:repost] == 'true'
         @post.refused_at = nil
         @post.save
-        redirect_to "http://vps.webinti.com/webshaker/profiles/posts", :notice => "Your post has been re-submitted, it will be validated soon!"
+        redirect_to "/profiles/posts", :notice => "Your post has been re-submitted, it will be validated soon!"
       else
         redirect_to @post, :notice => "Your post has successfully been updated"
       end

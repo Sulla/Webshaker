@@ -9,7 +9,7 @@
 
 <div class="headerContent">
 <% if current_user && current_user == @post.user %>
-    <a href="http://vps.webinti.com/webshaker/posts/<%= @post.id %>/edit" title="Edit your post" class="button right" />Edit your post</a>
+    <a href="/posts/<%= @post.id %>/edit" title="Edit your post" class="button right" />Edit your post</a>
   <% end %>
  <h2><span class="type"><%= @post.type_label %></span> <%= @post.title %></h2>  
 </div>
@@ -17,18 +17,18 @@
 
 <%= display_flash %>
 <% if current_user == @post.user && !@post.validated %>
-  <a href="http://vps.webinti.com/webshaker/profiles/posts" id="backShaker"><span class="pictos">[</span> Back to my posts</a>
+  <a href="/profiles/posts" id="backShaker"><span class="pictos">[</span> Back to my posts</a>
   <div class="mee">
     <% if @post.refused_at %>
   	  <span class="refused">Refused</span>    
-  	  <a href="http://vps.webinti.com/webshaker/posts/<%= @post.id %>/repost" class="button right">Repost</a>
+  	  <a href="/posts/<%= @post.id %>/repost" class="button right">Repost</a>
     <% else %>
   	  <span class="pending">Pending</span>
   	<% end %>
   	<hr class="clear"/>
   </div>
 <% else %>
-  <a href="http://vps.webinti.com/webshaker" id="backShaker"><span class="pictos">[</span>Back to Shaker</a>
+  <a href="/webshaker" id="backShaker"><span class="pictos">[</span>Back to Shaker</a>
 <% end %>
    
  

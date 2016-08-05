@@ -21,12 +21,12 @@
   
 
 <% if @user.avatar_file_name.present? %>
-  <form method="post" action="http://vps.webinti.com/webshaker/profiles/reset_avatar" class="deleteAvatarForm">
+  <form method="post" action="/profiles/reset_avatar" class="deleteAvatarForm">
     <input type="submit" class="button" value="<%= t('profiles.reset_avatar') %>"/>
   </form>
 <% end %>
 
-<%= form_for @user, :url => "http://vps.webinti.com/webshaker/profiles/<%= @profile.id %>", :method => :put, :html => { :class => "main_form", :multipart => true } do |f| %>
+<%= form_for @user, :url => "/profiles/<%= @profile.id %>", :method => :put, :html => { :class => "main_form", :multipart => true } do |f| %>
   <% if @user.errors.any? %>  
     <div id="errorExplanation">  
       <h3><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h3>

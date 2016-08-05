@@ -4,11 +4,11 @@
 
 @font-face {
     font-family: 'KreonLight';
-    src: url('http://vps.webinti.com/webshaker/fonts/kreon-light-webfont.eot');
-    src: url('http://vps.webinti.com/webshaker/fonts/kreon-light-webfont.eot?#iefix') format('embedded-opentype'),
-         url('http://vps.webinti.com/webshaker/fonts/kreon-light-webfont.woff') format('woff'),
-         url('http://vps.webinti.com/webshaker/fonts/kreon-light-webfont.ttf') format('truetype'),
-         url('http://vps.webinti.com/webshaker/fonts/kreon-light-webfont.svg#KreonLight') format('svg');
+    src: url('/fonts/kreon-light-webfont.eot');
+    src: url('/fonts/kreon-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/kreon-light-webfont.woff') format('woff'),
+         url('/fonts/kreon-light-webfont.ttf') format('truetype'),
+         url('/fonts/kreon-light-webfont.svg#KreonLight') format('svg');
     font-weight: normal;
     font-style: normal;
 
@@ -22,7 +22,7 @@
 /*======================================================*/
 
 body{
-	background:#f8f8f8 url('http://vps.webinti.com/webshaker/images/malo_images/bg.png') repeat-y;
+	background:#f8f8f8 url('/images/malo_images/bg.png') repeat-y;
 	font-size:12px;
 	font-family:"Trebuchet MS", Helvetica, Verdana;
 	margin:0;
@@ -32,7 +32,7 @@ body{
 }
 
 body#login {
-	background: #fafafa url("http://vps.webinti.com/webshaker/images/malo_images/bg-content.png") repeat;
+	background: #fafafa url("/images/malo_images/bg-content.png") repeat;
 }
 
 h1{
@@ -195,7 +195,7 @@ a img{
 }
 
 #navigation .toggleSubMenu a, #navigation .toggleSubMenu span {
-	background: #000 url('http://vps.webinti.com/webshaker/images/malo_images/bg-nav-a.png') left top repeat-x;
+	background: #000 url('/images/malo_images/bg-nav-a.png') left top repeat-x;
 }
 
 #navigation .open a, #navigation .open span {

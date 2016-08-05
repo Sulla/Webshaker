@@ -15,7 +15,7 @@
 
         <%= link_to "My bookmarks (#{current_user.bookmarks.size})", bookmarks_url %>
         
-        <a href="http://vps.webinti.com/webshaker/profiles/posts">My posts (<%= current_user.count_posts %>)</a>
+        <a href="/profiles/posts">My posts (<%= current_user.count_posts %>)</a>
         
         <% if current_user.is_company_admin? %>
         	
@@ -23,8 +23,8 @@
         <div class="userI">	
         	<span class="note">Your company: <%= current_user.company_admin.name %></span>
         	<%= link_to "Edit #{current_user.company_admin.name}", edit_company_path(current_user.company_admin) %>
-        	<a href="http://vps.webinti.com/webshaker/companies/<%= current_user.company_admin.id %>/employees">Manage employees</a>
-        	<a href="http://vps.webinti.com/webshaker/companies/<%= current_user.company_admin.id %>"><%= current_user.company_admin.name %> public profile</a>
+        	<a href="/companies/<%= current_user.company_admin.id %>/employees">Manage employees</a>
+        	<a href="/companies/<%= current_user.company_admin.id %>"><%= current_user.company_admin.name %> public profile</a>
         	
         <% end %>    
        </div>
@@ -41,11 +41,11 @@
 <div id="loginContainer">
 	
   <a href="#" id="loginButton" class=""><span>Login</span></a>
-  <a href="http://vps.webinti.com/webshaker/users/sign_up" id="signUpLink">New on WebShaker ? Join us !</a> 
+  <a href="/users/sign_up" id="signUpLink">New on WebShaker ? Join us !</a>
   <div style="clear:both"></div>
   <div id="loginBox">                
      
-       <form  action="http://vps.webinti.com/webshaker/users/sign_in" method="post" class="main_form" >
+       <form  action="/users/sign_in" method="post" class="main_form" >
        
        
           <fieldset id="body">
@@ -61,8 +61,8 @@
               <label for="user_remember_me"><input type="checkbox" id="user_remember_me" name="user[remember_me]" value="1" />Remember me</label>
           </fieldset>
           <span>
-          	<a href="http://vps.webinti.com/webshaker/users/password/new">Forgot your password?</a> 
-         		<a href="http://vps.webinti.com/webshaker/users/sign_up/" class="forgotPass">Create an account</a>
+          	<a href="/users/password/new">Forgot your password?</a>
+         		<a href="/users/sign_up/" class="forgotPass">Create an account</a>
          	</span>
        </form>
   </div>

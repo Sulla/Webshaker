@@ -3,8 +3,8 @@
 	
 
 <div class="profileTop">
-	<a href="http://vps.webinti.com/webshaker/profiles/<%= @post.user.profile.id %>" class=""><%= avatar(@post.user, "left avatarStyle") %></a>
-	<h4><a href="http://vps.webinti.com/webshaker/profiles/<%= @post.user.profile.id %>" class=""><%= @post.user.fullname %></a></h4>
+	<a href="/profiles/<%= @post.user.profile.id %>" class=""><%= avatar(@post.user, "left avatarStyle") %></a>
+	<h4><a href="/profiles/<%= @post.user.profile.id %>" class=""><%= @post.user.fullname %></a></h4>
 	<span class="underline"><%= raw @post.user.job_where %></span>
 	<hr class="clear"/>
 </div>

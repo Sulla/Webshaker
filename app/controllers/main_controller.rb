@@ -42,7 +42,7 @@ class MainController < ApplicationController
         redirect_to root_url
       else
         cookies[:beta] = nil
-        redirect_to 'http://vps.webinti.com/webshaker/beta', :error => "Invalid code!"
+        redirect_to '/beta', :error => "Invalid code!"
       end
     else
       render :layout => nil

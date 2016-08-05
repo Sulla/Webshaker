@@ -14,7 +14,7 @@
 
 <div id="mainContent"><%= display_flash %>
 	<h2>All jobs on map</h2>
-	 <a href="http://vps.webinti.com/webshaker/jobs" class="button right">Back to listing</a>
+	 <a href="/jobs" class="button right">Back to listing</a>
 	<span class="breath"></span>
 	
 <div id="map">
@@ -35,7 +35,7 @@
             <%= job.company.city %>
             <br/>
             <br/>
-            <a href="http://vps.webinti.com/webshaker/posts/<%= job.post.id %>">Voir</a>
+            <a href="/posts/<%= job.post.id %>">Voir</a>
           </p>
         </div>
       </div>

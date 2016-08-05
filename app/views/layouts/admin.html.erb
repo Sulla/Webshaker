@@ -24,51 +24,51 @@
 			<div id="sidebar">
 				
 				<div id="logo">
-					<a href="http://vps.webinti.com/webshaker/admin" title=""><img src="http://vps.webinti.com/webshaker/images/malo_images/logo.png" alt="logo" /></a>
+					<a href="/admin" title=""><img src="/images/malo_images/logo.png" alt="logo" /></a>
 				</div>
 				
-				<a href="http://vps.webinti.com/webshaker" class="button-website">View the site</a>
+				<a href="/webshaker" class="button-website">View the site</a>
 				<hr class="spacer" />
 				<p id="infos">Good morning, <%= current_user.fullname %><br />
 				<%= link_to 'Logout', destroy_user_session_path %><br />
 				
 				 <ul id="navigation">
 				 		  <% if @current_menu == 'posts' %>
-			          <li class="open"><a href="http://vps.webinti.com/webshaker/admin/posts" title="">Posts</a></li>
+			          <li class="open"><a href="/admin/posts" title="">Posts</a></li>
 			        <% else %>
-			          <li><a href="http://vps.webinti.com/webshaker/admin/posts" title="">Posts</a></li>
+			          <li><a href="/admin/posts" title="">Posts</a></li>
 			        <% end %>
 				      <% if @current_menu == 'users' %>
-			          <li class="open"><a href="http://vps.webinti.com/webshaker/admin/users" title="">Users</a></li>
+			          <li class="open"><a href="/admin/users" title="">Users</a></li>
 			        <% else %>
-			          <li><a href="http://vps.webinti.com/webshaker/admin/users" title="">Users</a></li>
+			          <li><a href="/admin/users" title="">Users</a></li>
 			        <% end %>
 				      <% if @current_menu == 'workers' %>
 			          <li class="open"><a href="/admin/workers" title="">Requests</a></li>
 			        <% else %>
-			          <li><a href="http://vps.webinti.com/webshaker/admin/workers" title="">Requests</a></li>
+			          <li><a href="/admin/workers" title="">Requests</a></li>
 			        <% end %>			        
 			       <% if @current_menu == 'companies' %>
-			          <li class="open"><a href="http://vps.webinti.com/webshaker/admin/companies" title="">Companies</a></li>
+			          <li class="open"><a href="/admin/companies" title="">Companies</a></li>
 			        <% else %>
-			          <li><a href="http://vps.webinti.com/webshaker/admin/companies" title="">Companies</a></li>
+			          <li><a href="/admin/companies" title="">Companies</a></li>
 			        <% end %>
 			        <% if @current_menu == 'schools' %>
- 			          <li class="open"><a href="http://vps.webinti.com/webshaker/admin/schools" title="">Schools</a></li>
+ 			          <li class="open"><a href="/admin/schools" title="">Schools</a></li>
  			        <% else %>
- 			          <li><a href="http://vps.webinti.com/webshaker/admin/schools" title="">Schools</a></li>
+ 			          <li><a href="/admin/schools" title="">Schools</a></li>
  			        <% end %>
 			        <% if @current_menu == 'comments' %>
-			          <li class="open"><a href="http://vps.webinti.com/webshaker/admin/comments" title="">Comments</a></li>
+			          <li class="open"><a href="/admin/comments" title="">Comments</a></li>
 			        <% else %>
-			          <li><a href="http://vps.webinti.com/webshaker/admin/comments" title="">Comments</a></li>
+			          <li><a href="/admin/comments" title="">Comments</a></li>
 			        <% end %>
 			        <% if @current_menu == 'codes' %>
-			          <li class="open"><a href="http://vps.webinti.com/webshaker/admin/codes" title="">Codes beta</a></li>
+			          <li class="open"><a href="/admin/codes" title="">Codes beta</a></li>
 			        <% else %>
-			          <li><a href="http://vps.webinti.com/webshaker/admin/codes" title="">Codes beta</a></li>
+			          <li><a href="/admin/codes" title="">Codes beta</a></li>
 			        <% end %>
-			        <li><a href="http://vps.webinti.com/webshaker/admin/main/mailing" title="">Mailing</a></li>
+			        <li><a href="/admin/main/mailing" title="">Mailing</a></li>
 			       
 			    </ul>   
 			</div>
@@ -77,7 +77,7 @@
 				
 				<div id="breadcrumbs">
 				  <p>
-				    <a href="http://vps.webinti.com/webshaker/admin">HOME</a>
+				    <a href="/admin">HOME</a>
 				    <%= yield :breadcrump %>
 				  </p>
 				</div>
