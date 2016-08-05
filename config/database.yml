@@ -16,8 +16,8 @@ development:
   reconnect: false
   database: webshaker_development
   pool: 5
-  username: webshaker
-  password: CmaAECTtP8S5XsyH
+  username: root
+  password: 1
   socket: /var/run/mysqld/mysqld.sock
 
 # Warning: The database defined as "test" will be erased and
